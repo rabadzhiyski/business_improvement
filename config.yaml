@@ -33,18 +33,18 @@ params:
     height: 40
   
   # Web Fonts Available Here: https://fonts.google.com/
-  googleFontImport: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;600&family=Montserrat:wght@700&family=Roboto+Condensed&display=swap'
-  header_font: "Open Sans"
-  body_font: "Arial"
+  googleFontImport: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;600&family=Montserrat:wght@700&family=Roboto+Condensed&family=Abhaya+Libre:wght@400;600$&family=Lato&display=swap'
+  header_font: "Montserrat"
+  body_font: "Roboto"
   
   # css
   css:
-    secondary_color: "#F39200" # "#F39200" "#4FC1EA" "#00efb7" (Controls Buttons, Accents)
+    secondary_color: "#2251ff" # "#F39200" "#4FC1EA" "#00efb7" (Controls Buttons, Accents)
     mutedgrey_color: "#999" # "#999" # Contols writing 
     greydark_color: "#4a4a4a" # "#4a4a4a" Controls Headers
-    bluegrey_color: "#2c3e50" # "#444F60" (Controls Headers & Footer Background)
-    navbar_color: "#2c3e50" # "#FFF"
-    navbar_text_color: "#FFF" # #999
+    bluegrey_color: "#000" # "#444F60", #2c3e50 (Controls Headers & Footer Background)
+    navbar_color: "#FFF" # "#FFF", #2c3e50
+    navbar_text_color: "#444" # #999
   
   # Customizable navbar. For a dropdown, add a "sublinks" list.
   navbarStyle:
@@ -94,7 +94,7 @@ params:
     # Hero image (from static/images/___)
     # Can get these images from flaticon.com
     image: illustrations/mockups/nostradamus_app.jpg
-    backgroundImage: illustrations/company.jpg
+    backgroundImage: illustrations/pexels-pixabay-373543.jpg
     clientstext: "Some of the clients we've helped:"
     # Footer logos (from static/images/logos/clients/___.svg)
     clientlogos:
