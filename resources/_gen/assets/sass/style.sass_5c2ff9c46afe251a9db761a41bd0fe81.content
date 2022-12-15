@@ -6189,7 +6189,7 @@ Navbar
   .navbar.is-fresh .navbar-end {
     align-items: center; }
   .navbar.is-fresh .navbar-item {
-    color: #444; }
+    color: #000; }
     .navbar.is-fresh .navbar-item.is-secondary:hover {
       color: #2251ff !important; }
     .navbar.is-fresh .navbar-item.has-dropdown {

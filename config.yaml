@@ -1,6 +1,6 @@
 baseURL: http://business-science.io/
 languageCode: en-us
-title: Forecast Science
+title: Data Science for Business
 theme: "hugo-fresh-data-science"
 # Put in your google analytics tracking code without quotes like this: UA-XXXXXX...
 googleAnalytics: # UA-XXXXX...
@@ -27,7 +27,7 @@ params:
   # Logo (from static/images/logos/___)
     image: logos/business-science-logo.png
     link: /
-    brandName: Forecast Science
+    brandName: Data Science for Business
     # Default width/height. Uncomment if you need to change
     width: 40
     height: 40
@@ -43,8 +43,8 @@ params:
     mutedgrey_color: "#999" # "#999" # Contols writing 
     greydark_color: "#4a4a4a" # "#4a4a4a" Controls Headers
     bluegrey_color: "#000" # "#444F60", #2c3e50 (Controls Headers & Footer Background)
-    navbar_color: "#FFF" # "#FFF", #2c3e50
-    navbar_text_color: "#444" # #999
+    navbar_color: "#FFF" # white: "#FFF", gray: #2c3e50
+    navbar_text_color: "#000" # grey: #999, dark-grey: #444, black: #000
   
   # Customizable navbar. For a dropdown, add a "sublinks" list.
   navbarStyle:
@@ -57,12 +57,12 @@ params:
   #     url: /
   #   - title: Dropdown item
   #     url: /
-  - title: Consulting Services
+  - title: Consulting
     url: /consulting
   - title: Testimonials
     url: /testimonials
-  - title: Blog
-    url: /blog
+  # - title: Blog
+  #   url: /blog
   - title: Contact Us
     url: /contact
   - title: Apply Now
@@ -81,10 +81,11 @@ params:
   
   section1_attention:
     # Main hero title
-    title: "Save $2M with better forecasting in 120 days"
+    # title: "Save $2M with better forecasting in 120 days"
+    title: "Increase net income (EBIT) by 40% in 120 days"
     titleTextColor: "white"
     # Hero subtitle (optional)
-    subtitle: "We save our clients on average $2M per year through improved forecasting."
+    subtitle: "We help struggling European retailers increase net income through advanced data science systems."
     heroBackgroundColor: "#000000c7"
     
     # Button text
