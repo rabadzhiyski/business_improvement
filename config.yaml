@@ -59,10 +59,12 @@ params:
   #     url: /
   - title: Consulting
     url: /consulting
-  - title: Testimonials
-    url: /testimonials
+  # - title: Testimonials
+  #   url: /testimonials
   # - title: Blog
   #   url: /blog
+  - title: Applications
+    url: /applications
   - title: Contact Us
     url: /contact
   - title: Apply Now
@@ -85,7 +87,7 @@ params:
     title: "Increase net income (EBIT) by 40% in 120 days"
     titleTextColor: "white"
     # Hero subtitle (optional)
-    subtitle: "We help struggling European retailers increase net income through advanced data science systems."
+    subtitle: "We help struggling European retailers attract new customers and increase customer value"
     heroBackgroundColor: "#000000c7"
     
     # Button text
@@ -106,8 +108,8 @@ params:
     - gutwork.svg
  
   section2_transformation:
-    title: "How forecast science works." 
-    subtitle: "Reduce costs from forecasting errors in 4 simple steps"
+    title: "How Data Science for Business works" 
+    subtitle: "Increase sales and reduce costs through tailored data science solutions"
     # icons are located in static > images > illustrations > icons
     tile_size: is-one-quarter
     tile_height: "400px"
