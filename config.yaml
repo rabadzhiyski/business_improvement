@@ -25,9 +25,9 @@ params:
   # preloader: false
   navbarlogo:
   # Logo (from static/images/logos/___)
-    image: logos/business-science-logo.png
+    image: logos/icon-logo.png
     link: /
-    brandName: Data Science for Business
+    brandName: Profitable Business with Data Science
     # Default width/height. Uncomment if you need to change
     width: 40
     height: 40
@@ -72,7 +72,7 @@ params:
     button: true
   
   applynow:
-    title: Claim your free forecasting consultation right now.
+    title: Claim your free consultation right now.
     subtitle: Let's have a conversation today 
     googleFormEmbed: "https://docs.google.com/forms/d/e/1FAIpQLSeaux5ms6OjbAzMM1C6tyYBA9nqveniqk_WEdmQLK3uOHSQ9Q/viewform?embedded=true"
   
@@ -98,18 +98,19 @@ params:
     # Can get these images from flaticon.com
     image: illustrations/mockups/nostradamus_app.jpg
     backgroundImage: illustrations/pexels-pixabay-373543.jpg
-    clientstext: "Some of the clients we've helped:"
-    # Footer logos (from static/images/logos/clients/___.svg)
-    clientlogos:
-    - systek.svg
-    - tribe.svg
-    - kromo.svg
-    - infinite.svg
-    - gutwork.svg
+    # USE DS SOLUTION OPTIONS BEFORE GENERATING CLIENTS - FORECASTING, SKU, PRICING ETC.
+    # clientstext: "Some of the clients we've helped:"
+    # # Footer logos (from static/images/logos/clients/___.svg)
+    # clientlogos:
+    # - systek.svg
+    # - tribe.svg
+    # - kromo.svg
+    # - infinite.svg
+    # - gutwork.svg
  
   section2_transformation:
-    title: "How Data Science for Business works" 
-    subtitle: "Increase sales and reduce costs through tailored data science solutions"
+    title: "How Data Science AI works" 
+    subtitle: "Increase sales and reduce costs through tailored data science solutions for pricing, personalized promotions, forecasting, store-specific SKU selection, employee turnover and many more!"
     # icons are located in static > images > illustrations > icons
     tile_size: is-one-quarter
     tile_height: "400px"
@@ -117,56 +118,56 @@ params:
     - title: "Step 1"
       subtitle: Speak With A Consultant Today
       icon: conversation.svg
-      text: Speak with one of our business consultants about your needs and how our program can help you.
+      text: Speak with one of our business consultants about your need and how our tailored solutions can help you.
     - title: "Step 2"
-      subtitle: Become Better At Forecasting
+      subtitle: Unveal Hidden Business Opportunities
       icon: forecasting.svg
-      text: We work with your team to build a forecast application tailored to improve your business.
+      text: We work with your team to discover opportunities for growth and cost reduction, backed up with data.
     - title: "Step 3"
-      subtitle: Business Integration
+      subtitle: Use Tailored Data Driven Solutions
       icon: collaboration.svg
-      text: We integrate your new forecasting application and train your team to use it.
+      text: We design the right solutions to solve your most buring problem and train your team to use it.
     - title: "Step 4"
       subtitle: Monitor Savings
       icon: monitoring.svg
-      text: We help your team measure savings versus baselines. On average our clients save $2M per year.
+      text: We help your team measure improvements versus baselines. We make sure you get your EBIT increase by 120 days.
   
   section3_interest:
-    title: Get results faster
-    subtitle: With your custom forecasting application
+    title: Get fast results
+    subtitle: With our already built applications for forecasting and employee turnover prediction.
     image: illustrations/mockups/nostradamus_app.jpg
     tile_size: is-one-third
     tile_height: "200px"
     tiles:
-    - title: "Get results in 120 days"
-      subtitle: "Go from losing money to saving money without hiring multiple consultants or handling time-consuming project management yourself."
+    - title: "Results in 120 days"
+      subtitle: "Go from losing money to saving money without hiring multiple consultants or handling time-consuming deployments yourself."
     - title: "Safe and Secure"
-      subtitle: "You don't need to upload your data to unsecure cloud networks. The forecasting application can be deployed on your own server network."
+      subtitle: "You own your data. The applications can be deployed on any major cloud provider or on your priveate network."
     - title: "Our ROI Guarantee"
-      subtitle: "On average we save our clients $2M per year. If we can't at least save you what you pay us, we'll give you your money back."
+      subtitle: "We save our clients $M per year. If we can't at least save you what you pay us, we'll give you your money back."
     
     
-  section4_desire:
-    title: Trusted by awesome companies like these that are saving money and improving their demand planning
-    subtitle: Real results from our valued clients.
-    clients:
-    - name: Irma
-      quote: We were able to recover $5.3M by optimizing our supply and demand planning system using Forecasting Science. They delivered a solution in 90 days. This project was a slam dunk.
-      job: Senior VP, Exxon Mobil
-      img: 1.png
-    - name: John
-      quote: We literally can't live without our new demand planning system built by Forecasting Science, LLC. These guys delivered a $3.4M improvement to operations in under 6 months.
-      job: CEO, Tech Company
-      img: 2.png
-    - name: Gary
-      quote: I finally took the plunge and boy did it pay off. We got the first version of our forecasting system in 60 days. Let's just say that the ROI was immediate.
-      job: Executive VP, Marathon Petroleum
-      img: 3.png
+  # section4_desire:
+  #   title: Trusted by awesome companies like these that are saving money and improving their demand planning
+  #   subtitle: Real results from our valued clients.
+  #   clients:
+  #   - name: Irma
+  #     quote: We were able to recover $5.3M by optimizing our supply and demand planning system using Forecasting Science. They delivered a solution in 90 days. This project was a slam dunk.
+  #     job: Senior VP, Exxon Mobil
+  #     img: 1.png
+  #   - name: John
+  #     quote: We literally can't live without our new demand planning system built by Forecasting Science, LLC. These guys delivered a $3.4M improvement to operations in under 6 months.
+  #     job: CEO, Tech Company
+  #     img: 2.png
+  #   - name: Gary
+  #     quote: I finally took the plunge and boy did it pay off. We got the first version of our forecasting system in 60 days. Let's just say that the ROI was immediate.
+  #     job: Executive VP, Marathon Petroleum
+  #     img: 3.png
   
   section5_faq: false
   
   section6_action:
-    callToActionText: Would you like to be our next success story?
+    callToActionText: Would you like to be the next success story?
     buttonText: Apply now
     buttonLink: /applynow
   
@@ -193,17 +194,17 @@ params:
       column1:
         title: "Consulting"
         links:
-        - text: Why choose Forecast Science?
+        - text: Why Data Science AI?
           link: /consulting
-        - text: Testimonials
-          link: /testimonials
-        - text: Apply to work with us
+        # - text: Testimonials
+        #   link: /testimonials
+        - text: Let's do it, apply now!
           link: /applynow
       column2:
-        title: "Blog"
+        title: "Applications"
         links:
-        - text: Latest news
-          link: /blog
+        - text: Forecasting and Employee Turnover apps
+          link: /applications
           
 
           
