@@ -74,7 +74,8 @@ params:
   applynow:
     title: Claim your free consultation right now.
     subtitle: Let's have a conversation today 
-    googleFormEmbed: "https://docs.google.com/forms/d/e/1FAIpQLSeaux5ms6OjbAzMM1C6tyYBA9nqveniqk_WEdmQLK3uOHSQ9Q/viewform?embedded=true"
+    # googleFormEmbed: "https://docs.google.com/forms/d/e/1FAIpQLSeaux5ms6OjbAzMM1C6tyYBA9nqveniqk_WEdmQLK3uOHSQ9Q/viewform?embedded=true"
+    googleFormEmbed: "https://forms.office.com/Pages/ResponsePage.aspx?id=UTnvpgGjtUu3LIRIjntLoiL4QkbvbIlPiY5INqTE8n1UMjEzTEhSRkdKTFdYU1VVVVhTNjgwRldKNC4u&embed=true"
   
   contact:
     title: Contact Us
