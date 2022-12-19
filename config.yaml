@@ -127,11 +127,11 @@ params:
     - title: "Step 3"
       subtitle: Use Tailored Data Driven Solutions
       icon: collaboration.svg
-      text: We design the right solutions to solve your most buring problem and train your team to use it.
+      text: We design the right solutions to solve your most burning problem and train your team to use it.
     - title: "Step 4"
       subtitle: Monitor Savings
       icon: monitoring.svg
-      text: We help your team measure improvements versus baselines. We make sure you get your EBIT increase by 120 days.
+      text: We help your team measure improvements versus baselines. We make sure you get results in 120 days.
   
   section3_interest:
     title: Get fast results
