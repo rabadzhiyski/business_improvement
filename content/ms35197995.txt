@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
+  "Domain": "data-science-ai.com",
+  "Id": "a6ef3951-a301-4bb5-b72c-84488e7b4ba2"
+}

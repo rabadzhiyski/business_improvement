@@ -1,5 +1,5 @@
 ---
-image: /images/illustrations/hiking.jpg
+image: /images/illustrations/pexels-rodolfo-clix-1036936.jpg
 include_cta: true
 title: Our services are your guide to success...
 type: testimonials
@@ -13,6 +13,7 @@ type: testimonials
 <img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="width:600px;">
 </figure>
 
+Every facet of grocery retail is becoming more personalized, a trend that is jeopardizing established operating models rooted in a one-to-many mass approach.
 
 ### 1. What is the problem?
 
