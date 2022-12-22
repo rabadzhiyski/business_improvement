@@ -5,7 +5,7 @@
 {{- $googleFontImport := .Site.Params.googleFontImport }}
 {{- $header_font      := .Site.Params.header_font }}
 {{- $body_font        := .Site.Params.body_font }}
-<link rel="icon" type="image/png" href="{{ "images/favicon.png" | relURL }}" />
+<link rel="icon" type="image/ico" href="{{ "images/favicon.ico" | relURL }}" />
 {{- if $inServerMode }}
 {{- $css := resources.Get $sass | resources.ExecuteAsTemplate "style.sass" . | toCSS $cssOpts }}
 <link rel="stylesheet" type="text/css" href="{{ $css.RelPermalink }}">
