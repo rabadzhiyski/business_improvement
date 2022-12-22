@@ -1,13 +1,12 @@
 ---
-image: /images/illustrations/happy-clients.jpg
+image: /images/illustrations/pexels-mathias-reding-9260295.jpg
 include_cta: true
-title: How do our client's achieve success?
+title: Cutting edge apps that solved real business problems
 type: testimonials
 ---
 
 
-
-# Client 1: S&P Global Market Intelligence
+# App 1: Forecasting system 
 
 <figure class="image">
 <img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="width:600px;">
