@@ -1,6 +1,6 @@
 baseURL: http://business-science.io/
 languageCode: en-us
-title: Data Science for Business
+title: Data Science for Business Improvement
 theme: "hugo-fresh-data-science"
 # Put in your google analytics tracking code without quotes like this: UA-XXXXXX...
 googleAnalytics: # UA-XXXXX...
@@ -16,7 +16,7 @@ markup:
 
 params:
   # Put your formspree URL in like this:  https://formspree.io/f/...
-  formspreeURL: "YOUR FORMSPREE URL"
+  formspreeURL: "https://formspree.io/f/xyyagdbl"
   # Open graph allows easy social sharing. If you don't want it you can set it to false or just delete the variable
   openGraph: true
   # Used as meta data; describe your site to make Google Bots happy
@@ -25,12 +25,12 @@ params:
   # preloader: false
   navbarlogo:
   # Logo (from static/images/logos/___)
-    image: logos/icon-logo.png
+    image: logos/color_logo_no_backgr.png
     link: /
     brandName: Profitable Business with Data Science
     # Default width/height. Uncomment if you need to change
     width: 40
-    height: 40
+    height: 60
   
   # Web Fonts Available Here: https://fonts.google.com/
   googleFontImport: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;600&family=Montserrat:wght@700&family=Roboto+Condensed&family=Abhaya+Libre:wght@400;600$&family=Lato&display=swap'
@@ -39,12 +39,12 @@ params:
   
   # css
   css:
-    secondary_color: "#2251ff" # "#F39200" "#4FC1EA" "#00efb7" (Controls Buttons, Accents)
+    secondary_color: "#0066FF" # "#F39200" "#4FC1EA" "#00efb7" (Controls Buttons, Accents)
     mutedgrey_color: "#999" # "#999" # Contols writing 
     greydark_color: "#4a4a4a" # "#4a4a4a" Controls Headers
     bluegrey_color: "#000" # "#444F60", #2c3e50 (Controls Headers & Footer Background)
     navbar_color: "#FFF" # white: "#FFF", gray: #2c3e50
-    navbar_text_color: "#000" # grey: #999, dark-grey: #444, black: #000
+    navbar_text_color: "#0B0B0B" # grey: #999, dark-grey: #444, black: #000
   
   # Customizable navbar. For a dropdown, add a "sublinks" list.
   navbarStyle:
@@ -61,10 +61,10 @@ params:
     url: /consulting
   # - title: Testimonials
   #   url: /testimonials
-  # - title: Blog
-  #   url: /blog
-  - title: Applications
+  - title: Apps
     url: /applications
+  - title: Blog
+    url: /blog
   - title: Contact Us
     url: /contact
   - title: Apply Now
@@ -72,8 +72,8 @@ params:
     button: true
   
   applynow:
-    title: Claim your free consultation right now.
-    subtitle: Let's have a conversation today 
+    title: Claim your FREE consultation right now.
+    subtitle: Let's talk 
     # googleFormEmbed: "https://docs.google.com/forms/d/e/1FAIpQLSeaux5ms6OjbAzMM1C6tyYBA9nqveniqk_WEdmQLK3uOHSQ9Q/viewform?embedded=true"
     googleFormEmbed: "https://forms.office.com/Pages/ResponsePage.aspx?id=UTnvpgGjtUu3LIRIjntLoiL4QkbvbIlPiY5INqTE8n1UMjEzTEhSRkdKTFdYU1VVVVhTNjgwRldKNC4u&embed=true"
   
@@ -174,7 +174,7 @@ params:
   
   footer:
     # Logo (from /images/logos/___)
-    logo: business-science-logo.png
+    logo: white_logo_no_backgr.png
     navbarLogoWidth: "100px"
     navbarLogoHeight: "100px"
     # Social Media Title
