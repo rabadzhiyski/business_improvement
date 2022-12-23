@@ -1,15 +1,15 @@
 ---
 image: /images/illustrations/pexels-mathias-reding-9260295.jpg
 include_cta: true
-title: Cutting edge apps that solved real business problems
+title: Cutting edge apps that solve real business problems
 type: testimonials
 ---
 
 
-# App 1: Forecasting system 
+# Forecasting system 
 
 <figure class="image">
-<img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="width:600px;">
+<img class="" src="/images/illustrations/mockups/nostradamus_app.jpg" alt="Placeholder image" style="width:800px;">
 </figure>
 
 

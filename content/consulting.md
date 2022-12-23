@@ -1,5 +1,5 @@
 ---
-image: /images/illustrations/pexels-karolina-grabowska-5980898.jpg
+image: /images/illustrations/pexels-pixabay-316093.jpg
 include_cta: true
 title: Our services are your guide to success...
 type: testimonials
