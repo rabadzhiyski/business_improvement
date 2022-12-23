@@ -6,7 +6,7 @@ type: testimonials
 ---
 
 
-# Forecasting system 
+# Forecasting System 
 
 <figure class="image">
 <img class="" src="/images/illustrations/mockups/nostradamus_app.jpg" alt="Placeholder image" style="width:800px;">
@@ -21,10 +21,10 @@ type: testimonials
 
 ***
 
-# Client 2: Some Big Tech Company
+# Employee Attrition Prevention
 
 <figure class="image">
-<img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="width:600px;">
+<img class="" src="/images/illustrations/mockups/employee_attrition_app.png" alt="Placeholder image" style="width:800px;">
 </figure>
 
 ### 1. What was the problem?
