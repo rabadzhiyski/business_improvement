@@ -108,6 +108,23 @@ params:
     # - kromo.svg
     # - infinite.svg
     # - gutwork.svg
+    
+    # USE DS SOLUTION OPTIONS BEFORE GENERATING CLIENTS - FORECASTING, SKU, PRICING ETC.
+    clientstext: "Technology we use"
+    # # Footer logos (from static/images/logos/clients/___.svg)
+    clientlogos:
+    - aws_grey.png
+    - azure.jpeg
+    - R.png
+    - python.png
+    - shiny.png
+    - tidyquant.png
+    - modeltime.png
+    - h2o.png
+    # - tribe.svg
+    # - kromo.svg
+    # - infinite.svg
+    # - gutwork.svg
  
   section2_transformation:
     title: "How Data Science AI works" 

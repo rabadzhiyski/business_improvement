@@ -1,5 +1,5 @@
 ---
-image: /images/illustrations/pexels-pixabay-316093.jpg
+image: /images/illustrations/blue_net.jpg
 include_cta: true
 title: Our services are your guide to success...
 type: testimonials
