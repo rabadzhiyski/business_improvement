@@ -25,7 +25,7 @@ params:
   # preloader: false
   navbarlogo:
   # Logo (from static/images/logos/___)
-    image: logos/color_logo_no_backgr.png
+    image: logos/padded_logo.png
     link: /
     brandName: Profitable Business with Data Science
     # Default width/height. Uncomment if you need to change
@@ -85,10 +85,10 @@ params:
   section1_attention:
     # Main hero title
     # title: "Save $2M with better forecasting in 120 days"
-    title: "Increase net income (EBIT) by 40% in 120 days"
+    title: "Save €2M with better data-driven decison making in 120 days"
     titleTextColor: "white"
     # Hero subtitle (optional)
-    subtitle: "We help struggling European retailers attract new customers and increase customer value"
+    subtitle: "We save struggling European retailers on average €100k-€2M per year through tailored data science/AI solutions."
     heroBackgroundColor: "#000000c7"
     
     # Button text
@@ -111,7 +111,7 @@ params:
  
   section2_transformation:
     title: "How Data Science AI works" 
-    subtitle: "Increase sales and reduce costs through tailored data science solutions for pricing, personalized promotions, forecasting, store-specific SKU selection, employee turnover and many more!"
+    subtitle: "Attract new customers and increase customer value in an omnichannel environment through a systematic approach."
     # icons are located in static > images > illustrations > icons
     tile_size: is-one-quarter
     tile_height: "400px"
@@ -135,7 +135,7 @@ params:
   
   section3_interest:
     title: Get fast results
-    subtitle: With our already built applications for forecasting and employee turnover prediction.
+    subtitle: With our web applications for forecasting and employee turnover prediction.
     image: illustrations/mockups/nostradamus_app.jpg
     tile_size: is-one-third
     tile_height: "200px"
@@ -174,7 +174,7 @@ params:
   
   footer:
     # Logo (from /images/logos/___)
-    logo: white_logo_no_backgr.png
+    logo: white_logo_no_back.png
     navbarLogoWidth: "100px"
     navbarLogoHeight: "100px"
     # Social Media Title
