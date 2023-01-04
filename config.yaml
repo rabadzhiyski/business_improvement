@@ -121,11 +121,7 @@ params:
     - tidyquant.png
     - modeltime.png
     - h2o.png
-    # - tribe.svg
-    # - kromo.svg
-    # - infinite.svg
-    # - gutwork.svg
- 
+
   section2_transformation:
     title: "How Data Science AI works" 
     subtitle: "Attract new customers and increase customer value in an omnichannel environment through a systematic approach."
@@ -219,9 +215,11 @@ params:
         - text: Let's do it, apply now!
           link: /applynow
       column2:
-        title: "Applications"
+        title: "Apps"
         links:
-        - text: Forecasting and Employee Turnover apps
+        - text: Forecasting System
+          link: /applications
+        - text: Employee Turnover
           link: /applications
           
 
