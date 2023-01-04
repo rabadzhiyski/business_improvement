@@ -110,7 +110,7 @@ params:
     # - gutwork.svg
     
     # USE DS SOLUTION OPTIONS BEFORE GENERATING CLIENTS - FORECASTING, SKU, PRICING ETC.
-    clientstext: "Technology we use"
+    clientstext: "Some of the technology we use"
     # # Footer logos (from static/images/logos/clients/___.svg)
     clientlogos:
     - aws_grey.png
@@ -118,8 +118,8 @@ params:
     - R.png
     - python.png
     - shiny.png
-    - tidyquant.png
-    - modeltime.png
+    # - tidyquant.png
+    # - modeltime.png
     - h2o.png
 
   section2_transformation:
