@@ -37,7 +37,7 @@ We designed a business improvement framework that combines the power of Lean Six
 
 Increase spend per customer, reduce cost due to shortages and outages, reduce total inventory cost, increase productivity gains and decrease employee turnover.
 
-### Increase the repetitive buying
+### Make clients buy again from you
 
 Reduce customer churn, increase customer satisfaction, and social media brand perception.
 
