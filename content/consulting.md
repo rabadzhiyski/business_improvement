@@ -11,48 +11,60 @@ We believe that solving real business problems is better than focusing on data a
 
 Every facet of grocery retail is becoming more personalized, a trend that is jeopardizing established operating models rooted in a one-to-many mass approach. Advanced analytics has the potential to transform grocery operations, but many retailers struggle to harness these capabilities to improve performance.
 
+No need to spend years to improve your business, we commit to get you results in 120 days!
+
 ## Benefit 1: Systematic approach
 
 <figure class="image">
 <img class="" src=/images/illustrations/improvement_os.jpg alt="Placeholder image" style="width:600px;">
 </figure>
 
-### 1. What is the problem?
+### Follow a proven process to unveal hidden business opportunities
 
-### 2. How we help.
+We designed a business improvement framework that combines the power of Lean Six Sigma process improvement and the cutting edge capabilities of data science. **Define** your most burning business problem, **Measure/Explore**, **Analyze**, **Design** the right solution, **Verify** savings/productivity gains.
 
 ------------------------------------------------------------------------
 
-# Benefit 2: Reactive forecasts during changing demand
+## Benefit 2: Increased customer value
 
 <figure class="image">
 <img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="width:600px;">
 </figure>
 
-### 1. What is the problem?
+### Increase the profit per purchase
 
-### 2. How we help.
+Increase spend per customer, reduce cost due to shortages and outages, reduce total inventory cost, increase productivity gains and decrease employee turnover.
+
+### Increase the number of times buying
+
+Reduce customer churn, increase customer satisfaction, and social media brand perception.
 
 ------------------------------------------------------------------------
 
-# Benefit 3: Secure data
+## Benefit 3: More attracted customers
 
 <figure class="image">
 <img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="width:600px;">
 </figure>
 
-### 1. What is the problem?
+### Increase total sales
 
-### 2. How we help.
+Improve category management, improve pricing, define store-specific SKU selection, pick the best location for your next physical store, improved forecasting and personalized promotions.
 
 ------------------------------------------------------------------------
 
-# Benefit 4: Training your team
+## Benefit 4: Training for your team
 
 <figure class="image">
 <img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="width:600px;">
 </figure>
 
-### 1. What is the problem?
+### We will teach you how to fish
 
-### 2. How we help.
+Data Science requires specific technical skills.
+
+# Benefit 5: Security and compliance
+
+### You own your sensitive data
+
+Your data are safely locked either
