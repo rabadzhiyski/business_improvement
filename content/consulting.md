@@ -13,7 +13,9 @@ Every facet of grocery retail is becoming more personalized, a trend that is jeo
 
 No need to spend years to improve your business, we commit to get you results in 120 days!
 
-## Benefit 1: Systematic approach
+------------------------------------------------------------------------
+
+# Benefit 1: Systematic approach
 
 <figure class="image">
 <img class="" src=/images/illustrations/improvement_os.jpg alt="Placeholder image" style="width:600px;">
@@ -25,7 +27,7 @@ We designed a business improvement framework that combines the power of Lean Six
 
 ------------------------------------------------------------------------
 
-## Benefit 2: Increased customer value
+# Benefit 2: Increased customer value
 
 <figure class="image">
 <img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="width:600px;">
@@ -35,13 +37,13 @@ We designed a business improvement framework that combines the power of Lean Six
 
 Increase spend per customer, reduce cost due to shortages and outages, reduce total inventory cost, increase productivity gains and decrease employee turnover.
 
-### Increase the number of times buying
+### Increase the repetitive buying
 
 Reduce customer churn, increase customer satisfaction, and social media brand perception.
 
 ------------------------------------------------------------------------
 
-## Benefit 3: More attracted customers
+# Benefit 3: More customers
 
 <figure class="image">
 <img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="width:600px;">
@@ -49,22 +51,29 @@ Reduce customer churn, increase customer satisfaction, and social media brand pe
 
 ### Increase total sales
 
-Improve category management, improve pricing, define store-specific SKU selection, pick the best location for your next physical store, improved forecasting and personalized promotions.
+Improve category management, improve pricing, define store-specific SKU selection, pick the best location for your next physical store, improve forecasting and personalized promotions.
+
 
 ------------------------------------------------------------------------
 
-## Benefit 4: Training for your team
+# Benefit 4: Security and Compliance
 
 <figure class="image">
 <img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="width:600px;">
 </figure>
 
-### We will teach you how to fish
+### You own your data
 
-Data Science requires specific technical skills.
+We treat any consulting discoveries and sensitive information as strictly confidential. The solutions we develop are secured by design - SSL encryption, secured cloud storage, separated protected environment, authentication and more.
 
-# Benefit 5: Security and compliance
+------------------------------------------------------------------------
 
-### You own your sensitive data
+# Benefit 5: Training for your team
 
-Your data are safely locked either
+<figure class="image">
+<img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="width:600px;">
+</figure>
+
+### Learn how to fish
+
+Data Science requires specific technical skills and data-driven mindset. We will teach your team how to use the developed solutions in practice but if you want to internally develop data science capabilities we got you covered. We offer amazing business data science training through our partner from business-science.io. Your team can use on-demand online training and our guidance to quickly master data science for business!
