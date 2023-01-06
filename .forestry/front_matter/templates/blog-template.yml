@@ -17,3 +17,5 @@ fields:
 - type: boolean
   name: include_cta
   label: include_cta
+pages:
+- content/blog/predicting-customer-churn-with-spark.md
