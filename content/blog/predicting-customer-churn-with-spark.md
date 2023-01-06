@@ -72,3 +72,106 @@ After the data is loaded we can have a look at the schema.
     |   4|  1|  Monday|   10|
     +----+---+--------+-----+
     only showing top 5 rows
+
+Now we’re good to go.
+
+It would be interesting and useful to dig into the data a little bit.
+
+_How many songs do users listen to on average between visiting the home page?_
+
+    function = udf(lambda ishome : int(ishome == 'Home'), IntegerType())
+    
+    user_window = Window \
+        .partitionBy('userID') \
+        .orderBy(desc('ts')) \
+        .rangeBetween(Window.unboundedPreceding, 0)
+    
+    cusum = df.filter((df.page == 'NextSong') | (df.page == 'Home')) \
+        .select('userID', 'page', 'ts') \
+        .withColumn('homevisit', function(col('page'))) \
+        .withColumn('period', Fsum('homevisit').over(user_window))
+    
+    cusum.filter((cusum.page == 'NextSong')) \
+        .groupBy('userID', 'period') \
+        .agg({'period':'count'}) \
+        .agg({'count(period)':'avg'}).show()
+    
+    +------------------+
+    |avg(count(period))|
+    +------------------+
+    | 23.66741388737015|
+    +------------------+
+
+_What are the top 5 played artists?_
+
+    # top 5 played artist
+    df.filter(df.page == 'NextSong') \
+        .select('Artist') \
+        .groupBy('Artist') \
+        .agg({'Artist':'count'}) \
+        .withColumnRenamed('count(Artist)', 'Artistcount') \
+        .sort(desc('Artistcount')) \
+        .show(5)
+    
+    +--------------------+-----------+
+    |              Artist|Artistcount|
+    +--------------------+-----------+
+    |       Kings Of Leon|       3497|
+    |            Coldplay|       3439|
+    |Florence + The Ma...|       2314|
+    |                Muse|       2194|
+    |       Dwight Yoakam|       2187|
+    +--------------------+-----------+
+    only showing top 5 rows
+
+_What about the top 5 played songs?_
+
+    # top 5 played songs
+    df.filter(df.page == 'NextSong') \
+        .select('song') \
+        .groupBy('song') \
+        .agg({'song':'count'}) \
+        .withColumnRenamed('count(song)', 'SongCount') \
+        .sort(desc('Songcount')) \
+        .show(5)
+    
+    +--------------------+---------+
+    |                song|SongCount|
+    +--------------------+---------+
+    |      You're The One|     2219|
+    |                Undo|     1938|
+    |             Revelry|     1613|
+    |       Sehr kosmisch|     1341|
+    |Horn Concerto No....|     1236|
+    +--------------------+---------+
+    only showing top 5 rows
+    
+    
+
+We can use previously created date columns to see some patterns in customer behaviors. But before doing that we need to create a customer churn column.
+
+    # check the page column df.select("page").dropDuplicates().sort("page").show()+--------------------+
+    |                page|
+    +--------------------+
+    |               About|
+    |          Add Friend|
+    |     Add to Playlist|
+    |              Cancel|
+    |Cancellation Conf...|
+    |           Downgrade|
+    |               Error|
+    |                Help|
+    |                Home|
+    |               Login|
+    |              Logout|
+    |            NextSong|
+    |            Register|
+    |         Roll Advert|
+    |       Save Settings|
+    |            Settings|
+    |    Submit Downgrade|
+    | Submit Registration|
+    |      Submit Upgrade|
+    |         Thumbs Down|
+    +--------------------+
+    only showing top 20 rows
