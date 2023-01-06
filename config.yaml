@@ -1,6 +1,6 @@
 baseURL: https://data-science-ai.com/
 languageCode: en-us
-title: Data Science for Business Improvement
+title: Profitable Business with Data Science
 theme: "hugo-fresh-data-science"
 # Put in your google analytics tracking code without quotes like this: UA-XXXXXX...
 googleAnalytics: # UA-XXXXX...
@@ -34,7 +34,7 @@ params:
   
   # Web Fonts Available Here: https://fonts.google.com/
   googleFontImport: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;600&family=Montserrat:wght@700&family=Roboto+Condensed&family=Abhaya+Libre:wght@400;600$&family=Lato&display=swap'
-  header_font: "Montserrat"
+  header_font: "Roboto"
   body_font: "Roboto"
   
   # css

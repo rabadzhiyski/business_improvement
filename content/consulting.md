@@ -30,8 +30,9 @@ We designed a business improvement framework that combines the power of Lean Six
 # Benefit 2: Increased customer value
 
 <figure class="image">
-<img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="width:600px;">
+<img class="" src=/images/illustrations/increase_value.jpg alt="Placeholder image" style="width:600px;">
 </figure>
+
 
 ### Increase the profit per purchase
 
@@ -46,7 +47,7 @@ Reduce customer churn, increase customer satisfaction, and social media brand pe
 # Benefit 3: More customers
 
 <figure class="image">
-<img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="width:600px;">
+<img class="" src=/images/illustrations/increase_sales.jpg alt="Placeholder image" style="width:600px;">
 </figure>
 
 ### Increase total sales
@@ -59,7 +60,7 @@ Improve category management, improve pricing, define store-specific SKU selectio
 # Benefit 4: Security and Compliance
 
 <figure class="image">
-<img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="width:600px;">
+<img class="" src=/images/illustrations/security.jpg alt="Placeholder image" style="width:600px;">
 </figure>
 
 ### You own your data
@@ -71,7 +72,7 @@ We treat any consulting discoveries and sensitive information as strictly confid
 # Benefit 5: Training for your team
 
 <figure class="image">
-<img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="width:600px;">
+<img class="" src=/images/illustrations/training.jpg alt="Placeholder image" style="width:600px;">
 </figure>
 
 ### Learn how to fish
