@@ -77,4 +77,4 @@ We treat any consulting discoveries and sensitive information as strictly confid
 
 ### Learn how to fish
 
-Data Science requires specific technical skills and data-driven mindset. We will teach your team how to use the developed solutions in practice but if you want to internally develop data science capabilities we got you covered. We offer amazing business data science training through our partner from business-science.io. Your team can use on-demand online training and our guidance to quickly master data science for business!
+Data Science requires specific technical skills and data-driven mindset. We will teach your team how to use the developed solutions in practice but if you want to internally develop data science capabilities we've got you covered. We offer amazing business data science training through our partner from business-science.io. Your team can use on-demand online training and our guidance to quickly master data science for business!
