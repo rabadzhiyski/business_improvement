@@ -4,6 +4,7 @@ date: "2020-09-13T12:49:27+06:00"
 image: images/illustrations/mockups/nostradamus_app.jpg
 include_cta: true
 title: Markdown Formatting Demo
+draft: true
 ---
 
 This example Markdown file compliments of [markdown-it.github.io](https://markdown-it.github.io/)
