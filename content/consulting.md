@@ -5,11 +5,11 @@ title: Our services are your guide to success...
 type: testimonials
 ---
 
-# Close the gap between technology and business in the retail sector
+# Close the gap between technology and business
 
-We believe that solving real business problems is better than focusing on data and technology. Grocery stores invested massively in analytics but they might not get the results they wanted (ROI). The most challenging part is not treating the data but solving the most urgent business problems.
+We believe that **solving real business problems is better than focusing on data and technology.** Many companies invested massively in analytics but they cannot get the results they wanted (ROI). The most challenging part is not treating the data but solving the most urgent business problems. 
 
-Every facet of grocery retail is becoming more personalized, a trend that is jeopardizing established operating models rooted in a one-to-many mass approach. Advanced analytics has the potential to transform grocery operations, but many retailers struggle to harness these capabilities to improve performance.
+Advanced analytics has the potential to transform business operations, but many companies struggle to harness these capabilities to improve performance. While the leaders in the AI field continue to gain competitive advantage and get considerable savings from Data Science/AI adoption, the majority of the companies still have troubles to use that technology. 
 
 No need to spend years to improve your business, we commit to get you results in 120 days!
 
@@ -52,7 +52,7 @@ Reduce customer churn, increase customer satisfaction, and social media brand pe
 
 ### Increase total sales
 
-Improve category management, improve pricing, define store-specific SKU selection, pick the best location for your next physical store, improve forecasting and personalized promotions.
+Find hidden customer groups/patterns that affect sales, improve pricing, define store-specific SKU selection, pick the best location for your next physical store, improve forecasting and personalized promotions.
 
 
 ------------------------------------------------------------------------
