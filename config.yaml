@@ -1,6 +1,6 @@
 baseURL: https://data-science-ai.com/
 languageCode: en-us
-title: Profitable Business with Data Science
+title: Profitable Business with Data Science AI
 theme: "hugo-fresh-data-science"
 # Put in your google analytics tracking code without quotes like this: UA-XXXXXX...
 googleAnalytics: # UA-XXXXX...
@@ -27,7 +27,7 @@ params:
   # Logo (from static/images/logos/___)
     image: logos/padded_logo.png
     link: /
-    brandName: Profitable Business with Data Science
+    brandName: Profitable Business with Data Science AI
     # Default width/height. Uncomment if you need to change
     width: 40
     height: 60
@@ -61,7 +61,7 @@ params:
     url: /consulting
   # - title: Testimonials
   #   url: /testimonials
-  - title: Apps
+  - title: Solutions
     url: /applications
   - title: Blog
     url: /blog
@@ -85,10 +85,10 @@ params:
   section1_attention:
     # Main hero title
     # title: "Save $2M with better forecasting in 120 days"
-    title: "Save €2M with better data-driven decison making in 120 days"
+    title: "Save $2M with better data-driven decison making in 120 days"
     titleTextColor: "white"
     # Hero subtitle (optional)
-    subtitle: "We save struggling European retailers on average €100k-€2M per year through tailored data science/AI solutions."
+    subtitle: "We save our clients on average €100k-€2M per year through tailored data science/AI solutions."
     heroBackgroundColor: "#000000c7"
     
     # Button text
@@ -124,7 +124,7 @@ params:
 
   section2_transformation:
     title: "How Data Science AI works" 
-    subtitle: "Attract new customers and increase customer value in an omnichannel environment through a systematic approach."
+    subtitle: "Attract new customers and increase customer value through improved data-driven decision making system"
     # icons are located in static > images > illustrations > icons
     tile_size: is-one-quarter
     tile_height: "400px"
@@ -148,7 +148,7 @@ params:
   
   section3_interest:
     title: Get fast results
-    subtitle: With our web applications for forecasting and employee turnover prediction.
+    subtitle: With our machine learning solutions for forecasting and employee turnover prediction.
     image: illustrations/mockups/nostradamus_app.jpg
     tile_size: is-one-third
     tile_height: "200px"
@@ -208,19 +208,19 @@ params:
       column1:
         title: "Consulting"
         links:
-        - text: Why Data Science AI?
+        - text: Benefits of working with us
           link: /consulting
         # - text: Testimonials
         #   link: /testimonials
-        - text: Let's do it, apply now!
+        - text: Let's talk, apply now!
           link: /applynow
       column2:
-        title: "Apps"
+        title: "Solutions"
         links:
-        - text: Forecasting System
+        - text: Data Science Solutions
           link: /applications
-        - text: Employee Turnover
-          link: /applications
+        # - text: Employee Turnover
+        #   link: /applications
           
 
           
