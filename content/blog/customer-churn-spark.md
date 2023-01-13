@@ -3,22 +3,23 @@ author: Plamen Rabadzhiyski
 date: "2021-06-04T08:45:27+06:00"
 image: images/illustrations/laptop_chart.jpg
 include_cta: true
-title: Predicting Customer Churn with Spark
-draft: true 
+title: Predicting Customer Churn with PySpark
+draft: false 
 editor_options: 
   markdown: 
     wrap: 72
 ---
 
-## Technical report with code chunks 
+## Technical report with code chunks
 
-Let's use [Spark](https://spark.apache.org/) to predict customer churn
-of a company that provides online music services. The company has two
-main types of customers --- Free and Paid users. Any user can upgrade or
-downgrade the service at any time. The company stores a decent amount of
-data that can be used to design a machine learning model to predict what
-customers would churn so that we can offer them incentives and make them
-stay as long as possible.
+I used
+[PySpark](https://spark.apache.org/docs/latest/api/python/index.html) to
+predict customer churn of a company that provides online music services.
+The company has two main types of customers --- Free and Paid users. Any
+user can upgrade or downgrade the service at any time. The company
+stores a decent amount of data that can be used to design a machine
+learning model to predict what customers would churn so that we can
+offer them incentives and make them stay as long as possible.
 
 The project uses [PySpark](https://www.databricks.com/glossary/pyspark)
 libraries and it was developed with Jupyter notebooks on a local PC. A
@@ -233,3 +234,320 @@ manipulation, we can plot the **state distribution.** CA, PA, TX, NH,
 and FL are the top five states.
 
 ![](/uploads/blog_images/spark-state-distribution.png)
+
+What are the most active workdays?
+
+![](/uploads/blog_images/spark-count-workday.png)
+
+What about churn during the week?
+
+Friday is the churn day.
+
+![](/uploads/blog_images/spark-churn-workday.png)
+
+What are the most active hours for users?
+
+Users are most active in the late afternoon and during the evenings.
+
+![](/uploads/blog_images/spark-active-hours.png)
+
+What are the most active hours for churn then?
+
+There is something at 10 am, even if it\'s not the most active time for
+users, a lot of churns happen then.
+
+![](/uploads/blog_images/spark-active-hours-churn.png)
+
+What are the most active days of the month?
+
+The second half of the month tends to be a bit busier, but there is not
+a clear pattern.
+
+![](/uploads/blog_images/spark-active-days.png)
+
+What are the most active days during the month?
+
+The beginning and the second half of the month are for churn!
+
+![](/uploads/blog_images/spark-active-days-month.png)
+
+------------------------------------------------------------------------
+
+## Data Preprocessing
+
+Based on the exploratory analyses we could pick **state, workday, day,
+and gender** as our candidate features for modeling. We can also add
+**SongsPlayed** to that as it gives an interesting indication --- users
+who listen to more songs are less prompt to churn.
+
+    # Get feauture candidates for modeling
+    df.select('userId', 'churn', 'gender', 'workday', 'day', 'state') \
+        .where(df.churn != 0).sort('userId').show(20)+------+-----+------+-------+---+-----+
+    |userId|churn|gender|workday|day|state|
+    +------+-----+------+-------+---+-----+
+    |    10|    1|     M|      2|  9|   MS|
+    |100001|    1|     F|      2|  2|   FL|
+    |100003|    1|     F|      4|  8|   FL|
+    |100004|    1|     F|      7| 14|   NY|
+    |100005|    1|     M|      6|  6|   LA|
+    |100010|    1|     F|      4| 11|   CT|
+    |100011|    1|     M|      3| 21|   OR|
+    |100012|    1|     M|      2|  6|   WI|
+    |100013|    1|     F|      2|  2|   OH|
+    |100014|    1|     M|      7| 21|   PA|
+    |100016|    1|     M|      2| 23|   IL|
+    |100017|    1|     M|      2| 13|   AL|
+    |100018|    1|     M|      1|  8|   TX|
+    |100023|    1|     M|      6|  6|   SC|
+    |100024|    1|     M|      2| 13|   PA|
+    |100025|    1|     F|      2|  6|   PA|
+    |100028|    1|     F|      7| 21|   WA|
+    |100030|    1|     F|      3|  3|   CA|
+    |100032|    1|     M|      4|  4|   TX|
+    |100036|    1|     M|      5|  5|   OK|
+    +------+-----+------+-------+---+-----+
+    only showing top 20 rows
+
+Spark cannot work with strings when building a model. Furthermore,
+proper preprocessing had to be done to make sure that data is feasible
+for Spark modeling.
+
+The script used for this process creates a new *model* data frame only
+with the columns chosen for features.
+
+-   *userId* and column *gender* are converted to integers
+
+-   *churn* is renamed to *label*
+
+-   new column *SongsPlayed* is created and added to the *model* data
+    frame
+
+-   any null values are removed
+
+-   duplicates were also removed
+
+After some data wrangling, we get the below *model* table.
+
+    model.show()+------+-----+------+-------+---+-----+-----------+
+    |userId|label|gender|workday|day|state|SongsPlayed|
+    +------+-----+------+-------+---+-----+-----------+
+    |100010|    0|     0|      1|  8|   CT|         96|
+    |100010|    0|     0|      1|  8|   CT|         96|
+    |100010|    0|     0|      4| 11|   CT|         96|
+    |100010|    0|     0|      4| 11|   CT|         96|
+    |100010|    0|     0|      1|  8|   CT|         96|
+    |100010|    0|     0|      1|  8|   CT|         96|
+    |100010|    0|     0|      4| 11|   CT|         96|
+    |100010|    0|     0|      4| 11|   CT|         96|
+    |100010|    0|     0|      4| 11|   CT|         96|
+    |100010|    0|     0|      1|  8|   CT|         96|
+    |100010|    0|     0|      1|  8|   CT|         96|
+    |100010|    0|     0|      4| 11|   CT|         96|
+    |100010|    0|     0|      4| 11|   CT|         96|
+    |100010|    0|     0|      1|  8|   CT|         96|
+    |100010|    0|     0|      4| 11|   CT|         96|
+    |100010|    0|     0|      1|  8|   CT|         96|
+    |100010|    0|     0|      1|  8|   CT|         96|
+    |100010|    0|     0|      4| 11|   CT|         96|
+    |100010|    0|     0|      1|  8|   CT|         96|
+    |100010|    0|     0|      4| 11|   CT|         96|
+    +------+-----+------+-------+---+-----+-----------+
+    only showing top 20 rows
+
+One last step is to encode the *state* column as it is a string-type
+column with 50+ state names. I used *StringIndexer* and *OneHotEncoder*
+to create a vector column of the available state.
+
+    # Create a StringIndexer
+    state_indexer = StringIndexer(inputCol =”state”, outputCol =”state_index”)# Create a OneHotEncoder
+    state_encoder = OneHotEncoder(inputCol=”state_index”, outputCol=”state_fact”)
+
+The difference between Scikit-learn and Spark machine learning
+approaches is the features. In Spark, we should encode all features into
+one vectored column. I used *VectorAssembler* to do that.
+
+    # Make a VectorAssembler
+    vec_assembler = VectorAssembler(inputCols=[“gender”, “state_fact”, “workday”, “day”, “SongsPlayed”], \
+     outputCol=”features”)
+
+------------------------------------------------------------------------
+
+## Implementation
+
+Once all data is good for modeling, the next step is to create a machine
+learning pipeline. The pipeline is a class in the pyspark.ml module that
+combines all the Estimators and Transformers that I already created.
+This lets me reuse the same modeling process over and over again by
+wrapping it up in one simple object.
+
+    # Make the pipeline
+    churn_pipe = Pipeline(stages=[state_indexer, state_encoder, vec_assembler])
+
+After data is cleaned and gotten ready for modeling, one of the most
+vital steps is to split the data into a *test set* and a *train set*.
+
+In Spark, it\'s important to make sure you split the data **after** all
+the transformations. This is because operations like *StringIndexer*
+don\'t always produce the same index even when given the same list of
+strings.
+
+    # Fit and transform the data
+    piped_data = churn_pipe.fit(model).transform(model)# Split the data into training and test sets
+    training, test = piped_data.randomSplit([.6, .4])
+
+For this project, I used Logistic Regression and Random Forest
+Classifier to define churn. The very first pick for a classification
+model should always be the logistic regression. It\'s a basic model but
+gives a good ground for machine learning predictions.
+
+------------------------------------------------------------------------
+
+## Refinement
+
+I tuned my model using *k-fold cross-validation*. This is a method of
+estimating the model\'s performance on unseen data. It works by
+splitting the training data into a few different partitions --- I used
+Spark\'s default values.
+
+Once the data is split up, one of the partitions is set aside, and the
+model is fit to the others. Then the error is measured against the
+held-out partition. This is repeated for each of the
+partitions so that every block of data is held out and used as a test
+set exactly once. Then the error on each of the partitions is averaged.
+This is called the cross-validation *error* of the model and is a good
+estimate of the actual error on the held-out data.
+
+You need to create a grid of values to search over when looking for the
+optimal hyperparameters. With the help of cross-validation, I chose the
+hyperparameters by creating a grid of the possible pairs of values for
+the two hyperparameters, *elasticNetParam* and *regParam*, and using the
+cross-validation error to compare all the different models.
+
+The submodule *pyspark.ml.tuning* includes a class called
+*ParamGridBuilder* that does just that.You\'ll need to use the
+*.addGrid()* and *.build()* methods to create a grid that you can use
+for cross-validation. The *.addGrid()* method takes a model parameter
+and a list of values that you want to try. The *.build()* method takes
+no arguments, it just returns the grid that I used later.
+
+    # Create the parameter grid
+    grid = tune.ParamGridBuilder()
+    grid_rf = tune.ParamGridBuilder()# Logistic Regression grid
+    grid = grid.addGrid(lr.regParam, np.arange(0, .1, .01))
+    grid = grid.addGrid(lr.elasticNetParam, [0, 1])# Random Forest grid
+    grid_rf = grid_rf.addGrid(rf.numTrees,[3, 10, 30])
+
+The sub-module *pyspark.ml.tuning* also has a class called
+*CrossValidator* for performing cross-validation.
+
+    # Create the CrossValidator
+    cv = tune.CrossValidator(estimator=lr,
+                estimatorParamMaps=grid,
+                evaluator=evaluator_ROC
+                )
+
+The script I built combines all the above chunks into one action that
+istailored to suit a Logistic Regression and a Random Forest Classifier.
+Once run, the next step is to fit the model and select the best one.
+This task takes a lot of time and it depends on the resources in use.
+
+    # Fit cross validation models - this steps takes a lot of time
+    models = cv.fit(training)# Extract the best model
+    best_lr = models.bestModel
+
+------------------------------------------------------------------------
+
+## Model Evaluation and Validation
+
+To make sure I properly assess the performance of the models I used a
+common metric for binary classification algorithms called the ***AUC***
+(area under the curve --- numerical representation of the performance of
+binary classifier). In this case, the curve is the **ROC** (receiver
+operating curve --- the visual representation of the performance of the
+binary classifier. False Positive Rate vs True Positive Rate is plotted
+to get the visual understanding of the classifier\'s performance). Both
+models were measured against AUC-ROC.
+
+------------------------------------------------------------------------
+
+## Justification
+
+Accuracy is the most common measure but definitely ignores many factors
+like false positives and false negatives that are brought into the
+system by a model.
+
+To demonstrate why it is important to use the proper metric I will share
+the results from my models (random forest performed 23% less compared to
+the logistic regression).
+
+**Logistic regression results:**
+
+-   Accuracy = 99%
+
+-   Area under ROC = 65%
+
+**Random Forests results:**
+
+-   Accuracy = 99%
+
+-   Area under ROC = 55%
+
+If I consider only accuracy I would be too confident of my model. Since
+I deal with unbalanced data a better estimation of the model\'s
+performance is the Area under ROC, which turns to be 65%.
+
+------------------------------------------------------------------------
+
+## Reflection
+
+Predicting churn is not an easy task but with the help of Spark and
+python, it could get really fun. Of course, none of the techniques would
+matter if the model that I created is useless for real business.
+
+In my scenario, I used the gender, day, workday, state, and songs played
+per user to predict churn. Based on exploratory data analyses I decided
+that those features are good for prediction. I found some patterns,
+especially for churned users.
+
+Then, I transformed the whole data set to be readable by Spark\'s
+machine learning libraries.I used Logistic Regression and Random Forests
+to design a machine learning algorithm.
+
+In the end, I found that Accuracy is a misleading metric for my project,
+so I counted on the area under ROC output to measure performance.
+
+------------------------------------------------------------------------
+
+## Improvement
+
+As the famous British statistician George Box stated ***\"All models are
+wrong but some are useful\".***
+
+The AUC-ROC of my models are not so good and I would look
+further into the data to choose a different set of features. Maybe a
+number of thumbs-up could be a reasonable candidate. There are plenty of
+opportunities to test various feature combinations to improve the
+model\'s performance.
+
+I think that we should always link the models to the
+business context and make some assumptions about their use. For me,
+predicting churn was a challenging task and I would not say that my
+model is the best possible solution. However, it gave me a fresh inside
+and reasonable confidence that with the right features, I can identify
+some clients who are prompt to churn.
+
+------------------------------------------------------------------------
+
+## References
+
+-   <https://towardsdatascience.com/dealing-with-imbalanced-dataset-642a5f6ee297>
+
+-   [https://medium.com/\@sarath13/area-under-the-roc-curve-explained-d056854d3815](https://medium.com/@sarath13/area-under-the-roc-curve-explained-d056854d3815)
+
+-   <https://spark.apache.org/docs/1.5.2/>
+
+-   <https://www.kaggle.com/lpdataninja/machine-learning-with-apache-spark/notebook>
+
+-   [https://www.udacity.com/course/learn-spark-at-udacity--ud2002](https://www.udacity.com/course/learn-spark-at-udacity–ud2002)
+
+------------------------------------------------------------------------
