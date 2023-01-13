@@ -13,7 +13,7 @@ All that is possible with the help of our data science solutions - **an automate
 
 Not what you need?
 
-We will work with you to define your most urgent business need and design a tailored data science solution. **Pricing** (KVI' identification, clustering, and price recommendation), store specific SKU selection, **customer segmentation, brand sensitive analysis,** **advanced analytics,** and many more. Yes, we've got you covered!
+We will work with you to define your most urgent business need and design a tailored data science solution. **Pricing** (KVI' identification, clustering, and price recommendation), store specific SKU selection, **customer segmentation, brand sensitive analysis,** and many more. Yes, we've got you covered!
 
 ------------------------------------------------------------------------
 
