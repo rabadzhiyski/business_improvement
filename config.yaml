@@ -124,7 +124,7 @@ params:
 
   section2_transformation:
     title: "How Data Science AI works" 
-    subtitle: "Attract new customers and increase customer value through improved data-driven decision making system"
+    subtitle: "Attract new customers and increase customer value through improved data-driven decision making systems. Example: 20% improved forecasting accuracy for a $10M problem results in $2M cost savings in 120 days."
     # icons are located in static > images > illustrations > icons
     tile_size: is-one-quarter
     tile_height: "400px"
