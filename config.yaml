@@ -87,7 +87,7 @@ params:
   section1_attention:
     # Main hero title
     # title: "Save $2M with better forecasting in 120 days"
-    title: "Save $2M with better data-driven decison making in 120 days"
+    title: "Save $2M with better data-driven decision making in 120 days"
     titleTextColor: "white"
     # Hero subtitle (optional)
     subtitle: "We save our clients on average $100k-$2M per year through advanced analytics and tailored data science/AI solutions."
