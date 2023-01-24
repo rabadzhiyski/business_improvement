@@ -5,7 +5,9 @@ title: Cutting-edge machine learning solutions for real business problems
 type: testimonials
 ---
 
-# Go fast from losing money to saving money
+# Transform your business operations and drive profitability with our advanced data science solutions 
+
+## We help you to identify cost savings, optimize performance and increase revenue
 
 What if you are able to reduce the effects of supply-demand interruptions and improve your forecast accuracy by up to 30% in 120 days? Or, what if you manage to define the true cost of employee turnover and proactively detect productive employees with higher probability to leave?
 

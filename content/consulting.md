@@ -1,15 +1,16 @@
 ---
 image: /images/illustrations/new_york.jpg
 include_cta: true
-title: Our services are your guide to success...
+title: Unlock the power of data to drive growth and improve performance
 type: testimonials
 ---
 
-# Close the gap between technology and business
+# Expertise in data-driven decision-making for small and medium-sized businesses
 
-We believe that **solving real business problems is better than focusing on data and technology.** Many companies invested massively in analytics but they cannot get the results they wanted (ROI). The most challenging part is not treating the data but solving the most urgent business problems. 
+Artificial Intelligence (AI) and data science have the potential to revolutionize business operations by providing insights and predictions that can help to improve efficiency, reduce costs, and drive growth. However, many companies struggle to harness these techniques and fully realize their potential benefits. 
 
-Advanced analytics has the potential to transform business operations, but many companies struggle to harness these capabilities to improve performance. While the leaders in the AI field continue to gain competitive advantage and get considerable savings from Data Science/AI adoption, the majority of the companies still have troubles to use that technology. 
+While the leaders in the AI field continue to gain competitive advantage and get considerable savings from Data Science/AI adoption, the majority of the companies still have trouble using these technologies. 
+
 
 **No need to spend years to improve your business, we commit to get you results in 120 days!**
 

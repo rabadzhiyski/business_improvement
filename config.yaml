@@ -87,10 +87,12 @@ params:
   section1_attention:
     # Main hero title
     # title: "Save $2M with better forecasting in 120 days"
-    title: "Save $2M with better data-driven decision making in 120 days"
+    # title: "Save $2M with better data-driven decision making in 120 days"
+    title: "Unlock the potential of your retail business and save $2M in 120 days."
     titleTextColor: "white"
     # Hero subtitle (optional)
-    subtitle: "We save our clients on average $100k-$2M per year through advanced analytics and tailored data science/AI solutions."
+    subtitle: "We save our clients on average $100k-$2M through improved inventory management, customer segmentation, and demand forecasting."
+    #ics subtitle: "We save our clients on average $100k-$2M per year through advanced analytics and tailored data science/AI solutions."
     heroBackgroundColor: "#000000c7"
     
     # Button text
@@ -126,7 +128,7 @@ params:
 
   section2_transformation:
     title: "How Data Science AI works" 
-    subtitle: "Attract new customers and increase customer value through improved data-driven decision making systems. Example: 20% improved forecasting accuracy for a $10M problem results in $2M cost savings in 120 days."
+    subtitle: "Increase Sales, Cut Costs, Improve Productivity in four easy steps. Example: 20% improved demand forecasting for a $10M problem results in $2M cost savings in 120 days."
     # icons are located in static > images > illustrations > icons
     tile_size: is-one-quarter
     tile_height: "400px"
@@ -140,7 +142,7 @@ params:
       icon: forecasting.svg
       text: We work with your team to discover opportunities for growth and cost reduction, backed up with data.
     - title: "Step 3"
-      subtitle: Use Tailored Data Driven Solutions
+      subtitle: Use Tailored Data-driven Solutions
       icon: collaboration.svg
       text: We design the right solutions to solve your most burning problem and train your team to use it.
     - title: "Step 4"
@@ -149,9 +151,9 @@ params:
       text: We help your team measure improvements versus baselines. We make sure you get results in 120 days.
   
   section3_interest:
-    title: Get fast results
-    subtitle: With our machine learning solutions for forecasting and employee turnover prediction.
-    image: illustrations/mockups/nostradamus_app.jpg
+    title: Maximize your retail business profitability
+    subtitle: With our machine learning solutions for data-driven decision-making.
+    image: illustrations/mockups/home-page-banner.png
     tile_size: is-one-third
     tile_height: "200px"
     tiles:
@@ -160,7 +162,7 @@ params:
     - title: "Safe and Secure"
       subtitle: "You own your data. The applications can be deployed on any major cloud provider or on your priveate network."
     - title: "Our ROI Guarantee"
-      subtitle: "We save our clients $M per year. If we can't at least save you what you pay us, we'll give you your money back."
+      subtitle: "We save our clients millions of $ per year. If we can't at least save you what you pay us, we'll give you your money back."
     
     
   # section4_desire:
@@ -183,7 +185,7 @@ params:
   section5_faq: false
   
   section6_action:
-    callToActionText: Would you like to be the next success story?
+    callToActionText: Would you like to unlock the potential of your business?
     buttonText: Apply now
     buttonLink: /applynow
   
