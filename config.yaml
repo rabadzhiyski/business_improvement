@@ -1,6 +1,6 @@
 baseURL: https://data-science-ai.com/
 languageCode: en-us
-title: Profitable Business with Data Science AI
+title: Unlock Business Growth with Data Science AI
 theme: "hugo-fresh-data-science"
 # Put in your google analytics tracking code without quotes like this: UA-XXXXXX...
 googleAnalytics: # UA-XXXXX...
@@ -27,7 +27,7 @@ params:
   # Logo (from static/images/logos/___)
     image: logos/padded_logo.png
     link: /
-    brandName: Profitable Business with Data Science AI
+    brandName:  Unlock Business Growth with Data Science AI
     # Default width/height. Uncomment if you need to change
     width: 40
     height: 60
@@ -88,7 +88,7 @@ params:
     # Main hero title
     # title: "Save $2M with better forecasting in 120 days"
     # title: "Save $2M with better data-driven decision making in 120 days"
-    title: "Unlock the potential of your retail business and save $2M in 120 days."
+    title: "Unlock the potential of your retail business - save $2M in 120 days."
     titleTextColor: "white"
     # Hero subtitle (optional)
     subtitle: "We save our clients on average $100k-$2M through improved inventory management, customer segmentation, and demand forecasting."
@@ -157,12 +157,12 @@ params:
     tile_size: is-one-third
     tile_height: "200px"
     tiles:
-    - title: "Results in 120 days"
-      subtitle: "Go from losing money to saving money without hiring multiple consultants or handling time-consuming deployments yourself."
-    - title: "Safe and Secure"
-      subtitle: "You own your data. The applications can be deployed on any major cloud provider or on your priveate network."
-    - title: "Our ROI Guarantee"
-      subtitle: "We save our clients millions of $ per year. If we can't at least save you what you pay us, we'll give you your money back."
+    - title: "See Results in 120 days"
+      subtitle: "Say goodbye to losses and hello to savings. No need to hire multiple consultants - we'll take care of it all for you."
+    - title: "Completely Secure"
+      subtitle: "Our machine learning solutions can be deployed on any major cloud provider or on your private network, giving you complete control and peace of mind."
+    - title: "Guaranteed ROI"
+      subtitle: "We have a proven track record of saving millions of dollars per year. If we can't at least save you what you pay us, we'll give you your money back."
     
     
   # section4_desire:

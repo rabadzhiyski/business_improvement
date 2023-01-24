@@ -5,14 +5,13 @@ title: Unlock the power of data to drive growth and improve performance
 type: testimonials
 ---
 
-# Expertise in data-driven decision-making for small and medium-sized businesses
+# Expertise in data-driven decision-making for retail SMBs
 
-Artificial Intelligence (AI) and data science have the potential to revolutionize business operations by providing insights and predictions that can help to improve efficiency, reduce costs, and drive growth. However, many companies struggle to harness these techniques and fully realize their potential benefits. 
+**Unlock the power of data-driven decision-making:** Our expertise in AI and data science can help you gain valuable insights and predictions that will improve efficiency, reduce costs, and drive growth. Don't let your business fall behind the competition - let us help you harness the power of these cutting-edge technologies.
 
-While the leaders in the AI field continue to gain competitive advantage and get considerable savings from Data Science/AI adoption, the majority of the companies still have trouble using these technologies. 
+**Revolutionize your retail business with data science:** From customer insights to inventory management and demand forecasting, our data-driven solutions can help you increase sales and reduce costs. We understand the unique challenges faced by SMBs in the retail industry, and we're here to help you overcome them.
 
-
-**No need to spend years to improve your business, we commit to get you results in 120 days!**
+**Maximize your retail business's potential:** Our team of data science experts can help you unlock the full potential of AI and data science in your business. We'll work with you to develop custom solutions that will improve efficiency, reduce costs, and drive growth in as little as 120 days.
 
 ------------------------------------------------------------------------
 
@@ -22,9 +21,9 @@ While the leaders in the AI field continue to gain competitive advantage and get
 <img class="" src=/images/illustrations/improvement_os.jpg alt="Placeholder image" style="width:600px;">
 </figure>
 
-### Follow a proven process to unveal hidden business opportunities
+### Unlock hidden business opportunities
 
-We designed a business improvement framework that combines the power of Lean Six Sigma process improvement and the cutting edge capabilities of data science. **Define** your most burning business problem, **Measure/Explore**, **Analyze**, **Design** the right solution, **Verify** savings/productivity gains.
+We designed a business improvement framework that combines the power of Lean Six Sigma process improvement and the cutting edge capabilities of data science. We follow a proven process to identify areas of improvement within the business, and then use data science techniques to gather and analyze data to uncover the root causes of the problems identified. This allows businesses to not only identify areas of improvement but also to quantify the potential impact of changes, and use data-driven decision-making.
 
 ------------------------------------------------------------------------
 
@@ -34,14 +33,9 @@ We designed a business improvement framework that combines the power of Lean Six
 <img class="" src=/images/illustrations/increase_value.jpg alt="Placeholder image" style="width:600px;">
 </figure>
 
+### Unlock hidden revenue streams
 
-### Increase the profit per purchase
-
-Increase spend per customer, reduce cost due to shortages and outages, reduce total inventory cost, increase productivity gains and decrease employee turnover.
-
-### Make clients buy again from you
-
-Reduce customer churn, increase customer satisfaction, and social media brand perception.
+Utilize data science to increase the profit per purchase, reduce costs, and improve productivity. Reduce customer churn, increase customer satisfaction, and boost your brand perception.
 
 ------------------------------------------------------------------------
 
@@ -51,9 +45,9 @@ Reduce customer churn, increase customer satisfaction, and social media brand pe
 <img class="" src=/images/illustrations/increase_sales.jpg alt="Placeholder image" style="width:600px;">
 </figure>
 
-### Increase total sales
+### Discover new growth opportunities
 
-Find hidden customer groups/patterns that affect sales, improve pricing, define store-specific SKU selection, pick the best location for your next physical store, improve forecasting and personalized promotions.
+Uncover hidden customer groups and patterns that affect sales, optimize pricing strategies, and select the best locations for your next physical store. Improve forecasting and personalized promotions to drive more sales.
 
 
 ------------------------------------------------------------------------
@@ -64,9 +58,9 @@ Find hidden customer groups/patterns that affect sales, improve pricing, define 
 <img class="" src=/images/illustrations/security.jpg alt="Placeholder image" style="width:600px;">
 </figure>
 
-### You own your data
+### Protect your sensitive data
 
-We treat any consulting discoveries and sensitive information as strictly confidential. The solutions we develop are secured by design - SSL encryption, secured cloud storage, separated protected environment, authentication and more.
+We understand the importance of data security, and we take it seriously. We use SSL encryption, secured cloud storage, and a separated protected environment to ensure your data is kept safe and confidential.
 
 ------------------------------------------------------------------------
 
@@ -76,6 +70,6 @@ We treat any consulting discoveries and sensitive information as strictly confid
 <img class="" src=/images/illustrations/training.jpg alt="Placeholder image" style="width:600px;">
 </figure>
 
-### Learn how to fish
+### Build a data-driven culture
 
-Data Science requires specific technical skills and data-driven mindset. We will teach your team how to use the developed solutions in practice but if you want to internally develop data science capabilities we've got you covered. We offer amazing business data science training through our partner from [business-science.io](https://www.business-science.io/). Your team can use on-demand online training and our guidance to quickly master data science for business!
+Data science requires specific technical skills and a data-driven mindset. We will not only teach your team how to use the developed solutions but also offer amazing business data science training through our partner [business-science.io](https://www.business-science.io/). Your team can use on-demand online training and our guidance to quickly master data science for business!
