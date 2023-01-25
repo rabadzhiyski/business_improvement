@@ -62,7 +62,7 @@ params:
   # - title: Testimonials
   #   url: /testimonials
   - title: Solutions
-    url: /applications
+    url: /solutions
   - title: Blog
     url: /blog
   - title: Contact Us
@@ -134,21 +134,21 @@ params:
     tile_height: "400px"
     tiles:
     - title: "Step 1"
-      subtitle: Speak With A Consultant Today
+      subtitle: Discovery
       icon: conversation.svg
-      text: Speak with one of our business consultants about your need and how our tailored solutions can help you.
+      text: Schedule a call with one of our experts to discuss your business needs and pain points.
     - title: "Step 2"
-      subtitle: Unveal Hidden Business Opportunities
+      subtitle: Analysis
       icon: forecasting.svg
-      text: We work with your team to discover opportunities for growth and cost reduction, backed up with data.
+      text: Work with our team to uncover hidden opportunities for growth and cost reduction, backed by data.
     - title: "Step 3"
-      subtitle: Use Tailored Data-driven Solutions
+      subtitle: Solution Design
       icon: collaboration.svg
-      text: We design the right solutions to solve your most burning problem and train your team to use it.
+      text: Design and implement custom data-driven solutions tailored to your specific business problems.
     - title: "Step 4"
-      subtitle: Monitor Savings
+      subtitle:  Implementation & Monitoring
       icon: monitoring.svg
-      text: We help your team measure improvements versus baselines. We make sure you get results in 120 days.
+      text: Train your team to use the solutions effectively and monitor the results to ensure they meet your goals within 120 days.
   
   section3_interest:
     title: Maximize your retail business profitability
@@ -222,7 +222,7 @@ params:
         title: "Solutions"
         links:
         - text: Data Science Solutions
-          link: /applications
+          link: /solutions
         # - text: Employee Turnover
         #   link: /applications
           
