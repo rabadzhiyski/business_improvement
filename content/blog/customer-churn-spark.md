@@ -4,7 +4,7 @@ date: "2021-06-04T08:45:27+06:00"
 image: images/illustrations/laptop_chart.jpg
 include_cta: true
 title: Predicting Customer Churn with PySpark
-draft: false 
+draft: true 
 editor_options: 
   markdown: 
     wrap: 72
@@ -253,7 +253,7 @@ Users are most active in the late afternoon and during the evenings.
 
 What are the most active hours for churn then?
 
-There is something at 10 am, even if it\'s not the most active time for
+There is something at 10 am, even if it's not the most active time for
 users, a lot of churns happen then.
 
 ![](/uploads/blog_images/spark-active-hours-churn.png)
@@ -386,9 +386,9 @@ wrapping it up in one simple object.
 After data is cleaned and gotten ready for modeling, one of the most
 vital steps is to split the data into a *test set* and a *train set*.
 
-In Spark, it\'s important to make sure you split the data **after** all
+In Spark, it's important to make sure you split the data **after** all
 the transformations. This is because operations like *StringIndexer*
-don\'t always produce the same index even when given the same list of
+don't always produce the same index even when given the same list of
 strings.
 
     # Fit and transform the data
@@ -397,7 +397,7 @@ strings.
 
 For this project, I used Logistic Regression and Random Forest
 Classifier to define churn. The very first pick for a classification
-model should always be the logistic regression. It\'s a basic model but
+model should always be the logistic regression. It's a basic model but
 gives a good ground for machine learning predictions.
 
 ------------------------------------------------------------------------
@@ -405,17 +405,17 @@ gives a good ground for machine learning predictions.
 ## Refinement
 
 I tuned my model using *k-fold cross-validation*. This is a method of
-estimating the model\'s performance on unseen data. It works by
-splitting the training data into a few different partitions --- I used
-Spark\'s default values.
+estimating the model's performance on unseen data. It works by splitting
+the training data into a few different partitions --- I used Spark's
+default values.
 
 Once the data is split up, one of the partitions is set aside, and the
 model is fit to the others. Then the error is measured against the
-held-out partition. This is repeated for each of the
-partitions so that every block of data is held out and used as a test
-set exactly once. Then the error on each of the partitions is averaged.
-This is called the cross-validation *error* of the model and is a good
-estimate of the actual error on the held-out data.
+held-out partition. This is repeated for each of the partitions so that
+every block of data is held out and used as a test set exactly once.
+Then the error on each of the partitions is averaged. This is called the
+cross-validation *error* of the model and is a good estimate of the
+actual error on the held-out data.
 
 You need to create a grid of values to search over when looking for the
 optimal hyperparameters. With the help of cross-validation, I chose the
@@ -424,7 +424,7 @@ the two hyperparameters, *elasticNetParam* and *regParam*, and using the
 cross-validation error to compare all the different models.
 
 The submodule *pyspark.ml.tuning* includes a class called
-*ParamGridBuilder* that does just that.You\'ll need to use the
+*ParamGridBuilder* that does just that.You'll need to use the
 *.addGrid()* and *.build()* methods to create a grid that you can use
 for cross-validation. The *.addGrid()* method takes a model parameter
 and a list of values that you want to try. The *.build()* method takes
@@ -465,7 +465,7 @@ common metric for binary classification algorithms called the ***AUC***
 binary classifier). In this case, the curve is the **ROC** (receiver
 operating curve --- the visual representation of the performance of the
 binary classifier. False Positive Rate vs True Positive Rate is plotted
-to get the visual understanding of the classifier\'s performance). Both
+to get the visual understanding of the classifier's performance). Both
 models were measured against AUC-ROC.
 
 ------------------------------------------------------------------------
@@ -493,7 +493,7 @@ the logistic regression).
 -   Area under ROC = 55%
 
 If I consider only accuracy I would be too confident of my model. Since
-I deal with unbalanced data a better estimation of the model\'s
+I deal with unbalanced data a better estimation of the model's
 performance is the Area under ROC, which turns to be 65%.
 
 ------------------------------------------------------------------------
@@ -509,9 +509,9 @@ per user to predict churn. Based on exploratory data analyses I decided
 that those features are good for prediction. I found some patterns,
 especially for churned users.
 
-Then, I transformed the whole data set to be readable by Spark\'s
-machine learning libraries.I used Logistic Regression and Random Forests
-to design a machine learning algorithm.
+Then, I transformed the whole data set to be readable by Spark's machine
+learning libraries.I used Logistic Regression and Random Forests to
+design a machine learning algorithm.
 
 In the end, I found that Accuracy is a misleading metric for my project,
 so I counted on the area under ROC output to measure performance.
@@ -520,21 +520,21 @@ so I counted on the area under ROC output to measure performance.
 
 ## Improvement
 
-As the famous British statistician George Box stated ***\"All models are
-wrong but some are useful\".***
+As the famous British statistician George Box stated ***"All models are
+wrong but some are useful".***
 
-The AUC-ROC of my models are not so good and I would look
-further into the data to choose a different set of features. Maybe a
-number of thumbs-up could be a reasonable candidate. There are plenty of
+The AUC-ROC of my models are not so good and I would look further into
+the data to choose a different set of features. Maybe a number of
+thumbs-up could be a reasonable candidate. There are plenty of
 opportunities to test various feature combinations to improve the
-model\'s performance.
+model's performance.
 
-I think that we should always link the models to the
-business context and make some assumptions about their use. For me,
-predicting churn was a challenging task and I would not say that my
-model is the best possible solution. However, it gave me a fresh inside
-and reasonable confidence that with the right features, I can identify
-some clients who are prompt to churn.
+I think that we should always link the models to the business context
+and make some assumptions about their use. For me, predicting churn was
+a challenging task and I would not say that my model is the best
+possible solution. However, it gave me a fresh inside and reasonable
+confidence that with the right features, I can identify some clients who
+are prompt to churn.
 
 ------------------------------------------------------------------------
 
