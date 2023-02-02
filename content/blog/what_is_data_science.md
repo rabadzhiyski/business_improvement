@@ -1,7 +1,7 @@
 ---
 author: Plamen Rabadzhiyki
 date: "2023-01-25T08:45:27+06:00"
-image: images/illustrations/mockups/analytics.jpg
+image: images/illustrations/mockups/data-science.png
 include_cta: true
 title: What is Data Science?
 draft: false
