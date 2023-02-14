@@ -1,13 +1,11 @@
 ---
-author: Plamen Rabadzhiyki
+author: Plamen Rabadzhiyski
 date: "2023-01-25T08:45:27+06:00"
 image: images/illustrations/mockups/data-science.png
 include_cta: true
-title: What is Data Science?
+title: What is Data Science
 draft: false
 ---
-
-## Introduction
 
 "Data science" is a term that has been making waves in the business world in recent years, but what exactly is it?
 
