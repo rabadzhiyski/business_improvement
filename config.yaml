@@ -88,7 +88,7 @@ params:
     # Main hero title
     # title: "Save $2M with better forecasting in 120 days"
     # title: "Save $2M with better data-driven decision making in 120 days"
-    title: "Unlock the potential of your retail business with data science - see results in 120 days."
+    title: "Unlock the potential of your business with data science - see results in 120 days."
     titleTextColor: "white"
     # Hero subtitle (optional)
     subtitle: "We save our clients between $100k and $2M in 120 days through improved inventory management, customer segmentation, and demand forecasting."
