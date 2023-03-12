@@ -4,6 +4,7 @@ title: Unlock Business Growth with Data Science AI
 theme: "hugo-fresh-data-science"
 # Put in your google analytics tracking code without quotes like this: UA-XXXXXX...
 googleAnalytics: # UA-XXXXX...
+# copyright: "Copyright 2023-{year} Data Science AI. All rights reserved."
 
 # Disables warnings
 disableKinds:

@@ -13,6 +13,10 @@
         <div class="footer-logo">
           <img src="{{ printf "/images/logos/%s" $logo | relURL }}" 
            style="-webkit-filter: drop-shadow(5px 5px 5px #222);width:{{ $navbarLogoWidth }}!important;height:{{ $navbarLogoHeight }}!important;">
+                   <p class="fond-bold mb-0 sm:ml-2 text-gray-500 dark:text-al">
+    <small>
+      Copyright &copy; data-science-ai.com {{ now.Format "2006" }}
+    </small>
         </div>
       </div>
       {{- range $quickLinks }}
