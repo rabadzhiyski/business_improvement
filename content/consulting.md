@@ -5,7 +5,7 @@ title: Unlock the power of data to drive growth and improve performance
 type: testimonials
 ---
 
-# Expertise in data-driven decision-making for retail SMBs
+# Expertise in data-driven decision-making for business
 
 **Unlock the power of data-driven decision-making:** Our expertise in AI and data science can help you gain valuable insights and predictions that will improve efficiency, reduce costs, and drive growth. Don't let your business fall behind the competition - let us help you harness the power of these cutting-edge technologies.
 
