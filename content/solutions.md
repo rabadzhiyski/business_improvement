@@ -45,7 +45,7 @@ Automated system for reactive forecasting during changing demand that gets fast 
 # Employee Attrition Prevention System
 
 <figure class="image">
-<img class="" src="/images/illustrations/mockups/employee_attrition_app.png" alt="Placeholder image" style="width:800px;">
+<img class="" src="/images/illustrations/mockups/churn-defender.png" alt="Placeholder image" style="width:800px;">
 </figure>
 
 ### Data Science Solution
