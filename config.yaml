@@ -73,8 +73,8 @@ params:
     button: true
   
   applynow:
-    title: Claim your FREE consultation right now.
-    subtitle: Let's talk 
+    title: Let's get started 
+    subtitle: Fill out this short form and get your free consultation. Learn how data science can transform your business in four months or less.
     #googleFormEmbed: "https://docs.google.com/forms/d/e/1FAIpQLSeaux5ms6OjbAzMM1C6tyYBA9nqveniqk_WEdmQLK3uOHSQ9Q/viewform?embedded=true"
     #googleFormEmbed: "https://forms.office.com/Pages/ResponsePage.aspx?id=UTnvpgGjtUu3LIRIjntLoiL4QkbvbIlPiY5INqTE8n1UMjEzTEhSRkdKTFdYU1VVVVhTNjgwRldKNC4u&embed=true"
     googleFormEmbed: "https://forms.office.com/Pages/ResponsePage.aspx?id=BSXKyQLEw0CoZu5xaTFt8G2KzniA_wdDp2w30hQmqLpUOFVJWFdaSFBPU09KNkQ3Wk81WEFNSVFQTS4u&embed=true"
@@ -89,10 +89,10 @@ params:
     # Main hero title
     # title: "Save $2M with better forecasting in 120 days"
     # title: "Save $2M with better data-driven decision making in 120 days"
-    title: "Unlock the potential of your business with data science - see results in 120 days."
+    title: "Free Consultation: Grow with Data Science"
     titleTextColor: "white"
     # Hero subtitle (optional)
-    subtitle: "We save our clients between $100k and $2M in 120 days through improved inventory management, customer segmentation, and demand forecasting."
+    subtitle: "Discover how Data Science and AI can enable your business growth. No matter what your goals are, we have the data science solutions that will improve your efficiency and profitability!"
     #ics subtitle: "We save our clients on average $100k-$2M per year through advanced analytics and tailored data science/AI solutions."
     heroBackgroundColor: "#000000c7"
     
@@ -129,7 +129,7 @@ params:
 
   section2_transformation:
     title: "How Data Science AI works" 
-    subtitle: "Increase Sales, Cut Costs, Improve Productivity in four easy steps. Example: 20% improved demand forecasting for a $10M problem results in $2M cost savings in 120 days."
+    subtitle: "Increase Sales, Cut Costs, Improve Productivity in four easy steps. Example: 20% improved demand forecasting for a $10M problem results in $2M cost savings in 120 days"
     # icons are located in static > images > illustrations > icons
     tile_size: is-one-quarter
     tile_height: "400px"
@@ -153,7 +153,7 @@ params:
   
   section3_interest:
     title: Maximize your business profitability
-    subtitle: With our machine learning solutions for data-driven decision-making.
+    subtitle: With our machine learning solutions for data-driven decision-making
     image: illustrations/mockups/home-page-banner.png
     tile_size: is-one-third
     tile_height: "200px"
@@ -186,8 +186,8 @@ params:
   section5_faq: false
   
   section6_action:
-    callToActionText: Would you like to unlock the potential of your business?
-    buttonText: Apply now
+    callToActionText: Are you ready to unlock the potential of your business?
+    buttonText: Get Your Free Consultation
     buttonLink: /applynow
   
   footer:

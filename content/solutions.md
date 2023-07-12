@@ -11,7 +11,7 @@ Unlock the full potential of your business with our data science solutions. Imag
 
 Our automated forecasting system and employee attrition prevention solutions make all of this possible. But that's not all - we'll work with you to define your most urgent business needs and design a tailor-made data science solution that fits your specific needs. Whether it's pricing optimization, store-specific SKU selection, customer segmentation, brand sensitivity analysis, or something else, we've got you covered.
 
-#### Don't miss out on the opportunity to take your business to the next level - contact us today to learn more!
+#### Don't miss out on the opportunity to take your business to the next level - claim your FREE consultation today to learn more!
 
 ------------------------------------------------------------------------
 
