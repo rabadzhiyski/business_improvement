@@ -9,9 +9,9 @@ type: testimonials
 
 **Unlock the power of data-driven decision-making:** Our expertise in AI and data science can help you gain valuable insights and predictions that will improve efficiency, reduce costs, and drive growth. Don't let your business fall behind the competition - let us help you harness the power of these cutting-edge technologies.
 
-**Revolutionize your retail business with data science:** From customer insights to inventory management and demand forecasting, our data-driven solutions can help you increase sales and reduce costs. We understand the unique challenges faced by SMBs in the retail industry, and we're here to help you overcome them.
+**Revolutionize your business with data science:** From customer insights to inventory management and demand forecasting, our data-driven solutions can help you increase sales and reduce costs. We understand the unique challenges faced by SMBs, and we're here to help you overcome them.
 
-**Maximize your retail business's potential:** Our team of data science experts can help you unlock the full potential of AI and data science in your business. We'll work with you to develop custom solutions that will improve efficiency, reduce costs, and drive growth in as little as 120 days.
+**Maximize your business's potential:** Our team of data science experts can help you unlock the full potential of AI and data science in your business. We'll work with you to develop custom solutions that will improve efficiency, reduce costs, and drive growth in as little as 120 days.
 
 ------------------------------------------------------------------------
 
