@@ -59,7 +59,7 @@ params:
   #   - title: Dropdown item
   #     url: /
   - title: Free E-Book
-    url: https://data-science-ai.ck.page/eae46bec92
+    url: https://data-science-ai.ck.page/data-driven-success
   - title: Consulting
     url: /consulting
   # - title: Testimonials
@@ -231,10 +231,19 @@ params:
         # - text: Let's talk, apply now!
         #   link: /applynow
       column2:
-        title: "Solutions"
+        title: "Services"
         links:
-        - text: Data Science Solutions
+        - text: Consulting
+          link: /consulting
+        - text: Solutions
           link: /solutions
+          
+      column3:
+        title: "Privacy"
+        links:
+        - text: Privacy Policy
+          link: /solutions
+        # - text: Employee 
         # - text: Employee Turnover
         #   link: /applications
           
