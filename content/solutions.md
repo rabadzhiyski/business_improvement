@@ -63,3 +63,7 @@ An organization that loses 200 productive employees per year has a hidden cost o
 -   **Identifying factors that influence turnover:** A data science web app can help a company to identify factors that influence employee turnovers such as job satisfaction, work environment, or management style. This can help a business to make changes that will improve employee retention and satisfaction.
 -   **Improved decision-making:** By providing real-time insights and forecasts, the web app can help managers and executives to make more informed and data-driven decisions related to employee retention.
 -   **Anomaly detection:** The ability to detect anomalies in the data, such as an unusual amount of employee turnover in a specific department or team, can help managers identify and address underlying issues more quickly.
+
+### Demo
+
+[Click to see a demo of the app](https://data-science-ai.shinyapps.io/churn-defender/)

@@ -28,7 +28,7 @@ params:
   # Logo (from static/images/logos/___)
     image: logos/padded_logo.png
     link: /
-    brandName:  Unlock Business Growth with Data Science AI
+    brandName:  Unlock Business Growth
     # Default width/height. Uncomment if you need to change
     width: 40
     height: 60
@@ -58,6 +58,8 @@ params:
   #     url: /
   #   - title: Dropdown item
   #     url: /
+  - title: Free E-Book
+    url: https://data-science-ai.ck.page/data-driven-success
   - title: Consulting
     url: /consulting
   # - title: Testimonials
@@ -66,7 +68,7 @@ params:
     url: /solutions
   - title: Blog
     url: /blog
-  - title: Contact Us
+  - title: Contact
     url: /contact
   - title: Apply Now
     url: /applynow
@@ -74,7 +76,7 @@ params:
   
   applynow:
     title: Let's get started 
-    subtitle: Fill out this short form and get your free consultation. Learn how data science can transform your business in four months or less.
+    subtitle: Fill out this short form and get your free consultation. Learn how data science can transform your business.
     #googleFormEmbed: "https://docs.google.com/forms/d/e/1FAIpQLSeaux5ms6OjbAzMM1C6tyYBA9nqveniqk_WEdmQLK3uOHSQ9Q/viewform?embedded=true"
     #googleFormEmbed: "https://forms.office.com/Pages/ResponsePage.aspx?id=UTnvpgGjtUu3LIRIjntLoiL4QkbvbIlPiY5INqTE8n1UMjEzTEhSRkdKTFdYU1VVVVhTNjgwRldKNC4u&embed=true"
     googleFormEmbed: "https://forms.office.com/Pages/ResponsePage.aspx?id=BSXKyQLEw0CoZu5xaTFt8G2KzniA_wdDp2w30hQmqLpUOFVJWFdaSFBPU09KNkQ3Wk81WEFNSVFQTS4u&embed=true"
@@ -89,21 +91,22 @@ params:
     # Main hero title
     # title: "Save $2M with better forecasting in 120 days"
     # title: "Save $2M with better data-driven decision making in 120 days"
-    title: "Free Consultation: Grow with Data Science"
+    title: "Lost in the Competition? Stand Out with Data Science."
     titleTextColor: "white"
     # Hero subtitle (optional)
-    subtitle: "Discover how Data Science and AI can enable your business growth. No matter what your goals are, we have the data science solutions that will improve your efficiency and profitability!"
+    subtitle: "Data Science is not reserved to big tech companies anymore. Unveil the secrets of data science tailored for non-tech businesses. See how AI and insightful data can revolutionize your operations and boost your bottom line."
     #ics subtitle: "We save our clients on average $100k-$2M per year through advanced analytics and tailored data science/AI solutions."
     heroBackgroundColor: "#000000c7"
     
     # Button text
-    buttontext: "How it works"
+    buttontext: "Discover More"
     # Where the main hero button links to
     buttonlink: "/#section2"
     # Hero image (from static/images/___)
     # Can get these images from flaticon.com
     image: illustrations/mockups/nostradamus_app.jpg
     backgroundImage: illustrations/pexels-pixabay-373543.jpg
+    
     # USE DS SOLUTION OPTIONS BEFORE GENERATING CLIENTS - FORECASTING, SKU, PRICING ETC.
     # clientstext: "Some of the clients we've helped:"
     # # Footer logos (from static/images/logos/clients/___.svg)
@@ -115,7 +118,7 @@ params:
     # - gutwork.svg
     
     # USE DS SOLUTION OPTIONS BEFORE GENERATING CLIENTS - FORECASTING, SKU, PRICING ETC.
-    clientstext: "Some of the technology we use"
+    clientstext: "Some of the Technology We Use"
     # # Footer logos (from static/images/logos/clients/___.svg)
     clientlogos:
     - aws_grey.png
@@ -128,7 +131,7 @@ params:
     - h2o.png
 
   section2_transformation:
-    title: "How Data Science AI works" 
+    title: "What Can You Achieve with Data Science?" 
     subtitle: "Increase Sales, Cut Costs, Improve Productivity in four easy steps. Example: 20% improved demand forecasting for a $10M problem results in $2M cost savings in 120 days"
     # icons are located in static > images > illustrations > icons
     tile_size: is-one-quarter
@@ -211,19 +214,36 @@ params:
     bulmalogo: false
     quicklinks:
       column1:
-        title: "Consulting"
+        title: "Company"
         links:
-        - text: Benefits of working with us
-          link: /consulting
-        # - text: Testimonials
-        #   link: /testimonials
-        - text: Let's talk, apply now!
-          link: /applynow
+        - text: About
+          link: /about
+        - text: Contact
+          link: /contact
+        
+        
+        # title: "Consulting"
+        # links:
+        # - text: Benefits of working with us
+        #   link: /consulting
+        # # - text: Testimonials
+        # #   link: /testimonials
+        # - text: Let's talk, apply now!
+        #   link: /applynow
       column2:
-        title: "Solutions"
+        title: "Services"
         links:
-        - text: Data Science Solutions
+        - text: Consulting
+          link: /consulting
+        - text: Solutions
           link: /solutions
+          
+      column3:
+        title: "Privacy"
+        links:
+        - text: Privacy Policy
+          link: /privacy
+        # - text: Employee 
         # - text: Employee Turnover
         #   link: /applications
           
