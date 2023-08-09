@@ -118,7 +118,7 @@ params:
     # - gutwork.svg
     
     # USE DS SOLUTION OPTIONS BEFORE GENERATING CLIENTS - FORECASTING, SKU, PRICING ETC.
-    clientstext: "Some of the technology we use"
+    clientstext: "Some of the Technology We Use"
     # # Footer logos (from static/images/logos/clients/___.svg)
     clientlogos:
     - aws_grey.png
@@ -242,7 +242,7 @@ params:
         title: "Privacy"
         links:
         - text: Privacy Policy
-          link: /solutions
+          link: /privacy
         # - text: Employee 
         # - text: Employee Turnover
         #   link: /applications
