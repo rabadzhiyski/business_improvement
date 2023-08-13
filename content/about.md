@@ -50,7 +50,7 @@ In essence, Data Science AI Consulting is more than just a consulting service. W
 
 ## Founder
 
-Data Science AI Consulting is founded by [Plamen Rabadzhiyski](www.linkedin.com/in/plamen-rabadzhiyski), strategic data science consultant with experience in Fortune 500 companies and various industries.
+Data Science AI Consulting is founded by [Plamen Rabadzhiyski](https://www.linkedin.com/in/plamen-rabadzhiyski/), strategic data science consultant with experience in Fortune 500 companies and various industries.
 
 From Lean Six Sigma to Data Science, Plamen knows how to turn tough business problems into golden opportunities. With hands-on experience in leading projects, diving into data, and mapping out business strategies, Plamen shows companies how smart decisions based on data can open doors to success. His career has taken him to big-name companies like Cargill and HP. There, he led teams and introduced tech tools that helped the business thrive. But after leaving those giants, Plamen got a real look at the hurdles smaller businesses face every day. Through his work in areas like forecasting trends, understanding customer groups, and predicting business shifts, he's helped businesses spot opportunities they didn't even know they had.
 
