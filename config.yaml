@@ -133,41 +133,42 @@ params:
 
   section2_transformation:
     title: "What Can You Achieve with Data Science?" 
-    subtitle: "Increase Sales, Cut Costs, Improve Productivity in four easy steps. Example: 20% improved demand forecasting for a $10M problem results in $2M cost savings in 120 days"
+    subtitle: "Increase Sales, Cut Costs, Improve Productivity. Example: 20% improved demand forecasting for a $10M problem results in $2M cost savings in 120 days"
     # icons are located in static > images > illustrations > icons
     tile_size: is-one-quarter
     tile_height: "400px"
     tiles:
-    - title: "Step 1"
-      subtitle: Discovery
+    - title: "Understand Your Customers"
+      # subtitle: Discovery
       icon: conversation.svg
-      text: Schedule a call with one of our experts to discuss your business needs and pain points.
-    - title: "Step 2"
-      subtitle: Analysis
+      text: Segment your customers and tailor your offers to their demographics, preferences, behaviors, and needs.
+
+    - title: "Oprimize Your Pricing Strategy"
+      # subtitle: Analysis
+      icon: predictive-chart.svg
+      text: Analyze competitors, market and demand to set dynamic prices that maximize your profits.
+    - title: "Manage Your Inventory"
+      # subtitle: Solution Design
       icon: forecasting.svg
-      text: Work with our team to uncover hidden opportunities for growth and cost reduction, backed by data.
-    - title: "Step 3"
-      subtitle: Solution Design
-      icon: collaboration.svg
-      text: Design and implement custom data-driven solutions tailored to your specific business problems.
-    - title: "Step 4"
-      subtitle:  Implementation & Monitoring
+      text: Machine learning forecasts can help managing stock levels and replenishments better. Reduce waste and costs.
+    - title: "Improve Your Customer Service"
+      # subtitle:  Implementation & Monitoring
       icon: monitoring.svg
-      text: Train your team to use the solutions effectively and monitor the results to ensure they meet your goals within 120 days.
+      text: Prevent customer churn, create loyalty programs and rewards that incentivize repeat purchases and referrals.
   
   section3_interest:
     title: Maximize your business profitability
     subtitle: With our machine learning solutions for data-driven decision-making
-    image: illustrations/mockups/home-page-banner.png
+    image: illustrations/mockups/mckinsey_analytics.png
     tile_size: is-one-third
     tile_height: "200px"
     tiles:
-    - title: "See Results in 120 days"
-      subtitle: "Say goodbye to losses and hello to savings. No need to hire multiple consultants - we'll take care of it all for you."
+    - title: "See Results in 120 Days or Less"
+      subtitle: "Say goodbye to losses and hello to savings. No need to hire multiple consultants - we'll take care of it all for you, fast."
     - title: "Completely Secure"
       subtitle: "Our machine learning solutions can be deployed on any major cloud provider or on your private network, giving you complete control and peace of mind."
     - title: "Guaranteed ROI"
-      subtitle: "We have a proven track record of saving millions of dollars per year. If we can't at least save you what you pay us, we'll give you your money back."
+      subtitle: "We have a proven track record of success. If we can't at least save you what you pay us, we'll give you your money back."
     
     
   # section4_desire:

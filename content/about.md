@@ -5,13 +5,13 @@ title: "Democratizing Data: Making Data Science Accessible to All"
 type: testimonials
 ---
 
-## Our Motivation
+## Motivation
 
 In today's digital age, a significant chasm exists between advanced technological capabilities and tangible business objectives. Many believe that the realms of Data Science, AI, and Machine Learning belong solely to the tech giants of the world. This notion couldn't be further from the truth.
 
 At Data Science AI Consulting, we recognize this critical gap and have dedicated our mission to filling it. We believe that the transformative power of data science shouldn't be an exclusive privilege. Every business, regardless of its technological roots, should have the ability to leverage advanced data tools to drive growth, innovate, and stay competitive.
 
-## Our Services
+## Services
 
 Our services are tailor-made to ensure that non-tech businesses not only understand the value of data but also know how to harness its potential:
 
