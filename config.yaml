@@ -58,8 +58,8 @@ params:
   #     url: /
   #   - title: Dropdown item
   #     url: /
-  - title: Free E-Book
-    url: https://data-science-ai.ck.page/data-driven-success
+  - title: About
+    url: /about
   - title: Consulting
     url: /consulting
   # - title: Testimonials
@@ -99,9 +99,10 @@ params:
     heroBackgroundColor: "#000000c7"
     
     # Button text
-    buttontext: "Discover More"
+    buttontext: "Discover More with Our Free Guide"
     # Where the main hero button links to
-    buttonlink: "/#section2"
+    # buttonlink: "/#section2"
+    buttonlink: "https://data-science-ai.ck.page/data-driven-success"
     # Hero image (from static/images/___)
     # Can get these images from flaticon.com
     image: illustrations/mockups/nostradamus_app.jpg

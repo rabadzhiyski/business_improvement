@@ -33,7 +33,7 @@ Our services are tailor-made to ensure that non-tech businesses not only underst
 </tr>
 <tr class="odd">
 <td><p><strong>Data-Driven Decision Making</strong></p></td>
-<td><p>Ground your decisions in data, ensuring theyre informed, strategic, and yield the desired results.</p></td>
+<td><p>Ground your decisions in data, ensuring they are informed, strategic, and yield the desired results.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Data Science Training</strong></p></td>
