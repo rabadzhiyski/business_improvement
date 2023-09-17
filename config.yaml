@@ -64,12 +64,14 @@ params:
     url: /consulting
   # - title: Testimonials
   #   url: /testimonials
-  - title: Solutions
+  - title: Apps
     url: /solutions
   - title: Blog
     url: /blog
-  - title: Contact
-    url: /contact
+  # - title: Contact
+  #   url: /contact
+  - title: Free eBook
+    url: "https://data-science-ai.ck.page/data-driven-success"
   - title: Apply Now
     url: /applynow
     button: true
@@ -94,15 +96,16 @@ params:
     title: "Lost in the Competition? Stand Out with Data Science."
     titleTextColor: "white"
     # Hero subtitle (optional)
-    subtitle: "Data Science is not reserved to big tech companies anymore. Unveil the secrets of data science tailored for non-tech businesses. See how AI and insightful data can revolutionize your operations and boost your bottom line."
+    subtitle: "Data Science is not reserved to big tech companies anymore. Unveil the secrets of data science tailored for non-tech businesses. See how AI and insightful data can revolutionize your operations and boost your top/bottom line."
     #ics subtitle: "We save our clients on average $100k-$2M per year through advanced analytics and tailored data science/AI solutions."
     heroBackgroundColor: "#000000c7"
     
     # Button text
-    buttontext: "Discover More with Our Free Guide"
+    buttontext: "Discover More"
+    # buttontext: "Discover More with Our Free Guide"
     # Where the main hero button links to
-    # buttonlink: "/#section2"
-    buttonlink: "https://data-science-ai.ck.page/data-driven-success"
+    buttonlink: "/#section2"
+    # buttonlink: "https://data-science-ai.ck.page/data-driven-success"
     # Hero image (from static/images/___)
     # Can get these images from flaticon.com
     image: illustrations/mockups/nostradamus_app.jpg
@@ -147,14 +150,14 @@ params:
       # subtitle: Analysis
       icon: predictive-chart.svg
       text: Analyze competitors, market and demand to set dynamic prices that maximize your profits.
-    - title: "Manage Your Inventory"
+    - title: "Improve Your Business Operations"
       # subtitle: Solution Design
       icon: forecasting.svg
-      text: Machine learning forecasts can help managing stock levels and replenishments better. Reduce waste and costs.
-    - title: "Improve Your Customer Service"
+      text: Reduce waste and costs by using Machine Learning to manage inventory stock, predict employee turnover and more.
+    - title: "Keep Your Customers from Leaving"
       # subtitle:  Implementation & Monitoring
       icon: monitoring.svg
-      text: Prevent customer churn, create loyalty programs and rewards that incentivize repeat purchases and referrals.
+      text: Predict customer churn, create loyalty programs and rewards that incentivize repeat purchases and referrals.
   
   section3_interest:
     title: Maximize your business profitability
