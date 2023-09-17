@@ -240,7 +240,7 @@ params:
         links:
         - text: Consulting
           link: /consulting
-        - text: Solutions
+        - text: Apps
           link: /solutions
           
       column3:
