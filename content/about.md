@@ -46,12 +46,12 @@ Our services are tailor-made to ensure that non-tech businesses not only underst
 </tbody>
 </table>
 
-In essence, Data Science AI Consulting is more than just a consulting service. We are your partners in bridging the gap between business and technology, ensuring that the power of data science is within reach for everyone. Let's transform the future, together.
+In essence, Data Science AI is more than just a consulting service. We are your partners in bridging the gap between business and technology, ensuring that the power of data science is within reach for everyone. Let's transform the future, together.
 
 ## Founder
 
-Data Science AI Consulting is founded by [Plamen Rabadzhiyski](https://www.linkedin.com/in/plamen-rabadzhiyski/), strategic data science consultant with experience in Fortune 500 companies and various industries.
+Data Science AI Consulting is founded by [Plamen Rabadzhiyski,](https://plamen.ai/) strategic data science consultant with experience in Fortune 50 companies and various industries.
 
 From Lean Six Sigma to Data Science, Plamen knows how to turn tough business problems into golden opportunities. With hands-on experience in leading projects, diving into data, and mapping out business strategies, Plamen shows companies how smart decisions based on data can open doors to success. His career has taken him to big-name companies like Cargill and HP. There, he led teams and introduced tech tools that helped the business thrive. But after leaving those giants, Plamen got a real look at the hurdles smaller businesses face every day. Through his work in areas like forecasting trends, understanding customer groups, and predicting business shifts, he's helped businesses spot opportunities they didn't even know they had.
 
-Today, Plamen's on a mission as a consultant: He wants to take what he's learned in big business and bring it to companies of all sizes. With a toolkit filled with data and tech know-how, he's helping businesses streamline their work, boost their results, and grow bigger and better.
+Today, Plamen's on a mission as a consultant: He wants to take what he's learned in the big business and bring it to companies of all sizes. With a toolkit filled with data and tech know-how, he's helping businesses streamline their work, boost their results, and grow bigger and better.

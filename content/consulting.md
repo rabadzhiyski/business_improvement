@@ -5,13 +5,50 @@ title: Unlock the power of data to drive growth and improve performance
 type: testimonials
 ---
 
-# Expertise in data-driven decision-making for business
+# Expertise in Data-driven Decision-making for Business
 
 **Unlock the power of data-driven decision-making:** Our expertise in AI and data science can help you gain valuable insights and predictions that will improve efficiency, reduce costs, and drive growth. Don't let your business fall behind the competition - let us help you harness the power of these cutting-edge technologies.
 
 **Revolutionize your business with data science:** From customer insights to inventory management and demand forecasting, our data-driven solutions can help you increase sales and reduce costs. We understand the unique challenges faced by SMBs, and we're here to help you overcome them.
 
 **Maximize your business's potential:** Our team of data science experts can help you unlock the full potential of AI and data science in your business. We'll work with you to develop custom solutions that will improve efficiency, reduce costs, and drive growth in as little as 120 days.
+
+# Services
+
+Our services are tailor-made to ensure that non-tech businesses not only understand the value of data but also know how to harness its potential:
+
+<table>
+<thead>
+<tr class="header">
+<th><h3>Services</h3></th>
+<th><h3>Details</h3></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><strong>Data Analysis and Insights</strong></p></td>
+<td><p>Dive deep into your data, unearth meaningful insights, and make decisions that resonate.</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>Predictive Modeling</strong></p></td>
+<td><p>Anticipate market trends, be proactive, and stay always one step ahead of your competition.</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>Data-Driven Decision Making</strong></p></td>
+<td><p>Ground your decisions in data, ensuring they are informed, strategic, and yield the desired results.</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>Data Science Training</strong></p></td>
+<td><p>Empower your team with the knowledge and skills to navigate the complex world of data science.</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>Data Strategy Consulting</strong></p></td>
+<td><p>Build a robust data infrastructure, aligning your data vision with business objectives.</p></td>
+</tr>
+</tbody>
+</table>
+
+In essence, Data Science AI is more than just a consulting service. We are your partners in bridging the gap between business and technology, ensuring that the power of data science is within reach for everyone. Let's transform the future, together.
 
 ------------------------------------------------------------------------
 
@@ -48,7 +85,6 @@ Utilize data science to increase the profit per purchase, reduce costs, and impr
 ### Discover new growth opportunities
 
 Uncover hidden customer groups and patterns that affect sales, optimize pricing strategies, and select the best locations for your next physical store. Improve forecasting and personalized promotions to drive more sales.
-
 
 ------------------------------------------------------------------------
 
