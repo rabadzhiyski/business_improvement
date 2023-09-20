@@ -2,6 +2,7 @@
 author: Plamen Rabadzhiyski
 date: "2023-09-20T08:45:27+06:00"
 image: images/illustrations/mockups/churn-defender.png
+featuredImage: images/illustrations/mockups/churn-defender.png
 include_cta: true
 title: Data-Driven HR - Unveiling the Future of HR
 draft: false
