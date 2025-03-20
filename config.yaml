@@ -28,7 +28,7 @@ params:
   # Logo (from static/images/logos/___)
     image: logos/padded_logo.png
     link: /
-    brandName:  Unlock Business Growth
+    brandName:  Strategy-Driven AI Solutions #Strategic Clarity in the AI Noise
     # Default width/height. Uncomment if you need to change
     width: 40
     height: 60
@@ -89,18 +89,16 @@ params:
     subtitle: What can we help you with?
     buttontext: Contact Us
   
+  # HERO SECTION --------------------
   section1_attention:
     # Main hero title
     # title: "Save $2M with better forecasting in 120 days"
     # title: "Save $2M with better data-driven decision making in 120 days"
     title: "Make AI & Data Science Work For You"
     titleTextColor: "white"
-    # Hero subtitle (optional)
     subtitle: "We help business leaders and product executives navigate the AI landscape so they can implement data-driven solutions that deliver tangible business outcomes without wasting resources on false starts, lengthy learning curves, or getting lost in technical complexity."
     #ics subtitle: "We save our clients on average $100k-$2M per year through advanced analytics and tailored data science/AI solutions."
     heroBackgroundColor: "#000000c7"
-    
-    # Button text
     buttontext: "Discover More"
     # buttontext: "Discover More with Our Free Guide"
     # Where the main hero button links to
@@ -135,7 +133,7 @@ params:
     - h2o.png
     # - databricks.png
   
-  # SOLUTIONS DEEP DIVE SECTION
+  # SOLUTIONS DEEP DIVE SECTION --------------------
   section2_transformation:
     title: "Real Solutions for Your Biggest Business Headaches" 
     subtitle: "Our proven consulting approach helps you spot, prioritize, and roll out the right data science tools to solve your specific business problems and give you an edge over competitors."
@@ -160,6 +158,7 @@ params:
       icon: monitoring.svg
       text: Deploy AI agents that handle repetitive tasks, coordinate processes, and manage routine decisions—freeing your team to focus on strategic work.
   
+  # INTEREST SECTION ----------------------
   # If modifications - consider 'themes/hugo-fresh-data-science/layouts/partials/section3-interest.html'
   section3_interest:
     title: Tired of AI Hype? Let's Build Something That Actually Works
@@ -180,7 +179,7 @@ params:
       subtitle: "Align AI solutions with business goals. Identify business opportunities. Integrate 
       business processes, systems, and technology for optimal performance and adaptability."
 
-    
+  # TESTIMONIALS ----------------------  
   section4_desire:
     title: Trusted by Awesome Companies
     subtitle: Tangible Results from our Valued Clients
@@ -200,11 +199,13 @@ params:
   
   section5_faq: false
   
+  # CTA ----------------------- 
   section6_action:
-    callToActionText: Are you ready to unlock the potential of your business?
-    buttonText: Get Your Free Consultation
-    buttonLink: /applynow
+    callToActionText: The AI Business Scientist Newsletter. Smart AI and Data Science Insights
+    buttonText: Sign Up Now
+    buttonLink: https://data-science-ai.kit.com/newsletter #/applynow
   
+  # FOOTER ----------------------- 
   footer:
     # Logo (from /images/logos/___)
     logo: white_logo_no_back.png
