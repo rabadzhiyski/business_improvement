@@ -1,4 +1,4 @@
-{{- $section3         := .Site.Params.section3_interest }}
+<!-- {{- $section3         := .Site.Params.section3_interest }}
 {{- $title            := index $section3 "title" }}
 {{- $subtitle         := index $section3 "subtitle" }}
 {{- $image            := index $section3 "image" }}
@@ -7,7 +7,7 @@
 {{- $tiles            := index $section3 "tiles" }}
 <section class="section section-feature-grey is-medium" id="section3">
   <div class="container">
-    <!-- TEST COMMENT - If you see section3 but not this text, template is working -->
+    
     <div class="columns">
       <div class="column is-10 is-offset-1">
         <div class="has-text-centered">
@@ -16,7 +16,6 @@
         </div>
       </div>
     </div>
-    <!-- Rest of your original file unchanged -->
     <div class="title-wrapper has-text-centered">
       <h2 class="title is-2">{{ $title }}</h2>
       <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
@@ -32,6 +31,60 @@
             </div>
             <div class="card-title">
               <p>{{ .subtitle }}</p>
+            </div>
+          </div>
+        </div>
+        {{- end }}
+      </div>
+    </div>
+    
+  </div>
+</section> -->
+
+{{- $section3         := .Site.Params.section3_interest }}
+{{- $title            := index $section3 "title" }}
+{{- $subtitle         := index $section3 "subtitle" }}
+{{- $image            := index $section3 "image" }}
+{{- $tile_size        := index $section3 "tile_size" }}
+{{- $tile_height      := index $section3 "tile_height" }}
+{{- $tiles            := index $section3 "tiles" }}
+<section class="section section-feature-grey is-medium" id="section3">
+  <div class="container">
+    
+    <div class="columns">
+      <div class="column is-10 is-offset-1">
+        <div class="has-text-centered">
+          <img class="pushed-image" src="{{ printf "/images/%s" $image | relURL }}"
+          style="-webkit-filter: drop-shadow(5px 5px 5px #222);">
+        </div>
+      </div>
+    </div>
+    <div class="title-wrapper has-text-centered">
+      <h2 class="title is-2">{{ $title }}</h2>
+      <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
+    </div>
+    
+    <div class="content-wrapper">
+      <div class="columns">
+        {{- range $tiles }}
+        <div class="column {{ $tile_size}}">
+          <div class="feature-card is-bordered has-text-centered revealOnScroll delay-1" data-animation="fadeInLeft" style="height:auto; min-height:{{$tile_height}}; padding:15px; display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div class="card-title">
+                <h4>{{ .title }}</h4>
+              </div>
+              <div class="card-title">
+                <p style="overflow-wrap:break-word; word-wrap:break-word; hyphens:auto;">{{ .subtitle }}</p>
+              </div>
+            </div>
+            <div style="margin-top:20px; margin-bottom:5px;">
+              {{ if eq .title "The Data and AI Masterclass" }}
+                <a href="https://data-science-ai.kit.com/waitlist" class="button cta rounded secondary-btn raised">Learn More</a>
+              {{ else if eq .title "Targeted AI Applications" }}
+                <a href="/solutions" class="button cta rounded secondary-btn raised">Learn More</a>
+              {{ else }}
+                <a href="/applynow" class="button cta rounded secondary-btn raised">Learn More</a>
+              {{ end }}
             </div>
           </div>
         </div>
