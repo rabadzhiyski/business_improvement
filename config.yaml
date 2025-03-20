@@ -160,8 +160,8 @@ params:
       text: Deploy AI agents that handle repetitive tasks, coordinate processes, and manage routine decisions—freeing your team to focus on strategic work.
   
   section3_interest:
-    title: Maximize your business profitability
-    subtitle: With our machine learning solutions for data-driven decision-making
+    title: Tired of AI Hype? Let's Build Something That Actually Works
+    subtitle: Wherever you are on your AI journey, we have solutions tailored to your needs.
     image: illustrations/mockups/value-ladder-2.png
     tile_size: is-one-third
     tile_height: "200px"
@@ -252,6 +252,3 @@ params:
         # - text: Employee 
         # - text: Employee Turnover
         #   link: /applications
-          
-
-          

@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Plamen Rabadzhiyski">
+<meta name="dcterms.date" content="2021-06-04">
+
+<title>Predicting Customer Churn with PySpark</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="customer-churn-spark_files/libs/clipboard/clipboard.min.js"></script>
+<script src="customer-churn-spark_files/libs/quarto-html/quarto.js"></script>
+<script src="customer-churn-spark_files/libs/quarto-html/popper.min.js"></script>
+<script src="customer-churn-spark_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="customer-churn-spark_files/libs/quarto-html/anchor.min.js"></script>
+<link href="customer-churn-spark_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="customer-churn-spark_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="customer-churn-spark_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="customer-churn-spark_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="customer-churn-spark_files/libs/bootstrap/bootstrap-be6bbd7db2760dae917432828e92c6ba.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<meta name="quarto:status" content="draft">
+
+
+</head>
+
+<body class="fullcontent"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Predicting Customer Churn with PySpark</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Plamen Rabadzhiyski </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 4, 2021</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="technical-report-with-code-chunks" class="level2">
+<h2 class="anchored" data-anchor-id="technical-report-with-code-chunks">Technical report with code chunks</h2>
+<p>I used <a href="https://spark.apache.org/docs/latest/api/python/index.html">PySpark</a> to predict customer churn of a company that provides online music services. The company has two main types of customers — Free and Paid users. Any user can upgrade or downgrade the service at any time. The company stores a decent amount of data that can be used to design a machine learning model to predict what customers would churn so that we can offer them incentives and make them stay as long as possible.</p>
+<p>The project uses <a href="https://www.databricks.com/glossary/pyspark">PySpark</a> libraries and it was developed with Jupyter notebooks on a local PC. A Spark cluster was also used in&nbsp;<a href="https://www.ibm.com/cloud/watson-studio">IBM Watson Studio</a>. There are three data sets available with customer data — mini, medium, and a 12GB data set, provided by <a href="https://www.udacity.com/">Udacity</a>. The mini version was used locally, and the medium-sized data was used in the cluster. The project consists of:</p>
+<ul>
+<li><p>Jupyter Notebook — where all code is available (working and final version)</p></li>
+<li><p>Blog post — this post</p></li>
+<li><p><a href="https://github.com/rabadzhiyski/SparkProject">Github</a>&nbsp;repository — where all code can be found</p></li>
+</ul>
+<p>The customer churn is addressed through data transformation, feature engineering, and machine learning classification. The best model was chosen based on the AUC-ROC metric. Logistic regression and Random Forest classifier were tested. In the end, the Logistic regression model performed 23% better than the Random Forest classifier.</p>
+<hr>
+</section>
+<section id="problem-statement" class="level2">
+<h2 class="anchored" data-anchor-id="problem-statement">Problem statement</h2>
+<p>Customer churn is a very challenging area and it gives many opportunities for analyses. I used PySpark to load, transform data and build a machine-learning algorithm to predict users’ churn. It was important to find a way to get a realistic probability for users who are prompt to churn based on some features like gender, location, workday, songs played, etc.</p>
+<p>With the help of several PySpark libraries, I explored the data, engineered the most appropriate features, designed a machine learning pipeline, and chose the most appropriate model for predicting churn. It is a classification task that required Logistic Regression, Random Forest Classifier, or another classification model.</p>
+</section>
+<section id="metrics" class="level2">
+<h2 class="anchored" data-anchor-id="metrics">Metrics</h2>
+<p>To define if I worked correctly and if we can count on the ML model I needed some metrics. For this project, I used the area under AUC-ROC as a performance metric.</p>
+<p>Even if accuracy is a very popular metric, it’s not the best choice for binary classification problems which often produce unbalanced data. Like fraud or spam filters, the customer churn data has classes that are distributed unequally.</p>
+<p>For example, when we run our logistic model it had remarkable accuracy of 99% but AUC-ROC= 65%.</p>
+<p>ROC (receiver operating curve) is the visual representation of the performance of the binary classifier. False Positive Rate vs True Positive Rate is plotted to get a visual understanding of the classifier’s performance. I chose Logistic regression over Random Forest as it was 23% more performant (0.65 vs 0.5).</p>
+</section>
+<section id="data-exploration" class="level2">
+<h2 class="anchored" data-anchor-id="data-exploration">Data Exploration</h2>
+<p>We have three data sets — mini, medium, and big (12GB) data set. For the sake of the exercise, we first started with a mini version of the data. The medium one was used with <a href="https://www.ibm.com/cloud/watson-studio">IBM Watson Studio</a>— a free cluster with Spark.</p>
+<p>After data is loaded we can have a look at the schema.</p>
+<pre><code>df.printSchema()root
+ |-- artist: string (nullable = true)
+ |-- auth: string (nullable = true)
+ |-- firstName: string (nullable = true)
+ |-- gender: string (nullable = true)
+ |-- itemInSession: long (nullable = true)
+ |-- lastName: string (nullable = true)
+ |-- length: double (nullable = true)
+ |-- level: string (nullable = true)
+ |-- location: string (nullable = true)
+ |-- method: string (nullable = true)
+ |-- page: string (nullable = true)
+ |-- registration: long (nullable = true)
+ |-- sessionId: long (nullable = true)
+ |-- song: string (nullable = true)
+ |-- status: long (nullable = true)
+ |-- ts: long (nullable = true)
+ |-- userAgent: string (nullable = true)
+ |-- userId: string (nullable = true)</code></pre>
+<p>One useful step before jumping to any exploration is to make sure that the “ts” column is converted to a human-readable date format. We used some user-defined functions to do that.</p>
+<pre><code># Check the newly created columns
+df.select('hour', 'day', 'workday_', 'month').show(5)+----+---+--------+-----+
+|hour|day|workday_|month|
++----+---+--------+-----+
+|   0|  1|  Monday|   10|
+|   1|  1|  Monday|   10|
+|   1|  1|  Monday|   10|
+|   3|  1|  Monday|   10|
+|   4|  1|  Monday|   10|
++----+---+--------+-----+
+only showing top 5 rows</code></pre>
+<p>Now we’re good to go.</p>
+<p>It would be interesting and useful to dig into the data a little bit.</p>
+<p><strong><em>How many songs do users listen to on average between visiting the home page?</em></strong></p>
+<pre><code>function = udf(lambda ishome : int(ishome == 'Home'), IntegerType())
+
+user_window = Window \
+    .partitionBy('userID') \
+    .orderBy(desc('ts')) \
+    .rangeBetween(Window.unboundedPreceding, 0)
+
+cusum = df.filter((df.page == 'NextSong') | (df.page == 'Home')) \
+    .select('userID', 'page', 'ts') \
+    .withColumn('homevisit', function(col('page'))) \
+    .withColumn('period', Fsum('homevisit').over(user_window))
+
+cusum.filter((cusum.page == 'NextSong')) \
+    .groupBy('userID', 'period') \
+    .agg({'period':'count'}) \
+    .agg({'count(period)':'avg'}).show()
+
++------------------+
+|avg(count(period))|
++------------------+
+| 23.66741388737015|
++------------------+</code></pre>
+<p><strong><em>What are the top 5 played artists?</em></strong></p>
+<pre><code># top 5 played artist
+df.filter(df.page == 'NextSong') \
+    .select('Artist') \
+    .groupBy('Artist') \
+    .agg({'Artist':'count'}) \
+    .withColumnRenamed('count(Artist)', 'Artistcount') \
+    .sort(desc('Artistcount')) \
+    .show(5)
+
++--------------------+-----------+
+|              Artist|Artistcount|
++--------------------+-----------+
+|       Kings Of Leon|       3497|
+|            Coldplay|       3439|
+|Florence + The Ma...|       2314|
+|                Muse|       2194|
+|       Dwight Yoakam|       2187|
++--------------------+-----------+
+only showing top 5 rows</code></pre>
+<p>We can use previously created date columns to see some patterns in customer behaviors. But before doing that we need to create a customer churn column.</p>
+<pre><code># check the page column df.select("page").dropDuplicates().sort("page").show()+--------------------+
+|                page|
++--------------------+
+|               About|
+|          Add Friend|
+|     Add to Playlist|
+|              Cancel|
+|Cancellation Conf...|
+|           Downgrade|
+|               Error|
+|                Help|
+|                Home|
+|               Login|
+|              Logout|
+|            NextSong|
+|            Register|
+|         Roll Advert|
+|       Save Settings|
+|            Settings|
+|    Submit Downgrade|
+| Submit Registration|
+|      Submit Upgrade|
+|         Thumbs Down|
++--------------------+
+only showing top 20 rows</code></pre>
+<p>For our analyses, we will use the “Cancellation Confirmation” page to flag when a given customer has churned.</p>
+<pre><code># create a udf to flag Churned customers
+flag_downgrade_event = udf(lambda x: 1 if x == “Cancellation Confirmation” else 0, IntegerType())</code></pre>
+</section>
+<section id="data-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="data-visualization">Data Visualization</h2>
+<p>We can see some useful insights with the help of graphs. Plotly graphing options were used during the project. Let’s see some interesting plots that will help us determine the best features for our machine learning model.</p>
+<p>We first check the location distribution. The biggest number of users are LA residents.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./uploads/blog_images/spark-location-distribution.png" class="img-fluid figure-img"></p>
+<figcaption>The biggest number of users are LA residents.</figcaption>
+</figure>
+</div>
+<p>It would be more convenient to group the cities into states by creating a new column that takes the last two characters in the row. After that manipulation, we can plot the <strong>state distribution.</strong> CA, PA, TX, NH, and FL are the top five states.</p>
+<p><img src="./uploads/blog_images/spark-state-distribution.png" class="img-fluid"></p>
+<p>What are the most active workdays?</p>
+<p><img src="./uploads/blog_images/spark-count-workday.png" class="img-fluid"></p>
+<p>What about churn during the week?</p>
+<p>Friday is the churn day.</p>
+<p><img src="./uploads/blog_images/spark-churn-workday.png" class="img-fluid"></p>
+<p>What are the most active hours for users?</p>
+<p>Users are most active in the late afternoon and during the evenings.</p>
+<p><img src="./uploads/blog_images/spark-active-hours.png" class="img-fluid"></p>
+<p>What are the most active hours for churn then?</p>
+<p>There is something at 10 am, even if it’s not the most active time for users, a lot of churns happen then.</p>
+<p><img src="./uploads/blog_images/spark-active-hours-churn.png" class="img-fluid"></p>
+<p>What are the most active days of the month?</p>
+<p>The second half of the month tends to be a bit busier, but there is not a clear pattern.</p>
+<p><img src="./uploads/blog_images/spark-active-days.png" class="img-fluid"></p>
+<p>What are the most active days during the month?</p>
+<p>The beginning and the second half of the month are for churn!</p>
+<p><img src="./uploads/blog_images/spark-active-days-month.png" class="img-fluid"></p>
+<hr>
+</section>
+<section id="data-preprocessing" class="level2">
+<h2 class="anchored" data-anchor-id="data-preprocessing">Data Preprocessing</h2>
+<p>Based on the exploratory analyses we could pick <strong>state, workday, day, and gender</strong> as our candidate features for modeling. We can also add <strong>SongsPlayed</strong> to that as it gives an interesting indication — users who listen to more songs are less prompt to churn.</p>
+<pre><code># Get feauture candidates for modeling
+df.select('userId', 'churn', 'gender', 'workday', 'day', 'state') \
+    .where(df.churn != 0).sort('userId').show(20)+------+-----+------+-------+---+-----+
+|userId|churn|gender|workday|day|state|
++------+-----+------+-------+---+-----+
+|    10|    1|     M|      2|  9|   MS|
+|100001|    1|     F|      2|  2|   FL|
+|100003|    1|     F|      4|  8|   FL|
+|100004|    1|     F|      7| 14|   NY|
+|100005|    1|     M|      6|  6|   LA|
+|100010|    1|     F|      4| 11|   CT|
+|100011|    1|     M|      3| 21|   OR|
+|100012|    1|     M|      2|  6|   WI|
+|100013|    1|     F|      2|  2|   OH|
+|100014|    1|     M|      7| 21|   PA|
+|100016|    1|     M|      2| 23|   IL|
+|100017|    1|     M|      2| 13|   AL|
+|100018|    1|     M|      1|  8|   TX|
+|100023|    1|     M|      6|  6|   SC|
+|100024|    1|     M|      2| 13|   PA|
+|100025|    1|     F|      2|  6|   PA|
+|100028|    1|     F|      7| 21|   WA|
+|100030|    1|     F|      3|  3|   CA|
+|100032|    1|     M|      4|  4|   TX|
+|100036|    1|     M|      5|  5|   OK|
++------+-----+------+-------+---+-----+
+only showing top 20 rows</code></pre>
+<p>Spark cannot work with strings when building a model. Furthermore, proper preprocessing had to be done to make sure that data is feasible for Spark modeling.</p>
+<p>The script used for this process creates a new <em>model</em> data frame only with the columns chosen for features.</p>
+<ul>
+<li><p><em>userId</em> and column <em>gender</em> are converted to integers</p></li>
+<li><p><em>churn</em> is renamed to <em>label</em></p></li>
+<li><p>new column <em>SongsPlayed</em> is created and added to the <em>model</em> data frame</p></li>
+<li><p>any null values are removed</p></li>
+<li><p>duplicates were also removed</p></li>
+</ul>
+<p>After some data wrangling, we get the below <em>model</em> table.</p>
+<pre><code>model.show()+------+-----+------+-------+---+-----+-----------+
+|userId|label|gender|workday|day|state|SongsPlayed|
++------+-----+------+-------+---+-----+-----------+
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
++------+-----+------+-------+---+-----+-----------+
+only showing top 20 rows</code></pre>
+<p>One last step is to encode the <em>state</em> column as it is a string-type column with 50+ state names. I used <em>StringIndexer</em> and <em>OneHotEncoder</em> to create a vector column of the available state.</p>
+<pre><code># Create a StringIndexer
+state_indexer = StringIndexer(inputCol =”state”, outputCol =”state_index”)# Create a OneHotEncoder
+state_encoder = OneHotEncoder(inputCol=”state_index”, outputCol=”state_fact”)</code></pre>
+<p>The difference between Scikit-learn and Spark machine learning approaches is the features. In Spark, we should encode all features into one vectored column. I used <em>VectorAssembler</em> to do that.</p>
+<pre><code># Make a VectorAssembler
+vec_assembler = VectorAssembler(inputCols=[“gender”, “state_fact”, “workday”, “day”, “SongsPlayed”], \
+ outputCol=”features”)</code></pre>
+<hr>
+</section>
+<section id="implementation" class="level2">
+<h2 class="anchored" data-anchor-id="implementation">Implementation</h2>
+<p>Once all data is good for modeling, the next step is to create a machine learning pipeline. The pipeline is a class in the pyspark.ml module that combines all the Estimators and Transformers that I already created. This lets me reuse the same modeling process over and over again by wrapping it up in one simple object.</p>
+<pre><code># Make the pipeline
+churn_pipe = Pipeline(stages=[state_indexer, state_encoder, vec_assembler])</code></pre>
+<p>After data is cleaned and gotten ready for modeling, one of the most vital steps is to split the data into a <em>test set</em> and a <em>train set</em>.</p>
+<p>In Spark, it’s important to make sure you split the data <strong>after</strong> all the transformations. This is because operations like <em>StringIndexer</em> don’t always produce the same index even when given the same list of strings.</p>
+<pre><code># Fit and transform the data
+piped_data = churn_pipe.fit(model).transform(model)# Split the data into training and test sets
+training, test = piped_data.randomSplit([.6, .4])</code></pre>
+<p>For this project, I used Logistic Regression and Random Forest Classifier to define churn. The very first pick for a classification model should always be the logistic regression. It’s a basic model but gives a good ground for machine learning predictions.</p>
+<hr>
+</section>
+<section id="refinement" class="level2">
+<h2 class="anchored" data-anchor-id="refinement">Refinement</h2>
+<p>I tuned my model using <em>k-fold cross-validation</em>. This is a method of estimating the model’s performance on unseen data. It works by splitting the training data into a few different partitions — I used Spark’s default values.</p>
+<p>Once the data is split up, one of the partitions is set aside, and the model is fit to the others. Then the error is measured against the held-out partition. This is repeated for each of the partitions so that every block of data is held out and used as a test set exactly once. Then the error on each of the partitions is averaged. This is called the cross-validation <em>error</em> of the model and is a good estimate of the actual error on the held-out data.</p>
+<p>You need to create a grid of values to search over when looking for the optimal hyperparameters. With the help of cross-validation, I chose the hyperparameters by creating a grid of the possible pairs of values for the two hyperparameters, <em>elasticNetParam</em> and <em>regParam</em>, and using the cross-validation error to compare all the different models.</p>
+<p>The submodule <em>pyspark.ml.tuning</em> includes a class called <em>ParamGridBuilder</em> that does just that.You’ll need to use the <em>.addGrid()</em> and <em>.build()</em> methods to create a grid that you can use for cross-validation. The <em>.addGrid()</em> method takes a model parameter and a list of values that you want to try. The <em>.build()</em> method takes no arguments, it just returns the grid that I used later.</p>
+<pre><code># Create the parameter grid
+grid = tune.ParamGridBuilder()
+grid_rf = tune.ParamGridBuilder()# Logistic Regression grid
+grid = grid.addGrid(lr.regParam, np.arange(0, .1, .01))
+grid = grid.addGrid(lr.elasticNetParam, [0, 1])# Random Forest grid
+grid_rf = grid_rf.addGrid(rf.numTrees,[3, 10, 30])</code></pre>
+<p>The sub-module <em>pyspark.ml.tuning</em> also has a class called <em>CrossValidator</em> for performing cross-validation.</p>
+<pre><code># Create the CrossValidator
+cv = tune.CrossValidator(estimator=lr,
+            estimatorParamMaps=grid,
+            evaluator=evaluator_ROC
+            )</code></pre>
+<p>The script I built combines all the above chunks into one action that istailored to suit a Logistic Regression and a Random Forest Classifier. Once run, the next step is to fit the model and select the best one. This task takes a lot of time and it depends on the resources in use.</p>
+<pre><code># Fit cross validation models - this steps takes a lot of time
+models = cv.fit(training)# Extract the best model
+best_lr = models.bestModel</code></pre>
+<hr>
+</section>
+<section id="model-evaluation-and-validation" class="level2">
+<h2 class="anchored" data-anchor-id="model-evaluation-and-validation">Model Evaluation and Validation</h2>
+<p>To make sure I properly assess the performance of the models I used a common metric for binary classification algorithms called the <strong><em>AUC</em></strong> (area under the curve — numerical representation of the performance of binary classifier). In this case, the curve is the <strong>ROC</strong> (receiver operating curve — the visual representation of the performance of the binary classifier. False Positive Rate vs True Positive Rate is plotted to get the visual understanding of the classifier’s performance). Both models were measured against AUC-ROC.</p>
+<hr>
+</section>
+<section id="justification" class="level2">
+<h2 class="anchored" data-anchor-id="justification">Justification</h2>
+<p>Accuracy is the most common measure but definitely ignores many factors like false positives and false negatives that are brought into the system by a model.</p>
+<p>To demonstrate why it is important to use the proper metric I will share the results from my models (random forest performed 23% less compared to the logistic regression).</p>
+<p><strong>Logistic regression results:</strong></p>
+<ul>
+<li><p>Accuracy = 99%</p></li>
+<li><p>Area under ROC = 65%</p></li>
+</ul>
+<p><strong>Random Forests results:</strong></p>
+<ul>
+<li><p>Accuracy = 99%</p></li>
+<li><p>Area under ROC = 55%</p></li>
+</ul>
+<p>If I consider only accuracy I would be too confident of my model. Since I deal with unbalanced data a better estimation of the model’s performance is the Area under ROC, which turns to be 65%.</p>
+<hr>
+</section>
+<section id="reflection" class="level2">
+<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
+<p>Predicting churn is not an easy task but with the help of Spark and python, it could get really fun. Of course, none of the techniques would matter if the model that I created is useless for real business.</p>
+<p>In my scenario, I used the gender, day, workday, state, and songs played per user to predict churn. Based on exploratory data analyses I decided that those features are good for prediction. I found some patterns, especially for churned users.</p>
+<p>Then, I transformed the whole data set to be readable by Spark’s machine learning libraries.I used Logistic Regression and Random Forests to design a machine learning algorithm.</p>
+<p>In the end, I found that Accuracy is a misleading metric for my project, so I counted on the area under ROC output to measure performance.</p>
+<hr>
+</section>
+<section id="improvement" class="level2">
+<h2 class="anchored" data-anchor-id="improvement">Improvement</h2>
+<p>As the famous British statistician George Box stated <strong><em>“All models are wrong but some are useful”.</em></strong></p>
+<p>The AUC-ROC of my models are not so good and I would look further into the data to choose a different set of features. Maybe a number of thumbs-up could be a reasonable candidate. There are plenty of opportunities to test various feature combinations to improve the model’s performance.</p>
+<p>I think that we should always link the models to the business context and make some assumptions about their use. For me, predicting churn was a challenging task and I would not say that my model is the best possible solution. However, it gave me a fresh inside and reasonable confidence that with the right features, I can identify some clients who are prompt to churn.</p>
+<hr>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li><p><a href="https://towardsdatascience.com/dealing-with-imbalanced-dataset-642a5f6ee297" class="uri">https://towardsdatascience.com/dealing-with-imbalanced-dataset-642a5f6ee297</a></p></li>
+<li><p><a href="https://medium.com/@sarath13/area-under-the-roc-curve-explained-d056854d3815">https://medium.com/@sarath13/area-under-the-roc-curve-explained-d056854d3815</a></p></li>
+<li><p><a href="https://spark.apache.org/docs/1.5.2/" class="uri">https://spark.apache.org/docs/1.5.2/</a></p></li>
+<li><p><a href="https://www.kaggle.com/lpdataninja/machine-learning-with-apache-spark/notebook" class="uri">https://www.kaggle.com/lpdataninja/machine-learning-with-apache-spark/notebook</a></p></li>
+<li><p><a href="https://www.udacity.com/course/learn-spark-at-udacity–ud2002">https://www.udacity.com/course/learn-spark-at-udacity–ud2002</a></p></li>
+</ul>
+<hr>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
