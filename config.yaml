@@ -96,7 +96,13 @@ params:
     # title: "Save $2M with better data-driven decision making in 120 days"
     title: "Make AI & Data Science Work For You"
     titleTextColor: "white"
-    subtitle: "We help business leaders and product executives navigate the AI landscape so they can implement data-driven solutions that deliver tangible business outcomes without wasting resources on false starts, lengthy learning curves, or getting lost in technical complexity."
+    subtitle: "We help business leaders and product executives cut through AI confusion to get real results. 
+    No more wasted resources, failed projects, or tech headaches — 
+    just tailored data solutions that actually work."
+    #"We help business leaders and product executives navigate the AI landscape 
+    #so they can implement data-driven solutions that deliver tangible business outcomes 
+    #without wasting resources on false starts, lengthy learning curves, or getting lost 
+    #in technical complexity."
     #ics subtitle: "We save our clients on average $100k-$2M per year through advanced analytics and tailored data science/AI solutions."
     heroBackgroundColor: "#000000c7"
     buttontext: "Discover More"
