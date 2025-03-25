@@ -5,7 +5,12 @@ theme: "hugo-fresh-data-science"
 # Put in your google analytics tracking code without quotes like this: UA-XXXXXX...
 googleAnalytics: # UA-XXXXX...
 # copyright: "Copyright 2023-{year} Data Science AI. All rights reserved."
-
+# IMPORTANT: the below outputs are part of 'Search' functionality, do not remove.
+outputs:
+  home:
+  - HTML
+  - RSS
+  - JSON
 # Disables warnings
 disableKinds:
 - taxonomy
