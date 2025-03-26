@@ -1,111 +1,96 @@
 ---
-image: /images/illustrations/new_york.jpg
+image: /images/illustrations/pexels-mathias-reding-9260295.jpg
 include_cta: true
-title: Unlock the power of data to drive growth and improve performance
-type: testimonials
+title: Strategic AI Consulting
+type: services
+services:
+  - title: Strategic Discovery Session
+    icon: search
+    subtitle: For leaders seeking clarity on where to start with AI
+    description: Comprehensive assessment of your current data capabilities, identification of high-ROI AI opportunities specific to your business, and a prioritized roadmap for implementation.
+    outcome: A clear action plan to transform your business with AI and data science.
+    link: "#discovery-session"
+    
+  - title: AI and Data Masterclass
+    icon: graduation-cap
+    subtitle: For teams that need to build foundational knowledge
+    description: Customized training for your team's specific needs, hands-on workshops with real business applications, and frameworks for evaluating AI opportunities.
+    outcome: Team empowerment to identify and evaluate AI opportunities independently.
+    link: "#masterclass"
+    
+  - title: Targeted AI Applications
+    icon: lightbulb
+    subtitle: For businesses ready to implement specific solutions
+    description: Customer segmentation and targeting, demand forecasting, inventory optimization, automated workflow solutions, and pricing optimization strategies.
+    outcome: Rapid ROI from targeted AI implementation in critical business areas.
+    link: "#targeted-solutions"
+    
+  - title: Full 3D Framework Implementation
+    icon: rocket
+    subtitle: For organizations committed to comprehensive transformation
+    description: End-to-end AI strategy development, custom solution design and implementation, integration with existing systems, and ongoing optimization.
+    outcome: Complete business transformation with measurable improvements across operations.
+    link: "#framework-implementation"
+    
+  - title: Monthly Strategic Support
+    icon: sync
+    subtitle: For businesses requiring ongoing expertise
+    description: Regular strategy sessions with your leadership team, continuous identification of new opportunities, and oversight of implementation initiatives.
+    outcome: Sustained competitive advantage through ongoing AI innovation.
+    link: "#monthly-support"
 ---
 
-# Expertise in Data-driven Decision-making for Business
+---
+## Transform Your Business with Data-Driven Intelligence
 
-**Unlock the power of data-driven decision-making:** Our expertise in AI and data science can help you gain valuable insights and predictions that will improve efficiency, reduce costs, and drive growth. Don't let your business fall behind the competition - let us help you harness the power of these cutting-edge technologies.
+We help business leaders and product executives navigate the AI landscape to implement data-driven solutions that deliver measurable business outcomes—without wasting resources on false starts, lengthy learning curves, or technical complexity.
 
-**Revolutionize your business with data science:** From customer insights to inventory management and demand forecasting, our data-driven solutions can help you increase sales and reduce costs. We understand the unique challenges faced by SMBs, and we're here to help you overcome them.
+## Our Approach
 
-**Maximize your business's potential:** Our team of data science experts can help you unlock the full potential of AI and data science in your business. We'll work with you to develop custom solutions that will improve efficiency, reduce costs, and drive growth in as little as 120 days.
+We've developed a proven framework that takes you from AI confusion to business transformation:
 
-# Services
+1. **Define** - Identify your highest-impact opportunities
+2. **Design** - Create targeted solutions that align with your business goals
+3. **Deliver** - Implement with precision and measure results
 
-Our services are tailor-made to ensure that non-tech businesses not only understand the value of data but also know how to harness its potential:
 
-<table>
-<thead>
-<tr class="header">
-<th><h3>Services</h3></th>
-<th><h3>Details</h3></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><strong>Data Analysis and Insights</strong></p></td>
-<td><p>Dive deep into your data, unearth meaningful insights, and make decisions that resonate.</p></td>
-</tr>
-<tr class="even">
-<td><p><strong>Predictive Modeling</strong></p></td>
-<td><p>Anticipate market trends, be proactive, and stay always one step ahead of your competition.</p></td>
-</tr>
-<tr class="odd">
-<td><p><strong>Data-Driven Decision Making</strong></p></td>
-<td><p>Ground your decisions in data, ensuring they are informed, strategic, and yield the desired results.</p></td>
-</tr>
-<tr class="even">
-<td><p><strong>Data Science Training</strong></p></td>
-<td><p>Empower your team with the knowledge and skills to navigate the complex world of data science.</p></td>
-</tr>
-<tr class="odd">
-<td><p><strong>Data Strategy Consulting</strong></p></td>
-<td><p>Build a robust data infrastructure, aligning your data vision with business objectives.</p></td>
-</tr>
-</tbody>
+<style>
+@media screen and (max-width: 768px) {
+  .mobile-friendly-table td {
+    display: block;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-friendly-table tr {
+    display: block;
+  }
+}
+</style>
+
+<table class="table is-fullwidth mobile-friendly-table" style="border-collapse: separate; border-spacing: 10px; border: none;">
+  <tr>
+    <td style="text-align: center; padding: 1.5rem; border: none;">
+      <i class="fas fa-chart-line fa-3x" style="color: #0066FF; margin-bottom: 1rem;"></i>
+      <h4 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">Make Better Decisions, Faster</h4>
+      <p>Cut through information overload with AI systems that analyze data, highlight key insights, and suggest actions—no more analysis paralysis.</p>
+    </td>
+    <td style="text-align: center; padding: 1.5rem; border: none;">
+      <i class="fas fa-tasks fa-3x" style="color: #0066FF; margin-bottom: 1rem;"></i>
+      <h4 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">Automate Complex Workflows</h4>
+      <p>Deploy AI agents that handle repetitive tasks, coordinate processes, and manage routine decisions—freeing your team to focus on strategic work.</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center; padding: 1.5rem; border: none;">
+      <i class="fas fa-chart-bar fa-3x" style="color: #0066FF; margin-bottom: 1rem;"></i>
+      <h4 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">Predict Changes Before They Happen</h4>
+      <p>Use advanced forecasting models to anticipate market shifts, customer behavior, and operational issues—helping you stay ahead of challenges.</p>
+    </td>
+    <td style="text-align: center; padding: 1.5rem; border: none;">
+      <i class="fas fa-gem fa-3x" style="color: #0066FF; margin-bottom: 1rem;"></i>
+      <h4 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">Uncover Hidden Revenue Opportunities</h4>
+      <p>Analyze your business data to identify hidden segments, pricing opportunities, and cross-selling possibilities that boost your profitability.</p>
+    </td>
+  </tr>
 </table>
-
-In essence, Data Science AI is more than just a consulting service. We are your partners in bridging the gap between business and technology, ensuring that the power of data science is within reach for everyone. Let's transform the future, together.
-
-------------------------------------------------------------------------
-
-# Benefit 1: Systematic approach
-
-<figure class="image">
-<img class="" src=/images/illustrations/improvement_os.jpg alt="Placeholder image" style="width:600px;">
-</figure>
-
-### Unlock hidden business opportunities
-
-We designed a business improvement framework that combines the power of Lean Six Sigma process improvement and the cutting edge capabilities of data science. We follow a proven process to identify areas of improvement within the business, and then use data science techniques to gather and analyze data to uncover the root causes of the problems identified. This allows businesses to not only identify areas of improvement but also to quantify the potential impact of changes, and use data-driven decision-making.
-
-------------------------------------------------------------------------
-
-# Benefit 2: Increased customer value
-
-<figure class="image">
-<img class="" src=/images/illustrations/increase_value.jpg alt="Placeholder image" style="width:600px;">
-</figure>
-
-### Unlock hidden revenue streams
-
-Utilize data science to increase the profit per purchase, reduce costs, and improve productivity. Reduce customer churn, increase customer satisfaction, and boost your brand perception.
-
-------------------------------------------------------------------------
-
-# Benefit 3: More customers
-
-<figure class="image">
-<img class="" src=/images/illustrations/increase_sales.jpg alt="Placeholder image" style="width:600px;">
-</figure>
-
-### Discover new growth opportunities
-
-Uncover hidden customer groups and patterns that affect sales, optimize pricing strategies, and select the best locations for your next physical store. Improve forecasting and personalized promotions to drive more sales.
-
-------------------------------------------------------------------------
-
-# Benefit 4: Security and Compliance
-
-<figure class="image">
-<img class="" src=/images/illustrations/security.jpg alt="Placeholder image" style="width:600px;">
-</figure>
-
-### Protect your sensitive data
-
-We understand the importance of data security, and we take it seriously. We use SSL encryption, secured cloud storage, and a separated protected environment to ensure your data is kept safe and confidential.
-
-------------------------------------------------------------------------
-
-# Benefit 5: Training for your team
-
-<figure class="image">
-<img class="" src=/images/illustrations/training.jpg alt="Placeholder image" style="width:600px;">
-</figure>
-
-### Build a data-driven culture
-
-Data science requires specific technical skills and a data-driven mindset. We will not only teach your team how to use the developed solutions but also offer amazing business data science training through our partner [business-science.io](https://www.business-science.io/). Your team can use on-demand online training and our guidance to quickly master data science for business!
