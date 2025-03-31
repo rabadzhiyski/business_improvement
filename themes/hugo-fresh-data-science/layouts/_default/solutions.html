@@ -1,0 +1,244 @@
+{{ define "main" }}
+{{ partial "navbar.html" . }}
+{{ partial "navbar-clone.html" . }}
+<section class="section is-medium" style="background-image: url({{ printf "/images/%s" .Site.Params.solutions.backgroundImage | relURL }}); 
+  min-height: 400px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;">
+    <div class="container">
+        <div class="columns">
+          <div class="column is-centered-tablet-portrait" style="background-color:{{ .Site.Params.solutions.heroBackgroundColor }};">
+            <h1 class="title section-title" style="font-size:48px;color:{{ .Site.Params.solutions.titleTextColor }}">{{ .Title }}</h1>
+            <h2 class="subtitle" style="color:{{ .Site.Params.solutions.subtitleTextColor }}">{{ .Page.Params.subtitle }}</h2>
+          </div>
+        </div>
+    </div>
+</section>
+
+<!-- Introduction Section -->
+{{ if .Content }}
+<section class="section">
+  <div class="container">
+    <div class="content">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- Filter Sections -->
+<section class="section">
+  <div class="container">
+    <!-- Category Filters -->
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h4 class="title is-5 has-text-centered">Filter by Category</h4>
+        <div class="buttons is-centered filter-buttons" id="category-filters">
+          <button class="button is-primary is-active" data-filter="all">All Solutions</button>
+          {{ $categories := slice }}
+          {{ range (where .Site.RegularPages "Section" "solutions") }}
+            {{ range .Params.categories }}
+              {{ $categories = $categories | append . }}
+            {{ end }}
+          {{ end }}
+          {{ range ($categories | uniq | sort) }}
+          <button class="button" data-filter="{{ . | urlize }}">{{ . }}</button>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tag Filters (if needed) -->
+    {{ $hasTags := false }}
+    {{ range (where .Site.RegularPages "Section" "solutions") }}
+      {{ if .Params.tags }}
+        {{ $hasTags = true }}
+      {{ end }}
+    {{ end }}
+    
+    {{ if $hasTags }}
+    <div class="columns is-centered mt-4">
+      <div class="column is-full">
+        <h4 class="title is-5 has-text-centered">Filter by Tag</h4>
+        <div class="buttons is-centered filter-buttons" id="tag-filters">
+          <button class="button is-info is-active" data-filter="all">All Tags</button>
+          {{ $tags := slice }}
+          {{ range (where .Site.RegularPages "Section" "solutions") }}
+            {{ range .Params.tags }}
+              {{ $tags = $tags | append . }}
+            {{ end }}
+          {{ end }}
+          {{ range ($tags | uniq | sort) }}
+          <button class="button" data-filter="{{ . | urlize }}">{{ . }}</button>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- Projects Grid Section -->
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline" id="projects-grid">
+      {{ range where .Site.RegularPages "Section" "solutions" }}
+      <div class="column is-one-third project-tile" data-categories="{{ range .Params.categories }}{{ . | urlize }} {{ end }}" data-tags="{{ range .Params.tags }}{{ . | urlize }} {{ end }}">
+        <div class="card">
+          <!-- Project image -->
+          <div class="card-image">
+            <figure class="image is-4by3">
+              {{ if .Params.image }}
+              <img src="{{ .Params.image | absURL }}" alt="{{ .Title }}" style="-webkit-filter: drop-shadow(3px 3px 3px #222);">
+              {{ else }}
+              <img src="{{ "/images/default-project.jpg" | absURL }}" alt="{{ .Title }}" style="-webkit-filter: drop-shadow(3px 3px 3px #222);">
+              {{ end }}
+            </figure>
+          </div>
+          
+          <!-- Project content -->
+          <div class="card-content">
+            <h3 class="title is-4">{{ .Title }}</h3>
+            
+            <!-- Category tags -->
+            <div class="tags">
+              {{ range .Params.categories }}
+              <span class="tag is-info">{{ . }}</span>
+              {{ end }}
+            </div>
+            
+            <!-- Technologies used -->
+            {{ if .Params.technologies }}
+            <div class="technologies">
+              <p class="subtitle is-6"><strong>Technologies:</strong> {{ delimit .Params.technologies ", " }}</p>
+            </div>
+            {{ end }}
+            
+            <div class="content">
+              {{ .Summary | truncate 120 }}
+            </div>
+          </div>
+          
+          <!-- Card footer -->
+          <footer class="card-footer">
+            <a href="{{ .Permalink }}" class="card-footer-item button is-outlined is-fullwidth" style="color: #0066FF; border-color: #0066FF; background-color: white; transition: all 0.3s ease;">
+              <style>
+                .card-footer-item:hover {
+                  background-color: #0066FF !important;
+                  color: white !important;
+                }
+              </style>
+              View Details
+            </a>
+          </footer>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Filter script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get all filter buttons
+    const categoryFilterButtons = document.querySelectorAll('#category-filters button');
+    const tagFilterButtons = document.querySelectorAll('#tag-filters button');
+    // Get all project tiles
+    const projectTiles = document.querySelectorAll('.project-tile');
+    
+    // Track active filters
+    let activeCategory = 'all';
+    let activeTag = 'all';
+    
+    // Filter function
+    function filterProjects() {
+      projectTiles.forEach(tile => {
+        const categories = tile.getAttribute('data-categories');
+        const tags = tile.getAttribute('data-tags');
+        
+        const categoryMatch = (activeCategory === 'all' || categories.includes(activeCategory));
+        const tagMatch = (activeTag === 'all' || tags.includes(activeTag));
+        
+        if (categoryMatch && tagMatch) {
+          tile.style.display = 'block';
+        } else {
+          tile.style.display = 'none';
+        }
+      });
+    }
+    
+    // Add click event to category filter buttons
+    categoryFilterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        categoryFilterButtons.forEach(btn => btn.classList.remove('is-active'));
+        // Add active class to clicked button
+        this.classList.add('is-active');
+        
+        // Update active category
+        activeCategory = this.getAttribute('data-filter');
+        
+        // Apply filters
+        filterProjects();
+      });
+    });
+    
+    // Add click event to tag filter buttons
+    tagFilterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        tagFilterButtons.forEach(btn => btn.classList.remove('is-active'));
+        // Add active class to clicked button
+        this.classList.add('is-active');
+        
+        // Update active tag
+        activeTag = this.getAttribute('data-filter');
+        
+        // Apply filters
+        filterProjects();
+      });
+    });
+    
+    // Initial filtering
+    filterProjects();
+  });
+</script>
+
+<!-- Add some custom styles -->
+<style>
+  .filter-buttons {
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .filter-buttons .button {
+    margin: 0.25rem;
+  }
+  
+  .project-tile {
+    transition: all 0.3s ease;
+  }
+  
+  .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  
+  .card-content {
+    flex-grow: 1;
+  }
+</style>
+
+{{ partial "footer.html" . }}
+{{ end }}

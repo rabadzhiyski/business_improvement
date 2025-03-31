@@ -110,6 +110,8 @@ After data is loaded we can have a look at the schema.
      |-- ts: long (nullable = true)
      |-- userAgent: string (nullable = true)
      |-- userId: string (nullable = true)
+     
+
 
 One useful step before jumping to any exploration is to make sure that
 the "ts" column is converted to a human-readable date format. We used
@@ -225,51 +227,75 @@ model.
 We first check the location distribution. The biggest number of users
 are LA residents.
 
-![The biggest number of users are LA
-residents.](/uploads/blog_images/spark-location-distribution.png)
+<!-- ![The biggest number of users are LA
+residents.](/uploads/blog_images/spark-location-distribution.png) -->
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-location-distribution.png" alt="Placeholder image" style="width:700px;">
+</figure>
 
 It would be more convenient to group the cities into states by creating
 a new column that takes the last two characters in the row. After that
 manipulation, we can plot the **state distribution.** CA, PA, TX, NH,
 and FL are the top five states.
 
-![](/uploads/blog_images/spark-state-distribution.png)
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-state-distribution.png" alt="Placeholder image" style="width:700px;">
+</figure>
+<!-- ![](/uploads/blog_images/spark-state-distribution.png) -->
 
-What are the most active workdays?
+**What are the most active workdays?**
 
-![](/uploads/blog_images/spark-count-workday.png)
+<!-- ![](/uploads/blog_images/spark-count-workday.png) -->
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-count-workday.png" alt="Placeholder image" style="width:700px;">
+</figure>
 
-What about churn during the week?
+**What about churn during the week?**
 
 Friday is the churn day.
 
-![](/uploads/blog_images/spark-churn-workday.png)
+<!-- ![](/uploads/blog_images/spark-churn-workday.png) -->
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-churn-workday.png" alt="Placeholder image" style="width:700px;">
+</figure>
 
-What are the most active hours for users?
+**What are the most active hours for users?**
 
 Users are most active in the late afternoon and during the evenings.
 
-![](/uploads/blog_images/spark-active-hours.png)
+<!-- ![](/uploads/blog_images/spark-active-hours.png) -->
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-active-hours.png" alt="Placeholder image" style="width:700px;">
+</figure>
 
-What are the most active hours for churn then?
+**What are the most active hours for churn then?**
 
 There is something at 10 am, even if it's not the most active time for
 users, a lot of churns happen then.
 
-![](/uploads/blog_images/spark-active-hours-churn.png)
+<!-- ![](/uploads/blog_images/spark-active-hours-churn.png) -->
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-active-hours-churn.png" alt="Placeholder image" style="width:700px;">
+</figure>
 
-What are the most active days of the month?
+**What are the most active days of the month?**
 
 The second half of the month tends to be a bit busier, but there is not
 a clear pattern.
 
-![](/uploads/blog_images/spark-active-days.png)
+<!-- ![](/uploads/blog_images/spark-active-days.png) -->
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-active-days.png" alt="Placeholder image" style="width:700px;">
+</figure>
 
-What are the most active days during the month?
+**What are the most active days during the month?**
 
 The beginning and the second half of the month are for churn!
 
-![](/uploads/blog_images/spark-active-days-month.png)
+<!-- ![](/uploads/blog_images/spark-active-days-month.png) -->
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-active-days-month.png" alt="Placeholder image" style="width:700px;">
+</figure>
 
 ------------------------------------------------------------------------
 

@@ -49,7 +49,7 @@ We help business leaders and product executives navigate the AI landscape to imp
 
 We've developed a proven framework that takes you from AI confusion to business transformation:
 
-1. **Define** - Identify your highest-impact opportunities
+1. **Descover** - Identify your highest-impact opportunities
 2. **Design** - Create targeted solutions that align with your business goals
 3. **Deliver** - Implement with precision and measure results
 

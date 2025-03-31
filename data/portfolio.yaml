@@ -1,0 +1,59 @@
+categories:
+  - "Time Series"
+  - "Forecasting"
+  - "Classification"
+  - "Regression"
+  - "Segmentation"
+  - "Generative AI"
+  - "Machine Learning"
+
+domains:
+  - "Retail"
+  - "Healthcare"
+  - "Financial Services"
+  - "Manufacturing"
+  - "Human Resources"
+  - "Marketing"
+
+projects:
+  - title: "High-performance Forecasting System"
+    categories: ["Time Series", "Forecasting"]
+    domains: ["Retail", "Manufacturing"]
+    image: "/images/illustrations/mockups/nostradamus_app.jpg"
+    summary: "Automated system for reactive forecasting during changing demand that gets fast the best possible results given your resources constraints."
+    page: "/solutions/employee-turnover"
+    
+  - title: "Employee Attrition Prevention"
+    categories: ["Classification", "Machine Learning"]
+    domains: ["Human Resources"]
+    image: "/images/illustrations/mockups/churn-defender.png"
+    summary: "Employee attrition prevention system that calculates the attrition risks of employees within your organization and recommends prevention strategies."
+    page: "/solutions/employee-attrition"
+    
+  - title: "Marketing Mix Modeling"
+    categories: ["Regression", "Machine Learning"]
+    domains: ["Marketing", "Retail"]
+    image: "/images/illustrations/mockups/analytics.jpg"
+    summary: "Improved Return on Ad Spend (ROAS) by 16% through statistical models and analysis."
+    page: "/solutions/marketing-mix-modeling"
+    
+  - title: "Customer Segmentation"
+    categories: ["Segmentation", "Machine Learning"]
+    domains: ["Retail", "Marketing"]
+    image: "/images/illustrations/mockups/analytics-green.jpg"
+    summary: "Analysis of customer base to unveil hidden patterns, identify top contributors, and cluster customers into actionable segments."
+    page: "/solutions/customer-segmentation"
+    
+  - title: "Document Summarization"
+    categories: ["Generative AI"]
+    domains: ["Financial Services"]
+    image: "/images/illustrations/mockups/data-science.png"
+    summary: "Application that summarizes company investment briefs and converts text into professional document reports."
+    page: "/solutions/document-summarization"
+    
+  - title: "Marketing Assistant"
+    categories: ["Generative AI"]
+    domains: ["Marketing"]
+    image: "/images/illustrations/worker.png"
+    summary: "Summarizes scraped web content and leverages RAG to provide summaries of products to marketing people."
+    page: "/solutions/marketing-assistant"
