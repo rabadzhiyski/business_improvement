@@ -1,19 +1,19 @@
 categories:
-  - "Time Series"
-  - "Forecasting"
+  - "Time Series Forecasting"
+  - "Regression Analysis"
   - "Classification"
-  - "Regression"
   - "Segmentation"
   - "Generative AI"
-  - "Machine Learning"
 
 domains:
-  - "Retail"
-  - "Healthcare"
   - "Financial Services"
-  - "Manufacturing"
-  - "Human Resources"
-  - "Marketing"
+  - "Retail"
+  - "Sales & Marketing"
+  - "Software Services"
+  - "Pharmaceutical"
+  - "Transport & Logistics"
+  - "Background Screening"
+  - "Ecommerce"
 
 projects:
   - title: "High-performance Forecasting System"

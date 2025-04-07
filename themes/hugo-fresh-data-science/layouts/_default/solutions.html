@@ -36,7 +36,7 @@
       <div class="column is-full">
         <h4 class="title is-5 has-text-centered">Filter by Category</h4>
         <div class="buttons is-centered filter-buttons" id="category-filters">
-          <button class="button is-primary is-active" data-filter="all">All Solutions</button>
+          <button class="button is-primary is-active" data-filter="all">All Solution Types</button>
           {{ $categories := slice }}
           {{ range (where .Site.RegularPages "Section" "solutions") }}
             {{ range .Params.categories }}
@@ -241,4 +241,20 @@
 </style>
 
 {{ partial "footer.html" . }}
+<!-- Force re-initialization -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Force re-rendering of projects grid
+    setTimeout(function() {
+      // Manually trigger the filtering function to ensure projects appear
+      const projectTiles = document.querySelectorAll('.project-tile');
+      projectTiles.forEach(tile => {
+        tile.style.display = 'block';
+      });
+      
+      // Force a layout recalculation
+      window.dispatchEvent(new Event('resize'));
+    }, 200); // Slightly longer timeout to ensure all elements are loaded
+  });
+  </script>
 {{ end }}

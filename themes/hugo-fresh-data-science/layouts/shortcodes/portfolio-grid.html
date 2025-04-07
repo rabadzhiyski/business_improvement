@@ -116,6 +116,18 @@
         });
       });
     });
+      // Force re-initialization to fix display issues
+    setTimeout(function() {
+    // Make sure all projects are visible initially
+    projectTiles.forEach(tile => {
+      tile.style.display = 'block';
+    });
+    // Force layout recalculation
+    window.dispatchEvent(new Event('resize'));
+    }, 200);
+
+    // Initial filtering (make sure this is called)
+    filterProjects();
   </script>
 
   <style>

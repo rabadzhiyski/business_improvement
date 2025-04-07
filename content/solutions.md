@@ -6,3 +6,14 @@ type: testimonials
 ---
 
 {{< portfolio-grid >}}
+
+<!-- <script>
+$(document).ready(function() {
+  // Force portfolio initialization
+  setTimeout(function() {
+    // Call any portfolio initialization functions here
+    // or trigger a window resize to force layout recalculation
+    $(window).trigger('resize');
+  }, 100);
+});
+</script> -->
