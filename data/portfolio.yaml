@@ -4,6 +4,7 @@ categories:
   - "Classification"
   - "Segmentation"
   - "Generative AI"
+  - "Geospatial Analysis"
 
 domains:
   - "Financial Services"
@@ -17,18 +18,18 @@ domains:
 
 projects:
   - title: "High-performance Forecasting System"
-    categories: ["Time Series", "Forecasting"]
-    domains: ["Retail", "Manufacturing"]
-    image: "/images/illustrations/mockups/nostradamus_app.jpg"
+    categories: ["Time Series Forecasting"]
+    domains: ["Retail", "Financial Services", "Pharmaceutical", "Ecommerce"]
+    image: "/images/illustrations/mockups/intelliforecaster.png"
     summary: "Automated system for reactive forecasting during changing demand that gets fast the best possible results given your resources constraints."
-    page: "/solutions/employee-turnover"
+    page: "/solutions/intelliforecaster"
     
   - title: "Employee Attrition Prevention"
-    categories: ["Classification", "Machine Learning"]
-    domains: ["Human Resources"]
+    categories: ["Classification"]
+    domains: ["Software Services"]
     image: "/images/illustrations/mockups/churn-defender.png"
     summary: "Employee attrition prevention system that calculates the attrition risks of employees within your organization and recommends prevention strategies."
-    page: "/solutions/employee-attrition"
+    page: "/solutions/employee-turnover"
     
   - title: "Marketing Mix Modeling"
     categories: ["Regression", "Machine Learning"]
