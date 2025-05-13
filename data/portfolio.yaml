@@ -14,16 +14,23 @@ domains:
   - "Pharmaceutical"
   - "Transport & Logistics"
   - "Background Screening"
-  - "Ecommerce"
+  - "Ecommerce" 
 
 projects:
-  - title: "High-performance Forecasting System"
+  - title: "Automated Forecasting System"
     categories: ["Time Series Forecasting"]
     domains: ["Retail", "Financial Services", "Pharmaceutical", "Ecommerce"]
     image: "/images/illustrations/mockups/intelliforecaster.png"
     summary: "Automated system for reactive forecasting during changing demand that gets fast the best possible results given your resources constraints."
     page: "/solutions/intelliforecaster"
     
+  - title: "Sales Forecasting"
+    categories: ["Time Series Forecasting"]
+    domains: ["Retail"]
+    image: "/images/illustrations/mockups/bike_sales.png"
+    summary: "Forecast sales and get an overview of seasonality and top sales regions."
+    page: "/solutions/sales-forecasting"
+
   - title: "Employee Attrition Prevention"
     categories: ["Classification"]
     domains: ["Software Services"]
@@ -32,25 +39,25 @@ projects:
     page: "/solutions/employee-turnover"
     
   - title: "Marketing Mix Modeling"
-    categories: ["Regression", "Machine Learning"]
+    categories: ["Regression"]
     domains: ["Marketing", "Retail"]
     image: "/images/illustrations/mockups/analytics.jpg"
     summary: "Improved Return on Ad Spend (ROAS) by 16% through statistical models and analysis."
     page: "/solutions/marketing-mix-modeling"
     
-  - title: "Customer Segmentation"
-    categories: ["Segmentation", "Machine Learning"]
-    domains: ["Retail", "Marketing"]
+  - title: "Google Analytics Traffic Forecaster"
+    categories: ["Time Series Forecasting"]
+    domains: ["Ecommerce"]
     image: "/images/illustrations/mockups/analytics-green.jpg"
-    summary: "Analysis of customer base to unveil hidden patterns, identify top contributors, and cluster customers into actionable segments."
-    page: "/solutions/customer-segmentation"
+    summary: "Forecast Google Analytics web traffic for 20 web pages."
+    page: "/solutions/google-analytics"
     
-  - title: "Document Summarization"
-    categories: ["Generative AI"]
-    domains: ["Financial Services"]
+  - title: "Price Prediction"
+    categories: ["Regression Analysis"]
+    domains: ["Retail"]
     image: "/images/illustrations/mockups/data-science.png"
-    summary: "Application that summarizes company investment briefs and converts text into professional document reports."
-    page: "/solutions/document-summarization"
+    summary: "."
+    page: "/solutions/price-prediction"
     
   - title: "Marketing Assistant"
     categories: ["Generative AI"]

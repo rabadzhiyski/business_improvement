@@ -4,6 +4,13 @@ include_cta: true
 title: Strategic AI Consulting
 type: services
 services:
+  - title: AI and Data Masterclass
+    icon: graduation-cap
+    subtitle: For teams that need to build foundational knowledge
+    description: Customized training for your team's specific needs, hands-on experience with real business applications, and frameworks for evaluating AI opportunities.
+    outcome: Team empowerment to identify and evaluate AI opportunities independently.
+    link: "#masterclass"
+
   - title: Strategic Discovery Session
     icon: search
     subtitle: For leaders seeking clarity on where to start with AI
@@ -11,21 +18,14 @@ services:
     outcome: A clear action plan to transform your business with AI and data science.
     link: "#discovery-session"
     
-  - title: AI and Data Masterclass
-    icon: graduation-cap
-    subtitle: For teams that need to build foundational knowledge
-    description: Customized training for your team's specific needs, hands-on workshops with real business applications, and frameworks for evaluating AI opportunities.
-    outcome: Team empowerment to identify and evaluate AI opportunities independently.
-    link: "#masterclass"
-    
-  - title: Targeted AI Applications
+  - title: Ready-to-Use AI Solutions
     icon: lightbulb
     subtitle: For businesses ready to implement specific solutions
     description: Customer segmentation and targeting, demand forecasting, inventory optimization, automated workflow solutions, and pricing optimization strategies.
     outcome: Rapid ROI from targeted AI implementation in critical business areas.
     link: "#targeted-solutions"
     
-  - title: Full 3D Framework Implementation
+  - title: Complete Solution Implementation
     icon: rocket
     subtitle: For organizations committed to comprehensive transformation
     description: End-to-end AI strategy development, custom solution design and implementation, integration with existing systems, and ongoing optimization.

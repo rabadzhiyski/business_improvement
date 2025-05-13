@@ -44,7 +44,7 @@ Whether you're just starting out with our AI masterclass, looking to solve a spe
 
 # Meet the Founder
 
-Hey there, I'm **Plamen Rabadzhiyski**, the founder of Data Science AI Consulting.
+Hey there, I'm **Plamen Rabadzhiyski**, the founder of Data Science AI LTD.
 
 I've spent years helping Fortune 50 companies and organizations across various industries cut through data complexity to find what actually matters. 
 
