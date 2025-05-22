@@ -1,67 +1,90 @@
 categories:
-  - "Time Series Forecasting"
-  - "Regression Analysis"
-  - "Classification"
-  - "Segmentation"
-  - "Generative AI"
-  - "Geospatial Analysis"
+  - Time Series Forecasting
+  - Regression Analysis
+  - Classification
+  - Segmentation
+  - Generative AI
+  - Geospatial Analysis
 
 domains:
-  - "Financial Services"
-  - "Retail"
-  - "Sales & Marketing"
-  - "Software Services"
-  - "Pharmaceutical"
-  - "Transport & Logistics"
-  - "Background Screening"
-  - "Ecommerce" 
+  - Financial Services
+  - Retail
+  - Sales & Marketing
+  - Software Services
+  - Pharmaceutical
+  - Transport & Logistics
+  - Background Screening
+  - Ecommerce
 
 projects:
-  - title: "Automated Forecasting System"
-    categories: ["Time Series Forecasting"]
-    domains: ["Retail", "Financial Services", "Pharmaceutical", "Ecommerce"]
-    image: "/images/illustrations/mockups/intelliforecaster.png"
-    summary: "Automated system for reactive forecasting during changing demand that gets fast the best possible results given your resources constraints."
-    page: "/solutions/intelliforecaster"
-    
-  - title: "Sales Forecasting"
-    categories: ["Time Series Forecasting"]
-    domains: ["Retail"]
-    image: "/images/illustrations/mockups/bike_sales.png"
-    summary: "Forecast sales and get an overview of seasonality and top sales regions."
-    page: "/solutions/sales-forecasting"
+  - title: Automated Forecasting System
+    categories:
+      - Time Series Forecasting
+    domains:
+      - Retail
+      - Financial Services
+      - Pharmaceutical
+      - Ecommerce
+    image: /images/illustrations/mockups/intelliforecaster.png
+    summary: Automated system for reactive forecasting during changing demand that
+      gets fast the best possible results given your resources constraints.
+    page: /solutions/intelliforecaster
 
-  - title: "Employee Attrition Prevention"
-    categories: ["Classification"]
-    domains: ["Software Services"]
-    image: "/images/illustrations/mockups/churn-defender.png"
-    summary: "Employee attrition prevention system that calculates the attrition risks of employees within your organization and recommends prevention strategies."
-    page: "/solutions/employee-turnover"
-    
-  - title: "Marketing Mix Modeling"
-    categories: ["Regression"]
-    domains: ["Marketing", "Retail"]
-    image: "/images/illustrations/mockups/analytics.jpg"
-    summary: "Improved Return on Ad Spend (ROAS) by 16% through statistical models and analysis."
-    page: "/solutions/marketing-mix-modeling"
-    
-  - title: "Google Analytics Traffic Forecaster"
-    categories: ["Time Series Forecasting"]
-    domains: ["Ecommerce"]
-    image: "/images/illustrations/mockups/analytics-green.jpg"
-    summary: "Forecast Google Analytics web traffic for 20 web pages."
-    page: "/solutions/google-analytics"
-    
-  - title: "Price Prediction"
-    categories: ["Regression Analysis"]
-    domains: ["Retail"]
-    image: "/images/illustrations/mockups/data-science.png"
-    summary: "."
-    page: "/solutions/price-prediction"
-    
-  - title: "Marketing Assistant"
-    categories: ["Generative AI"]
-    domains: ["Marketing"]
-    image: "/images/illustrations/worker.png"
-    summary: "Summarizes scraped web content and leverages RAG to provide summaries of products to marketing people."
-    page: "/solutions/marketing-assistant"
+  - title: Sales Forecasting
+    categories:
+      - Time Series Forecasting
+    domains:
+      - Retail
+    image: /images/illustrations/mockups/bike_sales.png
+    summary: Forecast sales and get an overview of seasonality and top sales regions.
+    page: /solutions/sales-forecasting
+
+  - title: Employee Attrition Prevention
+    categories:
+      - Classification
+    domains:
+      - Software Services
+    image: /images/illustrations/mockups/churn-defender.png
+    summary: Employee attrition prevention system that calculates the attrition
+      risks of employees within your organization and recommends prevention
+      strategies.
+    page: /solutions/employee-turnover
+
+  - title: Marketing Mix Modeling
+    categories:
+      - Regression
+    domains:
+      - Marketing
+      - Retail
+    image: /images/illustrations/mockups/analytics.jpg
+    summary: Improved Return on Ad Spend (ROAS) by 16% through statistical models
+      and analysis.
+    page: /solutions/marketing-mix-modeling
+
+  - title: Google Analytics Traffic Forecaster
+    categories:
+      - Time Series Forecasting
+    domains:
+      - Ecommerce
+    image: /images/illustrations/mockups/google_analytics.png
+    summary: Forecast Google Analytics web traffic for 20 web pages.
+    page: /solutions/google-analytics
+
+  - title: Price Prediction
+    categories:
+      - Regression Analysis
+    domains:
+      - Retail
+    image: /images/illustrations/mockups/data-science.png
+    summary: .
+    page: /solutions/price-prediction
+
+  - title: Marketing Assistant
+    categories:
+      - Generative AI
+    domains:
+      - Marketing
+    image: /images/illustrations/worker.png
+    summary: Summarizes scraped web content and leverages RAG to provide summaries
+      of products to marketing people.
+    page: /solutions/marketing-assistant

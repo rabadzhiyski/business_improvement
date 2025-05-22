@@ -35,3 +35,4 @@ Automated system for reactive forecasting during changing demand that gets fast 
 ## Demo
 [Click to see a live demo of the web-app.](https://data-science-ai.shinyapps.io/intelliforecaster/)
 
+<a rel="nofollow" href="https://www.exali.com/en-bg/seal/DATA-SCIENCE-AI-LTD" target="_blank" title="More information on EU Digital Professions from DATA SCIENCE AI LTD"><img border="0" src="https://www.exali.com/siegel/siegel_com-2_cd919076a6b4e163b3c896b775e8c133.png" width="90" height="90" alt="More information on EU Digital Professions from DATA SCIENCE AI LTD" /></a>
