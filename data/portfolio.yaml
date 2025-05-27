@@ -43,23 +43,12 @@ projects:
     categories:
       - Classification
     domains:
-      - Software Services
+      - Software Services, Retail
     image: /images/illustrations/mockups/churn-defender.png
     summary: Employee attrition prevention system that calculates the attrition
       risks of employees within your organization and recommends prevention
       strategies.
     page: /solutions/employee-turnover
-
-  - title: Marketing Mix Modeling
-    categories:
-      - Regression
-    domains:
-      - Marketing
-      - Retail
-    image: /images/illustrations/mockups/analytics.jpg
-    summary: Improved Return on Ad Spend (ROAS) by 16% through statistical models
-      and analysis.
-    page: /solutions/marketing-mix-modeling
 
   - title: Google Analytics Traffic Forecaster
     categories:
@@ -70,12 +59,22 @@ projects:
     summary: Forecast Google Analytics web traffic for 20 web pages.
     page: /solutions/google-analytics
 
+  - title: Marketing Mix Modeling & Budget Optimization
+    categories:
+      - Regression Analysis
+    domains:
+      - Ecommerce, Pharmaceutical, Retail, Sales & Marketing
+    image: /images/illustrations/mockups/mmm.png
+    summary: Improved Return on Ad Spend (ROAS) by 16% through statistical models
+      and analysis.
+    page: /solutions/marketing-mix-modeling
+
   - title: Price Prediction
     categories:
       - Regression Analysis
     domains:
       - Retail
-    image: /images/illustrations/mockups/data-science.png
+    image: /images/illustrations/mockups/price_prediction.png
     summary: .
     page: /solutions/price-prediction
 

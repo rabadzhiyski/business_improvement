@@ -11,6 +11,8 @@ type: testimonials
 
 ------------------------------------------------------------------------
 
+# Sales Forecasting Dashboard
+
 ## Challenge
 Bike retailers struggle with unpredictable inventory levels due to extreme sales seasonality—from winter lulls to spring surges and summer peaks. This volatility creates a costly balancing act: overstock during slow periods ties up capital in holding costs, while understocking during peak seasons results in lost sales and disappointed customers.
 
@@ -49,6 +51,4 @@ Interactive sales forecasting dashboard specifically designed for the bike retai
 * **Risk Mitigation:** Scenario planning features help retailers prepare for demand fluctuations caused by external factors like economic changes or supply chain disruptions.
 * **Decision Confidence:** Real-time dashboard visualizations provide clear, actionable insights that eliminate guesswork from inventory planning and purchasing decisions.
 
-## Demo
-[Click to see a live demo of the web-app.](https://data-science-ai.shinyapps.io/intelliforecaster/)
 
