@@ -4,7 +4,7 @@ include_cta: true
 title: Strategic AI Consulting
 type: services
 services:
-  - title: AI and Data Masterclass
+  - title: The Data & AI Masterclass
     icon: graduation-cap
     subtitle: For teams that need to build foundational knowledge
     description: Customized training for your team's specific needs, hands-on experience with real business applications, and frameworks for evaluating AI opportunities.
@@ -41,7 +41,7 @@ services:
 ---
 
 ---
-## Transform Your Business with Data-Driven Intelligence
+## Transform Your Business with AI Data-Driven Intelligence
 
 We help business leaders and product executives navigate the AI landscape to implement data-driven solutions that deliver measurable business outcomes—without wasting resources on false starts, lengthy learning curves, or technical complexity.
 

@@ -104,7 +104,7 @@ params:
     titleTextColor: "white"
     subtitle: "We help business leaders and product executives cut through AI confusion to get real results. 
     No more wasted resources, failed projects, or tech headaches — 
-    just tailored data solutions that actually work."
+    just tailored AI solutions that actually work."
     #"We help business leaders and product executives navigate the AI landscape 
     #so they can implement data-driven solutions that deliver tangible business outcomes 
     #without wasting resources on false starts, lengthy learning curves, or getting lost 
@@ -228,7 +228,7 @@ params:
     # Social media links (GitHub, Twitter, etc.). All are optional.
     # Icons are from Font Awesome
     socialmedia:
-    - link: https://www.linkedin.com/plamen-rabadzhiyski
+    - link: https://www.linkedin.com/company/dscienceai/
       icon: linkedin
     # - link: https://facebook.com/#
       # icon: facebook
