@@ -10,45 +10,215 @@
     <div class="container" >
         <div class="columns">
           <div class="column is-centered-tablet-portrait" style="background-color:{{ .Site.Params.section1_attention.heroBackgroundColor }};">
-            <h1 class="title section-title" style="font-size:48px;color:{{ .Site.Params.section1_attention.titleTextColor }}">Unlock the power of data science and AI for your business - explore our expert insights and case studies</h1>
+            <h1 class="title section-title" style="font-size:48px;color:{{ .Site.Params.section1_attention.titleTextColor }}">Data Science AI: Expert Insights, Case Studies, Tips, and More!</h1>
           </div>
         </div>
     </div>
 </section>
-<section class="section is-medium">
-	<div class="container">
-	    
-		{{ range .Paginator.Pages }}
-		
-		<article class="media">
-          <figure class="media-left">
-            <p class="image is-128x128">
-            <a class="text-dark" href="{{ .Permalink }}">
-                <img src="{{ .Params.image | absURL }}" style="-webkit-filter: drop-shadow(5px 5px 5px #222);">
-              </a>
-            </p>
-          </figure>
-          <div class="media-content">
-            <div class="content">
-              <h3>
-                <a class="text-dark" href="{{ .Permalink }}"><strong>{{ .Title }}</strong></a>
-              </h3>
-              <h5><small>Written by {{ .Params.author }} on {{ .PublishDate.Format "January 2, 2006" }}</small></h5>
-              <br />
-              <p>
-                  {{ .Summary }}
-              </p>
-              <div>
-                <a href="{{ .Permalink }}">Read More…</a>
-              </div>
-            </div>
+
+<!-- Search Section -->
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-two-thirds">
+        <div class="field">
+          <div class="control has-icons-left">
+            <input class="input is-medium" type="text" id="search-input" placeholder="Search blog posts...">
+            <span class="icon is-left">
+              <i class="fas fa-search"></i>
+            </span>
           </div>
-        </article>
-		{{ end }}
-		
-	</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-{{ partial "footer.html" . }}
+<!-- Blog Posts Section -->
+<section class="section">
+  <div class="container">
+    <!-- Regular blog listing (displayed when not searching) -->
+    <div id="regular-posts" class="columns is-multiline">
+      {{ range .Paginator.Pages }}
+      <div class="column is-one-third">
+        <div class="card">
+          <!-- Card image -->
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <a href="{{ .Permalink }}">
+                <img src="{{ .Params.image | absURL }}" alt="{{ .Title }}" style="-webkit-filter: drop-shadow(3px 3px 3px #222);">
+              </a>
+            </figure>
+          </div>
+          
+          <!-- Card content -->
+          <div class="card-content">
+            <h3 class="title is-4">
+              <a href="{{ .Permalink }}" class="has-text-dark">{{ .Title }}</a>
+            </h3>
+            <p class="subtitle is-6 has-text-grey is-italic">By {{ .Params.author }} on {{ .PublishDate.Format "2 Jan 2006" }}</p>
+            
+            <div class="content">
+              {{ .Summary | truncate 120 }}
+            </div>
+          </div>
+          
+          <!-- Card footer -->
+          <footer class="card-footer">
+            <a href="{{ .Permalink }}" class="card-footer-item button is-outlined is-fullwidth" style="color: #0066FF; border-color: #0066FF; background-color: white; transition: all 0.3s ease;">
+              <style>
+                .card-footer-item:hover {
+                  background-color: #0066FF !important;
+                  color: white !important;
+                }
+              </style>
+              Read More
+            </a>
+          </footer>
+        </div>
+      </div>
+      {{ end }}
+    </div>
 
+    <!-- Search results (initially hidden) -->
+    <div id="search-results" class="columns is-multiline" style="display: none;">
+      <!-- Results will be inserted here dynamically -->
+    </div>
+    
+    <!-- Pagination for regular listing -->
+    <div id="pagination" class="columns">
+      <div class="column">
+        <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+          {{ if .Paginator.HasPrev }}
+          <a href="{{ .Paginator.Prev.URL }}" class="pagination-previous">Previous</a>
+          {{ end }}
+          
+          {{ if .Paginator.HasNext }}
+          <a href="{{ .Paginator.Next.URL }}" class="pagination-next">Next</a>
+          {{ end }}
+          
+          <ul class="pagination-list">
+            {{ range .Paginator.Pagers }}
+            <li>
+              <a href="{{ .URL }}" class="pagination-link{{ if eq . $.Paginator }} is-current{{ end }}" aria-label="Page {{ .PageNumber }}">
+                {{ .PageNumber }}
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Search scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+<script>
+  let searchIndex;
+  let searchData;
+  
+  // Load the search index
+  fetch('/index.json')
+    .then(response => response.json())
+    .then(data => {
+      searchData = data;
+      searchIndex = lunr(function() {
+        this.ref('permalink');
+        this.field('title', { boost: 10 });
+        this.field('contents');
+        this.field('tags', { boost: 5 });
+        this.field('categories', { boost: 5 });
+        this.field('author', { boost: 2 });
+        
+        // Add each page to the index
+        data.forEach(page => {
+          this.add(page);
+        });
+      });
+    })
+    .catch(error => console.error('Error loading search index:', error));
+  
+  // Listen for input changes
+  document.getElementById('search-input').addEventListener('input', function(e) {
+    const query = e.target.value;
+    
+    if (query.length < 2) {
+      // If search query is too short, show regular posts
+      document.getElementById('regular-posts').style.display = 'flex';
+      document.getElementById('search-results').style.display = 'none';
+      document.getElementById('pagination').style.display = 'block';
+      return;
+    }
+    
+    performSearch(query);
+  });
+  
+  function performSearch(query) {
+    if (!searchIndex) return;
+    
+    // Perform the search
+    const results = searchIndex.search(query);
+    
+    // Get containers
+    const regularContainer = document.getElementById('regular-posts');
+    const resultsContainer = document.getElementById('search-results');
+    const paginationContainer = document.getElementById('pagination');
+    
+    // Hide regular posts and pagination
+    regularContainer.style.display = 'none';
+    paginationContainer.style.display = 'none';
+    
+    // Show search results container
+    resultsContainer.style.display = 'flex';
+    
+    if (results.length === 0) {
+      resultsContainer.innerHTML = '<div class="column"><div class="notification is-warning">No matching posts found. Try a different search term.</div></div>';
+      return;
+    }
+    
+    let html = '';
+    
+    results.forEach(result => {
+      const page = searchData.find(page => page.permalink === result.ref);
+      if (!page) return;
+      
+      const date = new Date(page.publishdate);
+      const formattedDate = date.getDate() + ' ' + 
+                           date.toLocaleString('default', { month: 'short' }) + ' ' + 
+                           date.getFullYear();
+      
+      html += `
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-content">
+              <h3 class="title is-4">
+                <a href="${page.permalink}" class="has-text-dark">${page.title}</a>
+              </h3>
+              <p class="subtitle is-6 has-text-grey is-italic">By ${page.author || 'Unknown'} on ${formattedDate}</p>
+              <div class="content">
+                ${page.summary || page.contents.substring(0, 120) + '...'}
+              </div>
+            </div>
+            <footer class="card-footer">
+              <a href="${page.permalink}" class="card-footer-item button is-outlined is-fullwidth" style="color: #0066FF; border-color: #0066FF; background-color: white; transition: all 0.3s ease;">
+                Read More
+                <style>
+                  .card-footer-item:hover {
+                    background-color: #0066FF !important;
+                    color: white !important;
+                  }
+                </style>
+              </a>
+            </footer>
+          </div>
+        </div>
+      `;
+    });
+    
+    resultsContainer.innerHTML = html;
+  }
+</script>
+
+{{ partial "footer.html" . }}
 {{ end }}

@@ -1,57 +1,59 @@
 ---
-image: /images/illustrations/hiking.jpg
+image: /images/illustrations/tablet_chart.jpg
 include_cta: true
-title: "Democratizing Data: Making Data Science Accessible to All"
+title: "Data Science & AI Made Simple. Results Made Real."
 type: testimonials
 ---
 
-## Motivation
+# What We're All About
 
-In today's digital age, a significant chasm exists between advanced technological capabilities and tangible business objectives. Many believe that the realms of Data Science, AI, and Machine Learning belong solely to the tech giants of the world. This notion couldn't be further from the truth.
+Let's be honest – there's a ton of buzz around AI and data science, but turning all that potential into actual business results? 
 
-At Data Science AI Consulting, we recognize this critical gap and have dedicated our mission to filling it. We believe that the transformative power of data science shouldn't be an exclusive privilege. Every business, regardless of its technological roots, should have the ability to leverage advanced data tools to drive growth, innovate, and stay competitive.
+That's where things get tricky.
 
-## Services
+We created Data Science AI Consulting because we saw too many smart business leaders getting lost in technical jargon or investing in fancy AI solutions that didn't solve their actual problems.
 
-Our services are tailor-made to ensure that non-tech businesses not only understand the value of data but also know how to harness its potential:
+Our mission is simple: help you cut through the noise, focus on what actually matters for your business, and implement data-driven solutions that deliver real results – without the headaches, false starts, or complexity.
 
-<table>
-<thead>
-<tr class="header">
-<th><h3>Services</h3></th>
-<th><h3>Details</h3></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><strong>Data Analysis and Insights</strong></p></td>
-<td><p>Dive deep into your data, unearth meaningful insights, and make decisions that resonate.</p></td>
-</tr>
-<tr class="even">
-<td><p><strong>Predictive Modeling</strong></p></td>
-<td><p>Anticipate market trends, be proactive, and stay always one step ahead of your competition.</p></td>
-</tr>
-<tr class="odd">
-<td><p><strong>Data-Driven Decision Making</strong></p></td>
-<td><p>Ground your decisions in data, ensuring they are informed, strategic, and yield the desired results.</p></td>
-</tr>
-<tr class="even">
-<td><p><strong>Data Science Training</strong></p></td>
-<td><p>Empower your team with the knowledge and skills to navigate the complex world of data science.</p></td>
-</tr>
-<tr class="odd">
-<td><p><strong>Data Strategy Consulting</strong></p></td>
-<td><p>Build a robust data infrastructure, aligning your data vision with business objectives.</p></td>
-</tr>
-</tbody>
-</table>
+# How We Work: The 3D Framework
+
+We keep things straightforward with our 3D approach:
+
+1. **Discover** - We find where data and AI can genuinely solve your business problems (not just where it looks cool)
+2. **Design** - We map out a practical plan that ties directly to your business goals
+3. **Deliver** - We help you implement solutions that create measurable value
+
+Unlike the tech-obsessed consultants, we start with your business challenges first, then figure out the right data solutions – never the other way around.
+
 
 In essence, Data Science AI is more than just a consulting service. We are your partners in bridging the gap between business and technology, ensuring that the power of data science is within reach for everyone. Let's transform the future, together.
 
-## Founder
+# Why Clients Choose Us
 
-Data Science AI Consulting is founded by [Plamen Rabadzhiyski,](https://plamen.ai/) strategic data science consultant with experience in Fortune 50 companies and various industries.
+People work with us because we:
 
-From Lean Six Sigma to Data Science, Plamen knows how to turn tough business problems into golden opportunities. With hands-on experience in leading projects, diving into data, and mapping out business strategies, Plamen shows companies how smart decisions based on data can open doors to success. His career has taken him to big-name companies like Cargill and HP. There, he led teams and introduced tech tools that helped the business thrive. But after leaving those giants, Plamen got a real look at the hurdles smaller businesses face every day. Through his work in areas like forecasting trends, understanding customer groups, and predicting business shifts, he's helped businesses spot opportunities they didn't even know they had.
+- **Skip the jargon** - We explain AI in plain English and focus on what actually drives ROI
+- **Keep it strategic** - We prioritize business impact over shiny new tech
+- **Fill knowledge gaps** - We bring specialized expertise most companies don't have in-house
+- **Make implementation doable** - We give you practical frameworks that actually work
+- **Lower the risk** - We help you avoid the common pitfalls that derail data initiatives
 
-Today, Plamen's on a mission as a consultant: He wants to take what he's learned in the big business and bring it to companies of all sizes. With a toolkit filled with data and tech know-how, he's helping businesses streamline their work, boost their results, and grow bigger and better.
+# What We Offer
+Whether you're just starting out with our AI masterclass, looking to solve a specific problem, or ready for a comprehensive strategic partnership, we're focused on one thing: helping your business make better decisions, streamline operations, see what's coming, and uncover hidden opportunities.
+
+
+# Meet the Founder
+
+Hey there, I'm **Plamen Rabadzhiyski**, the founder of Data Science AI LTD.
+
+I've spent years helping Fortune 50 companies and organizations across various industries cut through data complexity to find what actually matters. 
+
+My passion is helping busy professionals and entrepreneurs find an easy way to transform information overload into strategic advantage with data science and AI.
+
+What makes our approach different? I've been on both sides of the table. After leading data initiatives at companies like Cargill and HP, I saw firsthand how smaller businesses struggle with the same challenges but without the massive resources. 
+
+That's why I created a practical framework that delivers enterprise-level data insights tailored for organizations of all sizes – combining strategic vision with actionable implementation.
+
+Want to know more about my background? Check out my [personal site →](https://plamen.ai/)
+
+Ready to put data and AI to work for your business? Let's get started.

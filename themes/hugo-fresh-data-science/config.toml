@@ -1,3 +1,5 @@
 [params]
 # Google Analytics 4
 googleAnalyticsID = "G-NTXF6D21S6"
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

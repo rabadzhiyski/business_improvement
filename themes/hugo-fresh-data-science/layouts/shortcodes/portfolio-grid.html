@@ -1,0 +1,204 @@
+<div class="portfolio-section">
+  <!-- Category filters -->
+  <div class="buttons is-centered filter-buttons" id="category-filters">
+    <button class="button filter-button is-active" data-filter="all">All Solutions</button>
+    {{ range .Site.Data.portfolio.categories }}
+      <button class="button filter-button" data-filter="{{ . | urlize }}">{{ . }}</button>
+    {{ end }}
+  </div>
+  
+  <!-- Business Domain filters -->
+  <div class="buttons is-centered filter-buttons" id="domain-filters">
+    <button class="button filter-button is-active" data-filter="all">All Business Domains</button>
+    {{ range .Site.Data.portfolio.domains }}
+      <button class="button filter-button" data-filter="{{ . | urlize }}">{{ . }}</button>
+    {{ end }}
+  </div>
+
+  <div class="columns is-multiline" id="projects-grid">
+    {{ range .Site.Data.portfolio.projects }}
+      <div class="column is-one-third project-tile" 
+           data-categories="{{ range .categories }}{{ . | urlize }} {{ end }}" 
+           data-domains="{{ range .domains }}{{ . | urlize }} {{ end }}">
+        <div class="card">
+          <!-- Project image -->
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="{{ .image }}" alt="{{ .title }}">
+            </figure>
+          </div>
+          
+          <!-- Project content -->
+          <div class="card-content">
+            <h3 class="title is-4">{{ .title }}</h3>
+            
+            <!-- Category tags -->
+            <div class="tags">
+              {{ range .categories }}
+              <span class="tag is-light">{{ . }}</span>
+              {{ end }}
+            </div>
+            
+            <div class="content">
+              {{ .summary }}
+            </div>
+          </div>
+          
+          <!-- Card footer -->
+          <footer class="card-footer">
+            <a href="{{ .page }}" class="card-footer-item button is-outlined" style="color: #0066FF; border-color: #0066FF;">
+              View Details
+            </a>
+          </footer>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all filter buttons
+      const categoryFilterButtons = document.querySelectorAll('#category-filters button');
+      const domainFilterButtons = document.querySelectorAll('#domain-filters button');
+      // Get all project tiles
+      const projectTiles = document.querySelectorAll('.project-tile');
+      
+      // Track active filters
+      let activeCategory = 'all';
+      let activeDomain = 'all';
+      
+      // Filter function
+      function filterProjects() {
+        projectTiles.forEach(tile => {
+          const categories = tile.getAttribute('data-categories');
+          const domains = tile.getAttribute('data-domains');
+          
+          const categoryMatch = (activeCategory === 'all' || categories.includes(activeCategory));
+          const domainMatch = (activeDomain === 'all' || domains.includes(activeDomain));
+          
+          if (categoryMatch && domainMatch) {
+            tile.style.display = 'block';
+          } else {
+            tile.style.display = 'none';
+          }
+        });
+      }
+      
+      // Add click event to category filter buttons
+      categoryFilterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          categoryFilterButtons.forEach(btn => btn.classList.remove('is-active'));
+          // Add active class to clicked button
+          this.classList.add('is-active');
+          
+          // Update active category
+          activeCategory = this.getAttribute('data-filter');
+          
+          // Apply filters
+          filterProjects();
+        });
+      });
+      
+      // Add click event to domain filter buttons
+      domainFilterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          domainFilterButtons.forEach(btn => btn.classList.remove('is-active'));
+          // Add active class to clicked button
+          this.classList.add('is-active');
+          
+          // Update active domain
+          activeDomain = this.getAttribute('data-filter');
+          
+          // Apply filters
+          filterProjects();
+        });
+      });
+    });
+      // Force re-initialization to fix display issues
+    setTimeout(function() {
+    // Make sure all projects are visible initially
+    projectTiles.forEach(tile => {
+      tile.style.display = 'block';
+    });
+    // Force layout recalculation
+    window.dispatchEvent(new Event('resize'));
+    }, 200);
+
+    // Initial filtering (make sure this is called)
+    filterProjects();
+  </script>
+
+  <style>
+    .portfolio-section {
+      margin: 3rem 0;
+    }
+    
+    .filter-buttons {
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .filter-buttons .button {
+      margin: 0.25rem;
+    }
+    
+    .project-tile {
+      margin-bottom: 2rem;
+    }
+    
+    .card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .card-content {
+      flex-grow: 1;
+    }
+    
+    /* Custom styling for buttons to match your theme */
+    .filter-button {
+      border-color: #0066FF;
+      color: #0066FF;
+      background-color: white;
+    }
+    
+    .filter-button.is-active,
+    .filter-button:hover {
+      background-color: #0066FF !important;
+      color: white !important;
+      border-color: #0066FF !important;
+    }
+    
+    /* Override Bulma's default button styling */
+    .button.is-primary {
+      background-color: #0066FF !important;
+      border-color: transparent;
+      color: white !important;
+    }
+    
+    .button.is-primary:hover {
+      background-color: #0055DD !important;
+    }
+    
+    /* Grey category tags */
+    .tag.is-light {
+      background-color: #f5f5f5;
+      color: #4a4a4a;
+    }
+    
+    .card-footer-item:hover {
+      color: white !important;
+      background-color: #0066FF !important;
+    }
+  </style>
+</div>

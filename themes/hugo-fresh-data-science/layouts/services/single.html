@@ -1,0 +1,80 @@
+{{ define "main" }}
+{{ partial "navbar.html" . }}
+{{ partial "navbar-clone.html" . }}
+
+<section class="section is-medium" style="background-image: url({{ .Params.Image }}); 
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;">
+    <div class="container" >
+        <div class="columns">
+          <div class="column is-centered-tablet-portrait" style="background-color:{{ .Site.Params.section1_attention.heroBackgroundColor }};">
+            <h1 class="title section-title" style="font-size:48px;color:{{ .Site.Params.section1_attention.titleTextColor }}">{{ .Title }}</h1>
+          </div>
+        </div>
+    </div>
+</section>
+
+<!-- Service Tiles Section - Moved to top -->
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      {{ range .Params.services }}
+      <div class="column is-12-mobile is-6-tablet is-4-desktop">
+        <div class="card has-text-centered is-fullheight">
+          <div class="card-content">
+            <div class="has-text-centered">
+              <span class="icon is-large">
+                <i class="fas fa-{{ .icon }} fa-3x" style="color:#0066FF;"></i>
+              </span>
+            </div>
+            <h4 class="title is-4 mb-4">{{ .title }}</h4>
+            <p class="subtitle has-text-grey-dark mb-4">
+              {{ .subtitle }}
+            </p>
+            <div class="content">
+              <p>{{ .description }}</p>
+              <p><strong>Outcome:</strong> {{ .outcome }}</p>
+            </div>
+            <a href="{{ .link }}" class="button is-fullwidth is-rounded service-button" 
+               style="background-color:#0066FF; color:white; transition: all 0.3s ease;">Learn More</a>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Arbitrary content section - All markdown content will appear here -->
+<section class="section is-medium">
+  <div class="container">
+    <div class="content">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+
+{{- if .Params.include_cta }}
+{{ partial "section6-action.html" . }}
+{{- end}}
+
+<!-- Back To Top Button -->
+<div id="backtotop"><a href="#"></a></div>
+
+<!-- Add the CSS for button hover effect -->
+<style>
+  .service-button:hover {
+    background-color: white !important;
+    color: #0066FF !important;
+    border: 1px solid #0066FF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 102, 255, 0.2);
+  }
+</style>
+
+{{ partial "footer.html" . }}
+
+{{ end }}

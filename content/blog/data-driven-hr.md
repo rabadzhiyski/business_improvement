@@ -53,7 +53,7 @@ As HR stands at the crossroads of tradition and innovation, the path forward is 
 A system to predict and prevent employee attrition by calculating their risks and suggesting retention strategies. This solution can be hosted securely on the cloud or within an organization's infrastructure.
 
 **ROI:**  
-An organization that loses 200 productive employees per year has a hidden cost of \$10M/year in lost productivity. And, here\'s the kicker\... most organizations do not realize it because **productivity is a hidden cost**!
+An organization that loses 200 productive employees per year has a hidden cost of \$10M/year in lost productivity. And, here's the kicker\... most organizations do not realize it because **productivity is a hidden cost**!
 
 **Benefits:**
 

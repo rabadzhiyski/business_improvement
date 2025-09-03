@@ -1,0 +1,95 @@
+categories:
+  - Time Series Forecasting
+  - Regression Analysis
+  - Classification
+  - Segmentation
+  - Generative AI
+  - Geospatial Analysis
+
+domains:
+  - Financial Services
+  - Retail
+  - Sales & Marketing
+  - Software Services
+  - Pharmaceutical
+  - Transport & Logistics
+  - Background Screening
+  - Ecommerce
+
+projects:
+  - title: Automated Forecasting System
+    categories:
+      - Time Series Forecasting
+    domains:
+      - Retail
+      - Financial Services
+      - Pharmaceutical
+      - Ecommerce
+    image: /images/illustrations/mockups/intelliforecaster.png
+    summary: Automated system for reactive forecasting during changing demand that
+      gets fast the best possible results given your resources constraints.
+    page: /solutions/intelliforecaster
+
+  - title: Sales Forecasting
+    categories:
+      - Time Series Forecasting
+    domains:
+      - Retail
+    image: /images/illustrations/mockups/bike_sales.png
+    summary: Forecast sales and get an overview of seasonality and top sales regions.
+    page: /solutions/sales-forecasting
+
+  - title: Employee Attrition Prevention
+    categories:
+      - Classification
+    domains:
+      - Software Services, Retail
+    image: /images/illustrations/mockups/churn-defender.png
+    summary: AI system that predicts which employees will quit before they do, enabling targeted retention strategies that reduce turnover costs.
+    page: /solutions/employee-turnover
+
+  - title: Google Analytics Traffic Forecaster
+    categories:
+      - Time Series Forecasting
+    domains:
+      - Ecommerce
+    image: /images/illustrations/mockups/google_analytics.png
+    summary: Forecast Google Analytics web traffic for 20 web pages.
+    page: /solutions/google-analytics
+
+  - title: Marketing Mix Modeling & Budget Optimization
+    categories:
+      - Regression Analysis
+    domains:
+      - Ecommerce, Pharmaceutical, Retail, Sales & Marketing
+    image: /images/illustrations/mockups/mmm.png
+    summary: Improved Return on Ad Spend (ROAS) by 16% through statistical models
+      and analysis.
+    page: /solutions/marketing-mix-modeling
+
+  - title: Price Prediction
+    categories:
+      - Regression Analysis
+    domains:
+      - Retail
+    image: /images/illustrations/mockups/price_prediction.png
+    summary: Machine learning platform that predicts optimal pricing for products across different markets and categories, helping retailers increase revenue through data-driven pricing strategies and market expansion decisions.
+    page: /solutions/price-prediction
+
+  - title: Customer Churn Prevention
+    categories:
+      - Classification
+    domains:
+      - Ecommerce, Sales & Marketing, Retail, Financial Services
+    image: /images/illustrations/mockups/churn.png
+    summary: System that predicts which customers will leave before they do, enabling targeted retention strategies that reduce churn and protect millions in customer lifetime value.
+    page: /solutions/customer-churn
+
+  - title: Customer Support Optimization
+    categories:
+      - Classification
+    domains:
+      - Ecommerce, Financial Services, Software Services, Background Screening
+    image: /images/illustrations/mockups/zendesk.png
+    summary: Databricks powered platform that predicts Zendesk ticket priorities, resolution times, and churn risks, improving support efficiency and reducing operational costs.
+    page: /solutions/customer-support

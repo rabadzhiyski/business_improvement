@@ -1,11 +1,16 @@
 baseURL: https://data-science-ai.com/
 languageCode: en-us
-title: Unlock Business Growth with Data Science AI
+title: AI That Actually Works
 theme: "hugo-fresh-data-science"
 # Put in your google analytics tracking code without quotes like this: UA-XXXXXX...
 googleAnalytics: # UA-XXXXX...
 # copyright: "Copyright 2023-{year} Data Science AI. All rights reserved."
-
+# IMPORTANT: the below outputs are part of 'Search' functionality, do not remove.
+outputs:
+  home:
+  - HTML
+  - RSS
+  - JSON
 # Disables warnings
 disableKinds:
 - taxonomy
@@ -28,7 +33,7 @@ params:
   # Logo (from static/images/logos/___)
     image: logos/padded_logo.png
     link: /
-    brandName:  Unlock Business Growth
+    brandName:  Strategy-Driven AI Solutions #Strategic Clarity in the AI Noise
     # Default width/height. Uncomment if you need to change
     width: 40
     height: 60
@@ -60,25 +65,26 @@ params:
   #     url: /
   - title: About
     url: /about
-  - title: Consulting
+  - title: Services
     url: /consulting
   # - title: Testimonials
   #   url: /testimonials
-  - title: Apps
+  - title: Solutions
     url: /solutions
   - title: Blog
     url: /blog
   # - title: Contact
   #   url: /contact
-  - title: Free eBook
-    url: "https://data-science-ai.ck.page/data-driven-success"
-  - title: Apply Now
+  # - title: Free eBook
+    # url: "https://data-science-ai.ck.page/data-driven-success"
+  - title: Let's talk
     url: /applynow
     button: true
   
+  # Let's talk
   applynow:
-    title: Let's get started 
-    subtitle: Fill out this short form and get your free consultation. Learn how data science can transform your business.
+    title: Let's Make AI Work For You (Not The Other Way Around)
+    subtitle: "60 seconds to share your challenge. In return? Practical AI insights for YOUR business. No fluff, no sales pressure—just straight talk about what's actually possible. Ready? ⬇️"
     #googleFormEmbed: "https://docs.google.com/forms/d/e/1FAIpQLSeaux5ms6OjbAzMM1C6tyYBA9nqveniqk_WEdmQLK3uOHSQ9Q/viewform?embedded=true"
     #googleFormEmbed: "https://forms.office.com/Pages/ResponsePage.aspx?id=UTnvpgGjtUu3LIRIjntLoiL4QkbvbIlPiY5INqTE8n1UMjEzTEhSRkdKTFdYU1VVVVhTNjgwRldKNC4u&embed=true"
     googleFormEmbed: "https://forms.office.com/Pages/ResponsePage.aspx?id=BSXKyQLEw0CoZu5xaTFt8G2KzniA_wdDp2w30hQmqLpUOFVJWFdaSFBPU09KNkQ3Wk81WEFNSVFQTS4u&embed=true"
@@ -89,18 +95,22 @@ params:
     subtitle: What can we help you with?
     buttontext: Contact Us
   
+  # HERO SECTION --------------------
   section1_attention:
     # Main hero title
     # title: "Save $2M with better forecasting in 120 days"
     # title: "Save $2M with better data-driven decision making in 120 days"
-    title: "Lost in the Competition? Stand Out with Data Science."
+    title: "Make AI & Data Science Work For You"
     titleTextColor: "white"
-    # Hero subtitle (optional)
-    subtitle: "Data Science is not reserved to big tech companies anymore. Unveil the secrets of data science tailored for non-tech businesses. See how AI and insightful data can revolutionize your operations and boost your top/bottom line."
+    subtitle: "We help business leaders and product executives cut through AI confusion to get real results. 
+    No more wasted resources, failed projects, or tech headaches — 
+    just tailored AI solutions that actually work."
+    #"We help business leaders and product executives navigate the AI landscape 
+    #so they can implement data-driven solutions that deliver tangible business outcomes 
+    #without wasting resources on false starts, lengthy learning curves, or getting lost 
+    #in technical complexity."
     #ics subtitle: "We save our clients on average $100k-$2M per year through advanced analytics and tailored data science/AI solutions."
     heroBackgroundColor: "#000000c7"
-    
-    # Button text
     buttontext: "Discover More"
     # buttontext: "Discover More with Our Free Guide"
     # Where the main hero button links to
@@ -108,7 +118,7 @@ params:
     # buttonlink: "https://data-science-ai.ck.page/data-driven-success"
     # Hero image (from static/images/___)
     # Can get these images from flaticon.com
-    image: illustrations/mockups/nostradamus_app.jpg
+    image: illustrations/mockups/intelliforecaster.png #illustrations/mockups/nostradamus_app.jpg
     backgroundImage: illustrations/pexels-pixabay-373543.jpg
     
     # USE DS SOLUTION OPTIONS BEFORE GENERATING CLIENTS - FORECASTING, SKU, PRICING ETC.
@@ -133,71 +143,81 @@ params:
     # - tidyquant.png
     # - modeltime.png
     - h2o.png
-
+    # - databricks.png
+  
+  # SOLUTIONS DEEP DIVE SECTION --------------------
   section2_transformation:
-    title: "What Can You Achieve with Data Science?" 
-    subtitle: "Increase Sales, Cut Costs, Improve Productivity. Example: 20% improved demand forecasting for a $10M problem results in $2M cost savings in 120 days"
+    title: "Real Solutions for Your Biggest Business Headaches" 
+    subtitle: "Our proven consulting approach helps you spot, prioritize, and roll out the right data science tools to solve your specific business problems and give you an edge over competitors."
     # icons are located in static > images > illustrations > icons
     tile_size: is-one-quarter
     tile_height: "400px"
     tiles:
-    - title: "Understand Your Customers"
+    - title: "Make Better Decisions, Faster"
       # subtitle: Discovery
       icon: conversation.svg
-      text: Segment your customers and tailor your offers to their demographics, preferences, behaviors, and needs.
-
-    - title: "Oprimize Your Pricing Strategy"
+      text: Cut through information overload with AI systems that analyze data, highlight key insights, and suggest actions—no more analysis paralysis.
+    - title: "Predict Changes Before They Happen"
       # subtitle: Analysis
       icon: predictive-chart.svg
-      text: Analyze competitors, market and demand to set dynamic prices that maximize your profits.
-    - title: "Improve Your Business Operations"
+      text: Use advanced forecasting models to anticipate market shifts, customer behavior, and operational issues—helping you stay ahead of challenges.
+    - title: "Uncover Hidden Revenue Opportunities"
       # subtitle: Solution Design
       icon: forecasting.svg
-      text: Reduce waste and costs by using Machine Learning to manage inventory stock, predict employee turnover and more.
-    - title: "Keep Your Customers from Leaving"
+      text: Analyze your business data to identify hidden segments, pricing opportunities, and cross-selling possibilities that boost your profitability.
+    - title: "Automate Complex Workflows"
       # subtitle:  Implementation & Monitoring
       icon: monitoring.svg
-      text: Predict customer churn, create loyalty programs and rewards that incentivize repeat purchases and referrals.
+      text: Deploy AI agents that handle repetitive tasks, coordinate processes, and manage routine decisions—freeing your team to focus on strategic work.
   
+  # INTEREST SECTION ----------------------
+  # If modifications - consider 'themes/hugo-fresh-data-science/layouts/partials/section3-interest.html'
   section3_interest:
-    title: Maximize your business profitability
-    subtitle: With our machine learning solutions for data-driven decision-making
-    image: illustrations/mockups/mckinsey_analytics.png
+    title: Tired of AI Hype? Let's Build Something That Actually Works
+    subtitle: Wherever you are on your AI journey, we have solutions tailored to your needs.
+    image: illustrations/mockups/value-ladder-2.png
     tile_size: is-one-third
-    tile_height: "200px"
+    tile_height: "auto" #200px default
     tiles:
-    - title: "See Results in 120 Days or Less"
-      subtitle: "Say goodbye to losses and hello to savings. No need to hire multiple consultants - we'll take care of it all for you, fast."
-    - title: "Completely Secure"
-      subtitle: "Our machine learning solutions can be deployed on any major cloud provider or on your private network, giving you complete control and peace of mind."
-    - title: "Guaranteed ROI"
-      subtitle: "We have a proven track record of success. If we can't at least save you what you pay us, we'll give you your money back."
-    
-    
-  # section4_desire:
-  #   title: Trusted by awesome companies like these that are saving money and improving their demand planning
-  #   subtitle: Real results from our valued clients.
-  #   clients:
-  #   - name: Irma
-  #     quote: We were able to recover $5.3M by optimizing our supply and demand planning system using Forecasting Science. They delivered a solution in 90 days. This project was a slam dunk.
-  #     job: Senior VP, Exxon Mobil
-  #     img: 1.png
-  #   - name: John
-  #     quote: We literally can't live without our new demand planning system built by Forecasting Science, LLC. These guys delivered a $3.4M improvement to operations in under 6 months.
-  #     job: CEO, Tech Company
-  #     img: 2.png
-  #   - name: Gary
-  #     quote: I finally took the plunge and boy did it pay off. We got the first version of our forecasting system in 60 days. Let's just say that the ROI was immediate.
-  #     job: Executive VP, Marathon Petroleum
-  #     img: 3.png
+    - title: "The Data and AI Masterclass"
+      subtitle: "Overwhelmed by data & AI? Check this unique course that helps busy 
+      professionals achieve confidence in data and AI 
+      in 15 days or less, without needing to become tech nerds. Remove your frustration now."
+    - title: "Targeted AI Applications"
+      subtitle: "Ready to implement? Our pre-built solutions address specific business challenges 
+      like forecasting, marketing optimization, customer churn, and 
+      operational efficiency - without the complexity of custom development."
+    - title: "Data and AI Strategy Consulting"
+      subtitle: "Align AI solutions with business goals. Identify business opportunities. Integrate 
+      business processes, systems, and technology for optimal performance and adaptability."
+
+  # TESTIMONIALS ----------------------  
+  section4_desire:
+    title: Trusted by Awesome Companies
+    subtitle: Tangible Results from our Valued Clients
+    clients:
+    - name: Tabitha Brock
+      quote: Perfect work and lightning fast! Will hire again! 
+      job: Manager, Earnest LLC
+      img: 1.png
+    - name: Roel Peels
+      quote: The Dutch Internet startup Only Once had the pleasure of working with Plamen from Data Science AI. Plamen's knowledge and expertise in AI were instrumental in advancing the capabilities of Only Once. His dedication, trustworthiness, and reliability set him apart. He consistently went above and beyond to ensure our AI implementation was successful. His guidance was clear, insightful, and always delivered with a positive attitude. We highly recommend Plamen to anyone needing an AI expert, we like Plamen a lot.
+      job: CEO, OnlyOnce
+      img: 2.png
+    - name: Georgi Demirev
+      quote: One of our clients was stuck in manual data analysis, prone to errors and lacking visibility. Plamen from Data Science AI changed that. He designed an end-to-end decision-making system that integrated our data sources, providing clarity and insights, powered by machine learning. The Shiny web application he built was intuitive and powerful, allowing C-level users to easily make informed decisions. Plamen's 's expertise in data science and cloud technologies was impressive, but it was his ability to understand our unique challenges and deliver a tailored solution that truly impressed me. 
+      job: CEO, DashRnD
+      img: 3.png
   
   section5_faq: false
   
+  # CTA ----------------------- 
   section6_action:
-    callToActionText: Are you ready to unlock the potential of your business?
-    buttonText: Get Your Free Consultation
-    buttonLink: /applynow
+    callToActionText: The AI Business Scientist Newsletter. Smart AI and Data Science Insights
+    buttonText: Sign Up Now
+    buttonLink: https://data-science-ai.kit.com/newsletter #/applynow
   
+  # FOOTER ----------------------- 
   footer:
     # Logo (from /images/logos/___)
     logo: white_logo_no_back.png
@@ -208,13 +228,13 @@ params:
     # Social media links (GitHub, Twitter, etc.). All are optional.
     # Icons are from Font Awesome
     socialmedia:
-    - link: https://www.linkedin.com/
+    - link: https://www.linkedin.com/company/dscienceai/
       icon: linkedin
-    - link: https://facebook.com/#
-      icon: facebook
-    - link: https://twitter.com/lucperkins
-      icon: twitter
-    - link: https://github.com/lucperkins/github-fresh
+    # - link: https://facebook.com/#
+      # icon: facebook
+    # - link: https://twitter.com/lucperkins
+      # icon: twitter
+    - link: https://github.com/rabadzhiyski
       icon: github
     bulmalogo: false
     quicklinks:
@@ -223,9 +243,10 @@ params:
         links:
         - text: About
           link: /about
-        - text: Contact
-          link: /contact
-        
+        # - text: Contact
+        #   link: /contact
+        - text: Founder
+          link: https://plamen.ai/
         
         # title: "Consulting"
         # links:
@@ -236,11 +257,11 @@ params:
         # - text: Let's talk, apply now!
         #   link: /applynow
       column2:
-        title: "Services"
+        title: "USEFUL"
         links:
-        - text: Consulting
+        - text: Services
           link: /consulting
-        - text: Apps
+        - text: Solutions
           link: /solutions
           
       column3:
@@ -251,6 +272,3 @@ params:
         # - text: Employee 
         # - text: Employee Turnover
         #   link: /applications
-          
-
-          
