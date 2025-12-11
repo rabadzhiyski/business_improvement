@@ -1,11 +1,20 @@
 ---
+title: Portfolio - Data Science and AI Solutions That Work
+type: page
+layout: single
+---
+
+{{< portfolio-grid >}}
+
+
+<!-- --- sep 2025 version
 image: /images/illustrations/pexels-mathias-reding-9260295.jpg
 include_cta: true
 title: Portfolio - Data Science and AI Solutions That Work
 type: testimonials
 ---
 
-{{< portfolio-grid >}}
+{{< portfolio-grid >}} -->
 
 <!-- <script>
 $(document).ready(function() {
