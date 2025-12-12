@@ -11,7 +11,7 @@ services:
     outcome: Team empowerment to identify and evaluate AI opportunities independently.
     link: "#masterclass"
 
-  - title: Strategic Discovery Session
+  - title: The AI ROI Roadmap
     icon: search
     subtitle: For leaders seeking clarity on where to start with AI
     description: Comprehensive assessment of your current data capabilities, identification of high-ROI AI opportunities specific to your business, and a prioritized roadmap for implementation.

@@ -1,5 +1,8 @@
 {
     "recommendations": [
-        "pomdtr.excalidraw-editor"
+        "pomdtr.excalidraw-editor",
+        "REditorSupport.r",
+        "ms-python.python",
+        "ms-toolsai.jupyter"
     ]
 }
