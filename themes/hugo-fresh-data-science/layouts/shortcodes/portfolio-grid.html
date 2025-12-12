@@ -1,6 +1,6 @@
 <div class="portfolio-section">
   <!-- Category filters -->
-  <div class="buttons is-centered filter-buttons" id="category-filters">
+  <div class="buttons is-centered filter-buttons" id="pg-category-filters">
     <button class="button filter-button is-active" data-filter="all">All Solutions</button>
     {{ range .Site.Data.portfolio.categories }}
       <button class="button filter-button" data-filter="{{ . | urlize }}">{{ . }}</button>
@@ -8,14 +8,14 @@
   </div>
   
   <!-- Business Domain filters -->
-  <div class="buttons is-centered filter-buttons" id="domain-filters">
+  <div class="buttons is-centered filter-buttons" id="pg-domain-filters">
     <button class="button filter-button is-active" data-filter="all">All Business Domains</button>
     {{ range .Site.Data.portfolio.domains }}
       <button class="button filter-button" data-filter="{{ . | urlize }}">{{ . }}</button>
     {{ end }}
   </div>
 
-  <div class="columns is-multiline" id="projects-grid">
+  <div class="columns is-multiline" id="pg-projects-grid">
     {{ range .Site.Data.portfolio.projects }}
       <div class="column is-one-third project-tile" 
            data-categories="{{ range .categories }}{{ . | urlize }} {{ end }}" 
@@ -56,78 +56,98 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get all filter buttons
-      const categoryFilterButtons = document.querySelectorAll('#category-filters button');
-      const domainFilterButtons = document.querySelectorAll('#domain-filters button');
-      // Get all project tiles
-      const projectTiles = document.querySelectorAll('.project-tile');
-      
-      // Track active filters
-      let activeCategory = 'all';
-      let activeDomain = 'all';
-      
-      // Filter function
-      function filterProjects() {
-        projectTiles.forEach(tile => {
-          const categories = tile.getAttribute('data-categories');
-          const domains = tile.getAttribute('data-domains');
-          
-          const categoryMatch = (activeCategory === 'all' || categories.includes(activeCategory));
-          const domainMatch = (activeDomain === 'all' || domains.includes(activeDomain));
-          
-          if (categoryMatch && domainMatch) {
-            tile.style.display = 'block';
-          } else {
-            tile.style.display = 'none';
-          }
-        });
-      }
-      
-      // Add click event to category filter buttons
-      categoryFilterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          // Remove active class from all buttons
-          categoryFilterButtons.forEach(btn => btn.classList.remove('is-active'));
-          // Add active class to clicked button
-          this.classList.add('is-active');
-          
-          // Update active category
-          activeCategory = this.getAttribute('data-filter');
-          
-          // Apply filters
-          filterProjects();
-        });
-      });
-      
-      // Add click event to domain filter buttons
-      domainFilterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          // Remove active class from all buttons
-          domainFilterButtons.forEach(btn => btn.classList.remove('is-active'));
-          // Add active class to clicked button
-          this.classList.add('is-active');
-          
-          // Update active domain
-          activeDomain = this.getAttribute('data-filter');
-          
-          // Apply filters
-          filterProjects();
-        });
-      });
-    });
-      // Force re-initialization to fix display issues
-    setTimeout(function() {
-    // Make sure all projects are visible initially
-    projectTiles.forEach(tile => {
-      tile.style.display = 'block';
-    });
-    // Force layout recalculation
-    window.dispatchEvent(new Event('resize'));
-    }, 200);
+    (function() {
+        // Encapsulate in IIFE to avoid global scope pollution
+        
+        function initPortfolioGrid() {
+            // Get all filter buttons with new unique IDs
+            const categoryFilterButtons = document.querySelectorAll('#pg-category-filters button');
+            const domainFilterButtons = document.querySelectorAll('#pg-domain-filters button');
+            
+            // Get all project tiles
+            const projectTiles = document.querySelectorAll('.project-tile');
+            
+            if (!categoryFilterButtons.length || !domainFilterButtons.length || !projectTiles.length) {
+                console.warn('Portfolio grid elements not found. Retrying in 100ms...');
+                // Fallback for extreme race conditions or dynamic content injection
+                setTimeout(initPortfolioGrid, 100); 
+                return;
+            }
 
-    // Initial filtering (make sure this is called)
-    filterProjects();
+            // Track active filters
+            let activeCategory = 'all';
+            let activeDomain = 'all';
+            
+            // Filter function
+            function filterProjects() {
+                projectTiles.forEach(tile => {
+                    const categories = tile.getAttribute('data-categories') || '';
+                    const domains = tile.getAttribute('data-domains') || '';
+                    
+                    const categoryMatch = (activeCategory === 'all' || categories.includes(activeCategory));
+                    const domainMatch = (activeDomain === 'all' || domains.includes(activeDomain));
+                    
+                    if (categoryMatch && domainMatch) {
+                        tile.style.display = 'block';
+                    } else {
+                        tile.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Add click event to category filter buttons
+            categoryFilterButtons.forEach(button => {
+                // Remove existing listeners to prevent duplication if re-initialized
+                const newButton = button.cloneNode(true);
+                button.parentNode.replaceChild(newButton, button);
+                
+                newButton.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    document.querySelectorAll('#pg-category-filters button').forEach(btn => btn.classList.remove('is-active'));
+                    // Add active class to clicked button
+                    this.classList.add('is-active');
+                    
+                    // Update active category
+                    activeCategory = this.getAttribute('data-filter');
+                    
+                    // Apply filters
+                    filterProjects();
+                });
+            });
+            
+            // Re-select buttons after cloning
+            const newCategoryButtons = document.querySelectorAll('#pg-category-filters button');
+            
+            // Add click event to domain filter buttons
+            domainFilterButtons.forEach(button => {
+                const newButton = button.cloneNode(true);
+                button.parentNode.replaceChild(newButton, button);
+                
+                newButton.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    document.querySelectorAll('#pg-domain-filters button').forEach(btn => btn.classList.remove('is-active'));
+                    // Add active class to clicked button
+                    this.classList.add('is-active');
+                    
+                    // Update active domain
+                    activeDomain = this.getAttribute('data-filter');
+                    
+                    // Apply filters
+                    filterProjects();
+                });
+            });
+
+            // Initial Filtering
+            filterProjects();
+            console.log('Portfolio Grid Initialized');
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initPortfolioGrid);
+        } else {
+            initPortfolioGrid();
+        }
+    })();
   </script>
 
   <style>
@@ -199,6 +219,7 @@
     .card-footer-item:hover {
       color: white !important;
       background-color: #0066FF !important;
+      /* removed !important from hover state to potentially fix sticky hover on mobile if needed, but keeping for now as requested */
     }
   </style>
 </div>
