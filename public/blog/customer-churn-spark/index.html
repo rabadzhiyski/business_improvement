@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NTXF6D21S6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NTXF6D21S6');
+</script>
+
+    
+    ...
+    
+
+<meta property="og:title" content="Predicting Customer Churn with PySpark" />
+<meta property="og:description" content="Technical report with code chunks I used PySpark to predict customer churn of a company that provides online music services. The company has two main types of customers &mdash; Free and Paid users. Any user can upgrade or downgrade the service at any time. The company stores a decent amount of data that can be used to design a machine learning model to predict what customers would churn so that we can offer them incentives and make them stay as long as possible." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://data-science-ai.com/blog/customer-churn-spark/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-06-04T08:45:27+06:00" />
+<meta property="article:modified_time" content="2021-06-04T08:45:27+06:00" />
+
+
+<meta name="description" content="Hardcoded description; the author should update :)" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <title>AI That Actually Works</title>
+    
+<link rel="icon" type="image/ico" href="/images/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/css/style.min.67bdcf846866ef901fb501acf61b36b56b8fe24113b8360cc73f059c0fa4a0c9.css" integrity="sha256-Z73PhGhm75AftQGs9hs2tWuP4kETuDYMxz8FnA&#43;koMk=">
+<link rel="stylesheet" type="text/css" href="/css/icons.css">
+<link rel="stylesheet" type="text/css" href="/css/custom.css">
+<style>
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;600&family=Montserrat:wght@700&family=Roboto+Condensed&family=Abhaya+Libre:wght@400;600$&family=Lato&display=swap);
+h1, h2, h3, h4, h5, h6{
+    font-family: Roboto, sans-serif !important;
+}
+body{
+    font-family: Roboto, sans-serif !important;
+}
+</style>
+
+  </head>
+  <body>
+    
+    
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+    
+
+    
+
+
+<nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="/images/logos/padded_logo.png" alt="" width="40" height="40" style="-webkit-filter: drop-shadow(1px 1px 1px #222);">
+      </a>
+      <h4 class="navbar-item" style="margin:auto;">Strategy-Driven AI Solutions</h4>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+      <div id="navbar-menu" class="navbar-menu is-static">
+
+        <div class="navbar-end">
+          <a href="/about" class="navbar-item is-secondary">
+            About
+          </a>
+          <a href="/consulting" class="navbar-item is-secondary">
+            Services
+          </a>
+          <a href="/solutions" class="navbar-item is-secondary">
+            Solutions
+          </a>
+          <a href="/blog" class="navbar-item is-secondary">
+            Articles
+          </a>
+          <a href="/applynow" class="navbar-item">
+            <span class="button signup-button rounded secondary-btn raised">
+              Let&#39;s talk
+            </span>
+          </a>
+        </div>
+      </div>
+  </div>
+</nav>
+
+
+
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="/images/logos/padded_logo.png" alt="" width="40" height="40"  style="-webkit-filter: drop-shadow(1px 1px 1px #222);">
+      </a>
+      <h4 class="navbar-item" style="margin:auto;">Strategy-Driven AI Solutions</h4>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="cloned-navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="cloned-navbar-menu" class="navbar-menu is-fixed">
+
+      <div class="navbar-end">
+        <a href="/about" class="navbar-item is-secondary">
+          About
+        </a>
+        <a href="/consulting" class="navbar-item is-secondary">
+          Services
+        </a>
+        <a href="/solutions" class="navbar-item is-secondary">
+          Solutions
+        </a>
+        <a href="/blog" class="navbar-item is-secondary">
+          Articles
+        </a>
+        <a href="/applynow" class="navbar-item">
+          <span class="button signup-button rounded secondary-btn raised">
+            Let&#39;s talk
+          </span>
+        </a>
+      </div>
+    </div>
+</div>
+</nav>
+
+
+<div class="hero-body" 
+  style="background-image: url(/images/illustrations/pexels-pixabay-373543.jpg); 
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;">
+  <div class="container">
+    <div class="columns is-vcentered">
+      <div class="column is-5 is-offset-1 landing-caption" style="background-color:#000000c7;">
+        <h1 class="title is-1 is-bold is-spaced" style="color:white">
+          Make AI &amp; Data Science Work For You
+        </h1>
+        
+        <h3 class="subtitle is-5 is-muted">
+          We help business leaders and product executives cut through AI confusion to get real results. No more wasted resources, failed projects, or tech headaches — just tailored AI solutions that actually work.
+        </h3>
+        
+        <p>
+          <a class="button cta rounded secondary-btn raised" href="/#section2">
+            Discover More
+          </a>
+        </p>
+      </div>
+      <div class="column is-5 is-offset-1">
+        <figure class="image ">
+          <img src="/images/illustrations/mockups/intelliforecaster.png" alt="Description"
+          style="-webkit-filter: drop-shadow(5px 5px 5px #222);">
+        </figure>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="section is-medium">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        
+        <h1 class="title section-title" style="font-size:48px;">Predicting Customer Churn with PySpark</h1>
+        <h5 class="subtitle is-5 is-muted">Author: Plamen Rabadzhiyski</h5>
+        
+        <div class="has-text-centered">
+            <figure class="image is-inline-block">
+                <img id="" src=https://data-science-ai.com/images/illustrations/laptop_chart.jpg alt="" style="-webkit-filter: drop-shadow(5px 5px 5px #222);"/>
+            </figure>
+        </div>
+        <br />
+            
+        
+        
+        <div class="divider"></div>
+      </div>
+    </div>
+    
+    <br />
+
+    <div class="content">
+      <h2 id="technical-report-with-code-chunks">Technical report with code chunks</h2>
+<p>I used
+<a href="https://spark.apache.org/docs/latest/api/python/index.html" target="_blank">
+  PySpark
+</a>
+ to
+predict customer churn of a company that provides online music services.
+The company has two main types of customers &mdash; Free and Paid users. Any
+user can upgrade or downgrade the service at any time. The company
+stores a decent amount of data that can be used to design a machine
+learning model to predict what customers would churn so that we can
+offer them incentives and make them stay as long as possible.</p>
+<p>The project uses <a href="https://www.databricks.com/glossary/pyspark" target="_blank">
+  PySpark
+</a>
+
+libraries and it was developed with Jupyter notebooks on a local PC. A
+Spark cluster was also used in <a href="https://www.ibm.com/cloud/watson-studio" target="_blank">
+  IBM Watson
+Studio
+</a>
+. There are three data
+sets available with customer data &mdash; mini, medium, and a 12GB data set,
+provided by <a href="https://www.udacity.com/" target="_blank">
+  Udacity
+</a>
+. The mini version was
+used locally, and the medium-sized data was used in the cluster. The
+project consists of:</p>
+<ul>
+<li>
+<p>Jupyter Notebook &mdash; where all code is available (working and final
+version)</p>
+</li>
+<li>
+<p>Blog post &mdash; this post</p>
+</li>
+<li>
+<p><a href="https://github.com/rabadzhiyski/SparkProject" target="_blank">
+  Github
+</a>
+ repository
+&mdash; where all code can be found</p>
+</li>
+</ul>
+<p>The customer churn is addressed through data transformation, feature
+engineering, and machine learning classification. The best model was
+chosen based on the AUC-ROC metric. Logistic regression and Random
+Forest classifier were tested. In the end, the Logistic regression model
+performed 23% better than the Random Forest classifier.</p>
+<hr>
+<h2 id="problem-statement">Problem statement</h2>
+<p>Customer churn is a very challenging area and it gives many
+opportunities for analyses. I used PySpark to load, transform data and
+build a machine-learning algorithm to predict users&rsquo; churn. It was
+important to find a way to get a realistic probability for users who are
+prompt to churn based on some features like gender, location, workday,
+songs played, etc.</p>
+<p>With the help of several PySpark libraries, I explored the data,
+engineered the most appropriate features, designed a machine learning
+pipeline, and chose the most appropriate model for predicting churn. It
+is a classification task that required Logistic Regression, Random
+Forest Classifier, or another classification model.</p>
+<h2 id="metrics">Metrics</h2>
+<p>To define if I worked correctly and if we can count on the ML model I
+needed some metrics. For this project, I used the area under AUC-ROC as
+a performance metric.</p>
+<p>Even if accuracy is a very popular metric, it&rsquo;s not the best choice for
+binary classification problems which often produce unbalanced data. Like
+fraud or spam filters, the customer churn data has classes that are
+distributed unequally.</p>
+<p>For example, when we run our logistic model it had remarkable accuracy
+of 99% but AUC-ROC= 65%.</p>
+<p>ROC (receiver operating curve) is the visual representation of the
+performance of the binary classifier. False Positive Rate vs True
+Positive Rate is plotted to get a visual understanding of the
+classifier&rsquo;s performance. I chose Logistic regression over Random Forest
+as it was 23% more performant (0.65 vs 0.5).</p>
+<h2 id="data-exploration">Data Exploration</h2>
+<p>We have three data sets &mdash; mini, medium, and big (12GB) data set. For
+the sake of the exercise, we first started with a mini version of the
+data. The medium one was used with <a href="https://www.ibm.com/cloud/watson-studio" target="_blank">
+  IBM Watson
+Studio
+</a>
+&mdash; a free cluster with
+Spark.</p>
+<p>After data is loaded we can have a look at the schema.</p>
+<pre><code>df.printSchema()root
+ |-- artist: string (nullable = true)
+ |-- auth: string (nullable = true)
+ |-- firstName: string (nullable = true)
+ |-- gender: string (nullable = true)
+ |-- itemInSession: long (nullable = true)
+ |-- lastName: string (nullable = true)
+ |-- length: double (nullable = true)
+ |-- level: string (nullable = true)
+ |-- location: string (nullable = true)
+ |-- method: string (nullable = true)
+ |-- page: string (nullable = true)
+ |-- registration: long (nullable = true)
+ |-- sessionId: long (nullable = true)
+ |-- song: string (nullable = true)
+ |-- status: long (nullable = true)
+ |-- ts: long (nullable = true)
+ |-- userAgent: string (nullable = true)
+ |-- userId: string (nullable = true)
+</code></pre>
+<p>One useful step before jumping to any exploration is to make sure that
+the &ldquo;ts&rdquo; column is converted to a human-readable date format. We used
+some user-defined functions to do that.</p>
+<pre><code># Check the newly created columns
+df.select('hour', 'day', 'workday_', 'month').show(5)+----+---+--------+-----+
+|hour|day|workday_|month|
++----+---+--------+-----+
+|   0|  1|  Monday|   10|
+|   1|  1|  Monday|   10|
+|   1|  1|  Monday|   10|
+|   3|  1|  Monday|   10|
+|   4|  1|  Monday|   10|
++----+---+--------+-----+
+only showing top 5 rows
+</code></pre>
+<p>Now we&rsquo;re good to go.</p>
+<p>It would be interesting and useful to dig into the data a little bit.</p>
+<p><em><strong>How many songs do users listen to on average between visiting the
+home page?</strong></em></p>
+<pre><code>function = udf(lambda ishome : int(ishome == 'Home'), IntegerType())
+
+user_window = Window \
+    .partitionBy('userID') \
+    .orderBy(desc('ts')) \
+    .rangeBetween(Window.unboundedPreceding, 0)
+
+cusum = df.filter((df.page == 'NextSong') | (df.page == 'Home')) \
+    .select('userID', 'page', 'ts') \
+    .withColumn('homevisit', function(col('page'))) \
+    .withColumn('period', Fsum('homevisit').over(user_window))
+
+cusum.filter((cusum.page == 'NextSong')) \
+    .groupBy('userID', 'period') \
+    .agg({'period':'count'}) \
+    .agg({'count(period)':'avg'}).show()
+
++------------------+
+|avg(count(period))|
++------------------+
+| 23.66741388737015|
++------------------+
+</code></pre>
+<p><em><strong>What are the top 5 played artists?</strong></em></p>
+<pre><code># top 5 played artist
+df.filter(df.page == 'NextSong') \
+    .select('Artist') \
+    .groupBy('Artist') \
+    .agg({'Artist':'count'}) \
+    .withColumnRenamed('count(Artist)', 'Artistcount') \
+    .sort(desc('Artistcount')) \
+    .show(5)
+
++--------------------+-----------+
+|              Artist|Artistcount|
++--------------------+-----------+
+|       Kings Of Leon|       3497|
+|            Coldplay|       3439|
+|Florence + The Ma...|       2314|
+|                Muse|       2194|
+|       Dwight Yoakam|       2187|
++--------------------+-----------+
+only showing top 5 rows
+</code></pre>
+<p>We can use previously created date columns to see some patterns in
+customer behaviors. But before doing that we need to create a customer
+churn column.</p>
+<pre><code># check the page column df.select(&quot;page&quot;).dropDuplicates().sort(&quot;page&quot;).show()+--------------------+
+|                page|
++--------------------+
+|               About|
+|          Add Friend|
+|     Add to Playlist|
+|              Cancel|
+|Cancellation Conf...|
+|           Downgrade|
+|               Error|
+|                Help|
+|                Home|
+|               Login|
+|              Logout|
+|            NextSong|
+|            Register|
+|         Roll Advert|
+|       Save Settings|
+|            Settings|
+|    Submit Downgrade|
+| Submit Registration|
+|      Submit Upgrade|
+|         Thumbs Down|
++--------------------+
+only showing top 20 rows
+</code></pre>
+<p>For our analyses, we will use the &ldquo;Cancellation Confirmation&rdquo; page to
+flag when a given customer has churned.</p>
+<pre><code># create a udf to flag Churned customers
+flag_downgrade_event = udf(lambda x: 1 if x == “Cancellation Confirmation” else 0, IntegerType())
+</code></pre>
+<h2 id="data-visualization">Data Visualization</h2>
+<p>We can see some useful insights with the help of graphs. Plotly graphing
+options were used during the project. Let&rsquo;s see some interesting plots
+that will help us determine the best features for our machine learning
+model.</p>
+<p>We first check the location distribution. The biggest number of users
+are LA residents.</p>
+<!-- ![The biggest number of users are LA
+residents.](/uploads/blog_images/spark-location-distribution.png) -->
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-location-distribution.png" alt="Placeholder image" style="width:700px;">
+</figure>
+<p>It would be more convenient to group the cities into states by creating
+a new column that takes the last two characters in the row. After that
+manipulation, we can plot the <strong>state distribution.</strong> CA, PA, TX, NH,
+and FL are the top five states.</p>
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-state-distribution.png" alt="Placeholder image" style="width:700px;">
+</figure>
+<!-- ![](/uploads/blog_images/spark-state-distribution.png) -->
+<p><strong>What are the most active workdays?</strong></p>
+<!-- ![](/uploads/blog_images/spark-count-workday.png) -->
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-count-workday.png" alt="Placeholder image" style="width:700px;">
+</figure>
+<p><strong>What about churn during the week?</strong></p>
+<p>Friday is the churn day.</p>
+<!-- ![](/uploads/blog_images/spark-churn-workday.png) -->
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-churn-workday.png" alt="Placeholder image" style="width:700px;">
+</figure>
+<p><strong>What are the most active hours for users?</strong></p>
+<p>Users are most active in the late afternoon and during the evenings.</p>
+<!-- ![](/uploads/blog_images/spark-active-hours.png) -->
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-active-hours.png" alt="Placeholder image" style="width:700px;">
+</figure>
+<p><strong>What are the most active hours for churn then?</strong></p>
+<p>There is something at 10 am, even if it&rsquo;s not the most active time for
+users, a lot of churns happen then.</p>
+<!-- ![](/uploads/blog_images/spark-active-hours-churn.png) -->
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-active-hours-churn.png" alt="Placeholder image" style="width:700px;">
+</figure>
+<p><strong>What are the most active days of the month?</strong></p>
+<p>The second half of the month tends to be a bit busier, but there is not
+a clear pattern.</p>
+<!-- ![](/uploads/blog_images/spark-active-days.png) -->
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-active-days.png" alt="Placeholder image" style="width:700px;">
+</figure>
+<p><strong>What are the most active days during the month?</strong></p>
+<p>The beginning and the second half of the month are for churn!</p>
+<!-- ![](/uploads/blog_images/spark-active-days-month.png) -->
+<figure class="image">
+<img class="" src="/uploads/blog_images/spark-active-days-month.png" alt="Placeholder image" style="width:700px;">
+</figure>
+<hr>
+<h2 id="data-preprocessing">Data Preprocessing</h2>
+<p>Based on the exploratory analyses we could pick <strong>state, workday, day,
+and gender</strong> as our candidate features for modeling. We can also add
+<strong>SongsPlayed</strong> to that as it gives an interesting indication &mdash; users
+who listen to more songs are less prompt to churn.</p>
+<pre><code># Get feauture candidates for modeling
+df.select('userId', 'churn', 'gender', 'workday', 'day', 'state') \
+    .where(df.churn != 0).sort('userId').show(20)+------+-----+------+-------+---+-----+
+|userId|churn|gender|workday|day|state|
++------+-----+------+-------+---+-----+
+|    10|    1|     M|      2|  9|   MS|
+|100001|    1|     F|      2|  2|   FL|
+|100003|    1|     F|      4|  8|   FL|
+|100004|    1|     F|      7| 14|   NY|
+|100005|    1|     M|      6|  6|   LA|
+|100010|    1|     F|      4| 11|   CT|
+|100011|    1|     M|      3| 21|   OR|
+|100012|    1|     M|      2|  6|   WI|
+|100013|    1|     F|      2|  2|   OH|
+|100014|    1|     M|      7| 21|   PA|
+|100016|    1|     M|      2| 23|   IL|
+|100017|    1|     M|      2| 13|   AL|
+|100018|    1|     M|      1|  8|   TX|
+|100023|    1|     M|      6|  6|   SC|
+|100024|    1|     M|      2| 13|   PA|
+|100025|    1|     F|      2|  6|   PA|
+|100028|    1|     F|      7| 21|   WA|
+|100030|    1|     F|      3|  3|   CA|
+|100032|    1|     M|      4|  4|   TX|
+|100036|    1|     M|      5|  5|   OK|
++------+-----+------+-------+---+-----+
+only showing top 20 rows
+</code></pre>
+<p>Spark cannot work with strings when building a model. Furthermore,
+proper preprocessing had to be done to make sure that data is feasible
+for Spark modeling.</p>
+<p>The script used for this process creates a new <em>model</em> data frame only
+with the columns chosen for features.</p>
+<ul>
+<li>
+<p><em>userId</em> and column <em>gender</em> are converted to integers</p>
+</li>
+<li>
+<p><em>churn</em> is renamed to <em>label</em></p>
+</li>
+<li>
+<p>new column <em>SongsPlayed</em> is created and added to the <em>model</em> data
+frame</p>
+</li>
+<li>
+<p>any null values are removed</p>
+</li>
+<li>
+<p>duplicates were also removed</p>
+</li>
+</ul>
+<p>After some data wrangling, we get the below <em>model</em> table.</p>
+<pre><code>model.show()+------+-----+------+-------+---+-----+-----------+
+|userId|label|gender|workday|day|state|SongsPlayed|
++------+-----+------+-------+---+-----+-----------+
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
+|100010|    0|     0|      1|  8|   CT|         96|
+|100010|    0|     0|      4| 11|   CT|         96|
++------+-----+------+-------+---+-----+-----------+
+only showing top 20 rows
+</code></pre>
+<p>One last step is to encode the <em>state</em> column as it is a string-type
+column with 50+ state names. I used <em>StringIndexer</em> and <em>OneHotEncoder</em>
+to create a vector column of the available state.</p>
+<pre><code># Create a StringIndexer
+state_indexer = StringIndexer(inputCol =”state”, outputCol =”state_index”)# Create a OneHotEncoder
+state_encoder = OneHotEncoder(inputCol=”state_index”, outputCol=”state_fact”)
+</code></pre>
+<p>The difference between Scikit-learn and Spark machine learning
+approaches is the features. In Spark, we should encode all features into
+one vectored column. I used <em>VectorAssembler</em> to do that.</p>
+<pre><code># Make a VectorAssembler
+vec_assembler = VectorAssembler(inputCols=[“gender”, “state_fact”, “workday”, “day”, “SongsPlayed”], \
+ outputCol=”features”)
+</code></pre>
+<hr>
+<h2 id="implementation">Implementation</h2>
+<p>Once all data is good for modeling, the next step is to create a machine
+learning pipeline. The pipeline is a class in the pyspark.ml module that
+combines all the Estimators and Transformers that I already created.
+This lets me reuse the same modeling process over and over again by
+wrapping it up in one simple object.</p>
+<pre><code># Make the pipeline
+churn_pipe = Pipeline(stages=[state_indexer, state_encoder, vec_assembler])
+</code></pre>
+<p>After data is cleaned and gotten ready for modeling, one of the most
+vital steps is to split the data into a <em>test set</em> and a <em>train set</em>.</p>
+<p>In Spark, it&rsquo;s important to make sure you split the data <strong>after</strong> all
+the transformations. This is because operations like <em>StringIndexer</em>
+don&rsquo;t always produce the same index even when given the same list of
+strings.</p>
+<pre><code># Fit and transform the data
+piped_data = churn_pipe.fit(model).transform(model)# Split the data into training and test sets
+training, test = piped_data.randomSplit([.6, .4])
+</code></pre>
+<p>For this project, I used Logistic Regression and Random Forest
+Classifier to define churn. The very first pick for a classification
+model should always be the logistic regression. It&rsquo;s a basic model but
+gives a good ground for machine learning predictions.</p>
+<hr>
+<h2 id="refinement">Refinement</h2>
+<p>I tuned my model using <em>k-fold cross-validation</em>. This is a method of
+estimating the model&rsquo;s performance on unseen data. It works by splitting
+the training data into a few different partitions &mdash; I used Spark&rsquo;s
+default values.</p>
+<p>Once the data is split up, one of the partitions is set aside, and the
+model is fit to the others. Then the error is measured against the
+held-out partition. This is repeated for each of the partitions so that
+every block of data is held out and used as a test set exactly once.
+Then the error on each of the partitions is averaged. This is called the
+cross-validation <em>error</em> of the model and is a good estimate of the
+actual error on the held-out data.</p>
+<p>You need to create a grid of values to search over when looking for the
+optimal hyperparameters. With the help of cross-validation, I chose the
+hyperparameters by creating a grid of the possible pairs of values for
+the two hyperparameters, <em>elasticNetParam</em> and <em>regParam</em>, and using the
+cross-validation error to compare all the different models.</p>
+<p>The submodule <em>pyspark.ml.tuning</em> includes a class called
+<em>ParamGridBuilder</em> that does just that.You&rsquo;ll need to use the
+<em>.addGrid()</em> and <em>.build()</em> methods to create a grid that you can use
+for cross-validation. The <em>.addGrid()</em> method takes a model parameter
+and a list of values that you want to try. The <em>.build()</em> method takes
+no arguments, it just returns the grid that I used later.</p>
+<pre><code># Create the parameter grid
+grid = tune.ParamGridBuilder()
+grid_rf = tune.ParamGridBuilder()# Logistic Regression grid
+grid = grid.addGrid(lr.regParam, np.arange(0, .1, .01))
+grid = grid.addGrid(lr.elasticNetParam, [0, 1])# Random Forest grid
+grid_rf = grid_rf.addGrid(rf.numTrees,[3, 10, 30])
+</code></pre>
+<p>The sub-module <em>pyspark.ml.tuning</em> also has a class called
+<em>CrossValidator</em> for performing cross-validation.</p>
+<pre><code># Create the CrossValidator
+cv = tune.CrossValidator(estimator=lr,
+            estimatorParamMaps=grid,
+            evaluator=evaluator_ROC
+            )
+</code></pre>
+<p>The script I built combines all the above chunks into one action that
+istailored to suit a Logistic Regression and a Random Forest Classifier.
+Once run, the next step is to fit the model and select the best one.
+This task takes a lot of time and it depends on the resources in use.</p>
+<pre><code># Fit cross validation models - this steps takes a lot of time
+models = cv.fit(training)# Extract the best model
+best_lr = models.bestModel
+</code></pre>
+<hr>
+<h2 id="model-evaluation-and-validation">Model Evaluation and Validation</h2>
+<p>To make sure I properly assess the performance of the models I used a
+common metric for binary classification algorithms called the <em><strong>AUC</strong></em>
+(area under the curve &mdash; numerical representation of the performance of
+binary classifier). In this case, the curve is the <strong>ROC</strong> (receiver
+operating curve &mdash; the visual representation of the performance of the
+binary classifier. False Positive Rate vs True Positive Rate is plotted
+to get the visual understanding of the classifier&rsquo;s performance). Both
+models were measured against AUC-ROC.</p>
+<hr>
+<h2 id="justification">Justification</h2>
+<p>Accuracy is the most common measure but definitely ignores many factors
+like false positives and false negatives that are brought into the
+system by a model.</p>
+<p>To demonstrate why it is important to use the proper metric I will share
+the results from my models (random forest performed 23% less compared to
+the logistic regression).</p>
+<p><strong>Logistic regression results:</strong></p>
+<ul>
+<li>
+<p>Accuracy = 99%</p>
+</li>
+<li>
+<p>Area under ROC = 65%</p>
+</li>
+</ul>
+<p><strong>Random Forests results:</strong></p>
+<ul>
+<li>
+<p>Accuracy = 99%</p>
+</li>
+<li>
+<p>Area under ROC = 55%</p>
+</li>
+</ul>
+<p>If I consider only accuracy I would be too confident of my model. Since
+I deal with unbalanced data a better estimation of the model&rsquo;s
+performance is the Area under ROC, which turns to be 65%.</p>
+<hr>
+<h2 id="reflection">Reflection</h2>
+<p>Predicting churn is not an easy task but with the help of Spark and
+python, it could get really fun. Of course, none of the techniques would
+matter if the model that I created is useless for real business.</p>
+<p>In my scenario, I used the gender, day, workday, state, and songs played
+per user to predict churn. Based on exploratory data analyses I decided
+that those features are good for prediction. I found some patterns,
+especially for churned users.</p>
+<p>Then, I transformed the whole data set to be readable by Spark&rsquo;s machine
+learning libraries.I used Logistic Regression and Random Forests to
+design a machine learning algorithm.</p>
+<p>In the end, I found that Accuracy is a misleading metric for my project,
+so I counted on the area under ROC output to measure performance.</p>
+<hr>
+<h2 id="improvement">Improvement</h2>
+<p>As the famous British statistician George Box stated <em><strong>&ldquo;All models are
+wrong but some are useful&rdquo;.</strong></em></p>
+<p>The AUC-ROC of my models are not so good and I would look further into
+the data to choose a different set of features. Maybe a number of
+thumbs-up could be a reasonable candidate. There are plenty of
+opportunities to test various feature combinations to improve the
+model&rsquo;s performance.</p>
+<p>I think that we should always link the models to the business context
+and make some assumptions about their use. For me, predicting churn was
+a challenging task and I would not say that my model is the best
+possible solution. However, it gave me a fresh inside and reasonable
+confidence that with the right features, I can identify some clients who
+are prompt to churn.</p>
+<hr>
+<h2 id="references">References</h2>
+<ul>
+<li>
+<p><a href="https://towardsdatascience.com/dealing-with-imbalanced-dataset-642a5f6ee297" target="_blank">
+  https://towardsdatascience.com/dealing-with-imbalanced-dataset-642a5f6ee297
+</a>
+</p>
+</li>
+<li>
+<p><a href="https://medium.com/@sarath13/area-under-the-roc-curve-explained-d056854d3815" target="_blank">
+  https://medium.com/@sarath13/area-under-the-roc-curve-explained-d056854d3815
+</a>
+</p>
+</li>
+<li>
+<p><a href="https://spark.apache.org/docs/1.5.2/" target="_blank">
+  https://spark.apache.org/docs/1.5.2/
+</a>
+</p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/lpdataninja/machine-learning-with-apache-spark/notebook" target="_blank">
+  https://www.kaggle.com/lpdataninja/machine-learning-with-apache-spark/notebook
+</a>
+</p>
+</li>
+<li>
+<p><a href="https://www.udacity.com/course/learn-spark-at-udacity%e2%80%93ud2002" target="_blank">
+  https://www.udacity.com/course/learn-spark-at-udacity&amp;ndash;ud2002
+</a>
+</p>
+</li>
+</ul>
+<hr>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-feature-grey is-medium" id="section6">
+  <div class="container">
+    
+    <div class="title-wrapper has-text-centered">
+      <h2 class="title is-2">The AI Business Scientist Newsletter. Smart AI and Data Science Insights</h2>
+    </div>
+
+    <p class="has-text-centered mt-20">
+      <a class="button cta is-large rounded secondary-btn raised" href="https://data-science-ai.kit.com/newsletter">
+        Sign Up Now
+      </a>
+    </p>
+  </div>
+</section>
+
+
+<div id="backtotop"><a href="#"></a></div>
+
+
+<footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="footer-logo">
+          <img src="/images/logos/white_logo_no_back.png" 
+           style="-webkit-filter: drop-shadow(5px 5px 5px #222);width:50px!important;height:60px!important;">
+                   <p class="fond-bold mb-0 sm:ml-2 text-gray-500 dark:text-al">
+    <small>
+      Copyright &copy; data-science-ai.com 2025
+    </small>
+        </div>
+      </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>Company</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="/about">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="https://plamen.ai/">
+                  Founder
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>USEFUL</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="/consulting">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="/solutions">
+                  Solutions
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>Terms</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="/privacy">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="/terms-of-use">
+                  Terms of Use
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+            <h3>Follow Us</h3>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                <a class="level-item" href="https://www.linkedin.com/company/dscienceai/">
+                  <span class="icon"><i class="fa fa-linkedin"></i></span>
+                </a>
+                <a class="level-item" href="https://github.com/rabadzhiyski">
+                  <span class="icon"><i class="fa fa-github"></i></span>
+                </a>
+              </div>
+            </nav>
+            <img src="https://www.exali.com/siegel/siegel_com-1_cd919076a6b4e163b3c896b775e8c133.png" width="65" height="65" alt="Insurance seal" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+<script>
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#2D2D39"
+    },
+    "button": {
+      "background": "#0066FF"
+    }
+  },
+  "theme": "edgeless",
+  "position": "bottom-right",
+  "content": {
+      "message": "This website uses cookies for Google Analytics to track how many people visit the site. The website does not collect any personal data.",
+  "href": "https://www.cookiesandyou.com/"
+  }
+});
+</script>
+
+
+
+
+    
+    <div id="backtotop"><a href="#"></a></div>
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://unpkg.com/feather-icons"></script>
+<script src="/js/fresh.js"></script>
+<script src="/js/jquery.panelslider.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+  </body>
+</html>

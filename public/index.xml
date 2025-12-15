@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI That Actually Works</title>
+    <link>https://data-science-ai.com/</link>
+    <description>Recent content on AI That Actually Works</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Sep 2023 08:45:27 +0600</lastBuildDate><atom:link href="https://data-science-ai.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data-Driven HR - Unveiling the Future of HR</title>
+      <link>https://data-science-ai.com/blog/data-driven-hr/</link>
+      <pubDate>Wed, 20 Sep 2023 08:45:27 +0600</pubDate>
+      
+      <guid>https://data-science-ai.com/blog/data-driven-hr/</guid>
+      <description>Human resources (HR), an indispensable cornerstone of any enterprise, has traditionally been the backbone of organizational growth, focusing on fostering relationships, addressing concerns, and creating a thriving work environment. HR&amp;rsquo;s historical reliance on gut feelings and human touch was its signature strength. Yet, in our evolving business landscape marked by rapid technological progress and dynamic workplace demands, HR finds itself at an intersection. Data-driven decision-making powered by data science and artificial intelligence (AI) is emerging as HR&amp;rsquo;s most formidable ally, complementing intuition with quantifiable insights.</description>
+    </item>
+    
+    <item>
+      <title>How Retail SMBs Can Drive Growth with Data Science Consulting Services</title>
+      <link>https://data-science-ai.com/blog/growth_with_data_science/</link>
+      <pubDate>Tue, 14 Feb 2023 08:45:27 +0600</pubDate>
+      
+      <guid>https://data-science-ai.com/blog/growth_with_data_science/</guid>
+      <description>As a retail small and medium-sized business (SMB), you face a unique set of challenges in today&amp;rsquo;s competitive market. From keeping up with changing consumer trends to optimizing operations, finding ways to drive growth can seem overwhelming. However, with the help of data science consulting services, retail SMBs can tap into valuable insights that can help inform decision-making and ultimately drive growth.
+In this blog post, we&amp;rsquo;ll explore how data science can be leveraged by retail SMBs to achieve their business goals and drive growth.</description>
+    </item>
+    
+    <item>
+      <title>What is Data Science</title>
+      <link>https://data-science-ai.com/blog/what_is_data_science/</link>
+      <pubDate>Wed, 25 Jan 2023 08:45:27 +0600</pubDate>
+      
+      <guid>https://data-science-ai.com/blog/what_is_data_science/</guid>
+      <description>&amp;ldquo;Data science&amp;rdquo; is a term that has been making waves in the business world in recent years, but what exactly is it?
+Data science is an interdisciplinary field that uses scientific methods, processes, algorithms, and systems to extract knowledge and insights from structured and unstructured data. It&amp;rsquo;s a combination of statistics, mathematics, computer science, and domain knowledge that enables organizations to make data-driven decisions.
+The primary function of a data scientist is to develop algorithms that can learn from large amounts of data in order to make accurate predictions or forecasts about future events.</description>
+    </item>
+    
+    <item>
+      <title>Template for hub and spokes blog model</title>
+      <link>https://data-science-ai.com/blog/template_hub_and_spokes/</link>
+      <pubDate>Tue, 29 Nov 2022 08:45:27 +0600</pubDate>
+      
+      <guid>https://data-science-ai.com/blog/template_hub_and_spokes/</guid>
+      <description>The Hub And Spokes Model The concept is to have one really strong article that gives a TON of value on many different topics related to a key pain point. This is the hub.
+Then you can build articles that expand on topics within the hub article that you know that your client is searching for. These are the spokes.
+Example: Forecasting Service Company Hub Article: Title: The Top 14 Reasons Your Company&amp;rsquo;s Forecasts Are Wrong (And How To Fix Them)</description>
+    </item>
+    
+    <item>
+      <title>Predicting Customer Churn with PySpark</title>
+      <link>https://data-science-ai.com/blog/customer-churn-spark/</link>
+      <pubDate>Fri, 04 Jun 2021 08:45:27 +0600</pubDate>
+      
+      <guid>https://data-science-ai.com/blog/customer-churn-spark/</guid>
+      <description>Technical report with code chunks I used PySpark to predict customer churn of a company that provides online music services. The company has two main types of customers &amp;mdash; Free and Paid users. Any user can upgrade or downgrade the service at any time. The company stores a decent amount of data that can be used to design a machine learning model to predict what customers would churn so that we can offer them incentives and make them stay as long as possible.</description>
+    </item>
+    
+    <item>
+      <title>Markdown Formatting Demo</title>
+      <link>https://data-science-ai.com/blog/post1-markdown-demo/</link>
+      <pubDate>Sun, 13 Sep 2020 12:49:27 +0600</pubDate>
+      
+      <guid>https://data-science-ai.com/blog/post1-markdown-demo/</guid>
+      <description>This example Markdown file compliments of markdown-it.github.io h1 Heading h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading Horizontal Rules Typographic replacements Enable typographer option to see result.
+(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+test.. test&amp;hellip; test&amp;hellip;.. test?&amp;hellip;.. test!&amp;hellip;.
+!!!!!! ???? ,, &amp;ndash; &amp;mdash;
+&amp;ldquo;Smartypants, double quotes&amp;rdquo; and &amp;lsquo;single quotes&amp;rsquo;
+Emphasis This is bold text
+This is bold text
+This is italic text
+This is italic text</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://data-science-ai.com/plamen-services/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/plamen-services/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Customer Churn Prevention</title>
+      <link>https://data-science-ai.com/solutions/customer-churn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/solutions/customer-churn/</guid>
+      <description>Customer Churn Prevention &amp;amp; Risk Analytics Platform Challenge E-commerce businesses face devastating revenue losses from customer churn, with acquisition costs 5-25 times higher than retention costs. Online companies struggle to identify which customers are likely to leave before they make the decision, missing critical opportunities for intervention. Without predictive insights into churn risk factors (like poor user experience, competitive pressures, lack of personalization, or service issues), businesses lose valuable customers and waste marketing spend on impossible-to-retain segments.</description>
+    </item>
+    
+    <item>
+      <title>Customer Support Optimization</title>
+      <link>https://data-science-ai.com/solutions/customer-support/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/solutions/customer-support/</guid>
+      <description>Intelligent Customer Support System Challenge Customer support teams struggle with overwhelming ticket volumes, inconsistent prioritization, and poor resource allocation that leads to missed SLAs, frustrated customers, and agent burnout. Traditional support systems lack predictive capabilities, forcing reactive responses to customer issues while providing no visibility into resolution patterns, churn risks, or optimization opportunities that could transform support from a cost center into a competitive advantage.
+Solution Advanced customer support intelligence platform built on Zendesk data pipeline architecture using Databricks for scalable analytics.</description>
+    </item>
+    
+    <item>
+      <title>Data Science &amp; AI Made Simple. Results Made Real.</title>
+      <link>https://data-science-ai.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/about/</guid>
+      <description>What We&amp;rsquo;re All About Let&amp;rsquo;s be honest – there&amp;rsquo;s a ton of buzz around AI and data science, but turning all that potential into actual business results?
+That&amp;rsquo;s where things get tricky.
+We created Data Science AI Consulting because we saw too many smart business leaders getting lost in technical jargon or investing in fancy AI solutions that didn&amp;rsquo;t solve their actual problems.
+Our mission is simple: help you cut through the noise, focus on what actually matters for your business, and implement data-driven solutions that deliver real results – without the headaches, false starts, or complexity.</description>
+    </item>
+    
+    <item>
+      <title>Employee Attrition Prevention System</title>
+      <link>https://data-science-ai.com/solutions/employee-turnover/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/solutions/employee-turnover/</guid>
+      <description>Employee Attrition Prevention &amp;amp; Retention Platform Challenge Organizations face devastating costs from employee turnover that goes far beyond recruitment expenses. High-performing employees leave unexpectedly, taking institutional knowledge and disrupting team dynamics, while companies scramble to replace talent in competitive markets. Most businesses underestimate the true cost of attrition—lost productivity, training investments, and reduced morale—making it impossible to prioritize effective retention strategies.
+Solution Intelligent employee retention platform that analyzes workforce data to identify at-risk employees before they decide to leave.</description>
+    </item>
+    
+    <item>
+      <title>Google Analytics Traffic Forecaster</title>
+      <link>https://data-science-ai.com/solutions/google-analytics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/solutions/google-analytics/</guid>
+      <description>Challenge Website owners and digital marketers struggle to predict traffic patterns across their multi-page websites, making it nearly impossible to plan content strategies, allocate marketing budgets, or prepare for server capacity needs. Without reliable traffic forecasting, businesses miss opportunities to capitalize on predicted surges and waste resources on unnecessary preparations during expected lulls.
+Solution Prototype traffic forecasting dashboard demonstrating advanced time series forecasting capabilities using sample Google Analytics data from 20 web pages.</description>
+    </item>
+    
+    <item>
+      <title>High Performance Forecasting System</title>
+      <link>https://data-science-ai.com/solutions/intelliforecaster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/solutions/intelliforecaster/</guid>
+      <description>Automated Time Series Forecasting Platform Challenge Businesses across industries struggle with outdated forecasting methods that fail to capture complex market dynamics, seasonal variations, and sudden demand shifts. Traditional linear regression and basic time series models break down during volatile periods, leading to costly inventory imbalances, missed sales opportunities, and inefficient resource allocation that can cripple operational performance and competitive positioning.
+Solution Intelligent forecasting system that automatically predicts future business trends with unprecedented accuracy.</description>
+    </item>
+    
+    <item>
+      <title>How do our client&#39;s achieve success?</title>
+      <link>https://data-science-ai.com/testimonials/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/testimonials/</guid>
+      <description>Client 1: S&amp;amp;P Global Market Intelligence 1. What was the problem? 2. The solution we provided. 3. The result. Client 2: Some Big Tech Company 1. What was the problem? 2. The solution we provided. 3. The result. </description>
+    </item>
+    
+    <item>
+      <title>Marketing Mix Modeling &amp; Budget Optimization</title>
+      <link>https://data-science-ai.com/solutions/marketing-mix-modeling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/solutions/marketing-mix-modeling/</guid>
+      <description>Marketing Mix Modeling System Challenge Companies across industries struggle to understand which marketing channels truly drive business growth, often making budget allocation decisions based on incomplete attribution data. Traditional methods fail to capture cross-channel effects and diminishing returns, leading to systematic under-investment in high-performing channels while continuing to fund ineffective campaigns that drain marketing ROI.
+Solution Advanced marketing mix modeling using Meta&amp;rsquo;s Robyn open-source framework to decode true channel attribution and optimize budget distribution across all marketing touchpoints.</description>
+    </item>
+    
+    <item>
+      <title>Portfolio - Data Science and AI Solutions That Work</title>
+      <link>https://data-science-ai.com/solutions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/solutions/</guid>
+      <description>All Solutions Time Series Forecasting Regression Analysis Classification Segmentation Generative AI Geospatial Analysis All Business Domains Financial Services Retail Sales &amp;amp; Marketing Software Services Pharmaceutical Transport &amp;amp; Logistics Background Screening Ecommerce Automated Forecasting System Time Series Forecasting Automated system for reactive forecasting during changing demand that gets fast the best possible results given your resources constraints. View Details Sales Forecasting Time Series Forecasting Forecast sales and get an overview of seasonality and top sales regions.</description>
+    </item>
+    
+    <item>
+      <title>Price Prediction</title>
+      <link>https://data-science-ai.com/solutions/price-prediction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/solutions/price-prediction/</guid>
+      <description>AI-Powered Price Prediction Dashboard Challenge Retail companies struggle to set optimal prices for products across different markets, categories, and regions, especially when expanding to new territories or launching products in untested segments. Without data-driven pricing strategies, retailers either leave money on the table with conservative pricing or lose sales with overpriced products, while lacking visibility into how product attributes and market dynamics should influence pricing decisions.
+Solution Interactive price prediction dashboard powered by machine learning algorithms that analyze product portfolios, regional market data, and category performance to recommend optimal pricing strategies.</description>
+    </item>
+    
+    <item>
+      <title>Privacy Policy</title>
+      <link>https://data-science-ai.com/privacy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/privacy/</guid>
+      <description>Introduction DATA SCIENCE AI LTD, a limited liability corporation incorporated in Bulgaria (the EU), having its registered office located at Sofia, Bulgaria, provides consulting services (“Services”) to assist organisations. DATA SCIENCE AI LTD has set out the following Policy in relation to data protection.
+Purpose This Policy explains how DATA SCIENCE AI LTD collects, handles, shares, or protects personal data about you under the General Data Protection Regulation (EU) n°2016/679. This Policy also provides information about your rights and how you can contact us if you have questions about the processing of your personal information.</description>
+    </item>
+    
+    <item>
+      <title>Sales Forecasting</title>
+      <link>https://data-science-ai.com/solutions/sales-forecasting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/solutions/sales-forecasting/</guid>
+      <description>Sales Forecasting Dashboard Challenge Bike retailers struggle with unpredictable inventory levels due to extreme sales seasonality—from winter lulls to spring surges and summer peaks. This volatility creates a costly balancing act: overstock during slow periods ties up capital in holding costs, while understocking during peak seasons results in lost sales and disappointed customers.
+Solution Interactive sales forecasting dashboard specifically designed for the bike retail market. The system analyzes historical sales patterns, seasonal trends, and market indicators to deliver accurate demand predictions with intuitive visualizations that enable retailers to make confident inventory decisions months in advance.</description>
+    </item>
+    
+    <item>
+      <title>Search</title>
+      <link>https://data-science-ai.com/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Strategic AI Consulting</title>
+      <link>https://data-science-ai.com/consulting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/consulting/</guid>
+      <description>Transform Your Business with AI Data-Driven Intelligence We help business leaders and product executives navigate the AI landscape to implement data-driven solutions that deliver measurable business outcomes—without wasting resources on false starts, lengthy learning curves, or technical complexity.
+Our Approach We&amp;rsquo;ve developed a proven framework that takes you from AI confusion to business transformation:
+Descover - Identify your highest-impact opportunities Design - Create targeted solutions that align with your business goals Deliver - Implement with precision and measure results Make Better Decisions, Faster Cut through information overload with AI systems that analyze data, highlight key insights, and suggest actions—no more analysis paralysis.</description>
+    </item>
+    
+    <item>
+      <title>Terms and Conditions</title>
+      <link>https://data-science-ai.com/terms-and-conditions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/terms-and-conditions/</guid>
+      <description>1. Introduction These Terms &amp;amp; Conditions (“Terms”) govern all purchases made through the website/s operated by DATA SCIENCE AI LTD, a limited liability company registered in Bulgaria, with its registered office at Sofia, Bulgaria, company registration number 207831008. By completing a purchase and ticking the acceptance box at checkout, you agree to these Terms.
+2. Scope These Terms apply to:
+Courses (e.g., “The Data &amp;amp; AI Masterclass”)
+The AI ROI Roadmap Sessions</description>
+    </item>
+    
+    <item>
+      <title>Transform your business operations and drive profitability with our advanced data science solutions</title>
+      <link>https://data-science-ai.com/applications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/applications/</guid>
+      <description>Identify cost savings, optimize performance and increase revenue Unlock the full potential of your business with our data science solutions. Imagine being able to reduce the effects of supply-demand interruptions and improve your forecast accuracy by up to 30% in just 120 days. Or, imagine being able to proactively detect and prevent employee turnover, saving your business time and money.
+Our automated forecasting system and employee attrition prevention solutions make all of this possible.</description>
+    </item>
+    
+    <item>
+      <title>Website Terms of Use</title>
+      <link>https://data-science-ai.com/terms-of-use/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-science-ai.com/terms-of-use/</guid>
+      <description>Introduction This website data-science-ai.com (the “Website”), is a Website of DATA SCIENCE AI LTD, a limited liability company incorporated in Bulgaria (the EU), having its registered office located at Sofia, Bulgaria, that provides consulting services (“Services”) to assist organisations. DATA SCIENCE AI LTD has set out the following Terms in regard to the rights and obligations while using the DATA SCIENCE AI LTD’s Website. These Terms govern your access to and use of this Website, no matter how you use the Website.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -183,13 +183,13 @@ params:
       subtitle: "Overwhelmed by data & AI? Check this unique course that helps busy 
       professionals achieve confidence in data and AI 
       in 15 days or less, without needing to become tech nerds. Remove your frustration now."
-    - title: "Targeted AI Applications"
-      subtitle: "Ready to implement? Our pre-built solutions address specific business challenges 
-      like forecasting, marketing optimization, customer churn, and 
-      operational efficiency - without the complexity of custom development."
-    - title: "Data and AI Strategy Consulting"
-      subtitle: "Align AI solutions with business goals. Identify business opportunities. Integrate 
-      business processes, systems, and technology for optimal performance and adaptability."
+    - title: "The AI ROI Roadmap Session"
+      subtitle: "Get clarity on your AI strategy in 72 hours — before you waste €50k on the wrong solution. 
+      Our AI ROI Roadmap Session helps you identify your AI goals, choose the right tools, and implement a 
+      strategy that delivers real results."
+    - title: "Complete Solution Implementation"
+      subtitle: "End-to-end AI strategy development, custom solution design and implementation, 
+      integration with existing systems, and ongoing optimization."
 
   # TESTIMONIALS ----------------------  
   section4_desire:

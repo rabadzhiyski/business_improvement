@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
-  <head>
-    {{ partial "meta.html" . }}
-    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
-    {{ partial "css.html" . }}
-  </head>
-  <body>
-    {{ if ne .Site.Params.preloader false }}
-    <!-- Preloader -->
-    <div id="preloader">
-      <div id="status"></div>
-    </div>
-    {{ end }}
 
-    {{ block "main" . }}
+<head>
+  {{ partial "meta.html" . }}
+  <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+  {{ partial "css.html" . }}
+</head>
 
-    {{ partial "single/single.html" . }}
+<body>
+  {{ if ne .Site.Params.preloader false }}
+  <!-- Preloader -->
+  <div id="preloader">
+    <div id="status"></div>
+  </div>
+  {{ end }}
 
-    {{ if .Params.include_footer }}
-    {{ partial "footer.html" . }}
-    {{ end }}
+  {{ block "main" . }}
 
-    <!-- Back To Top Button -->
-    <div id="backtotop"><a href="#"></a></div>
+  {{ partial "single/single.html" . }}
 
-    {{ if .Params.sidebar }}
-    {{ partial "single/sidebar.html" . }}
-    {{ end }}
+  {{ if .Params.include_cta }}
+  {{ partial "section6-action.html" . }}
+  {{ end }}
 
-    {{ end }}
+  {{ if .Params.include_footer }}
+  {{ partial "footer.html" . }}
+  {{ end }}
 
-    {{ partial "javascript.html" . }}
-  </body>
+  <!-- Back To Top Button -->
+  <div id="backtotop"><a href="#"></a></div>
+
+  {{ if .Params.sidebar }}
+  {{ partial "single/sidebar.html" . }}
+  {{ end }}
+
+  {{ end }}
+
+  {{ partial "javascript.html" . }}
+</body>
+
 </html>

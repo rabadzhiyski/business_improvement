@@ -58,7 +58,7 @@ Open `data/portfolio.yaml` and add a new entry under `projects:`.
 
 ## 2. Adding a New Blog Article
 
-Search functionality automatically indexes new blog posts as long as they constitute a valid page.
+Search functionality and the main blog page automatically index new blog posts.
 
 1. Create a new file in `content/blog/`.
 2. Use the following front matter:
@@ -69,15 +69,40 @@ title: "My New Article Title"
 date: 2024-03-20
 section: blog
 type: blog
-image: images/illustrations/my-image.jpg
+image: img/illustrations/my-image.jpg  # Used for the card thumbnail
 draft: false 
 ---
 
+# Article Content
 Your article content goes here...
 ```
 
-> [!TIP]
-> **Search Indexing**: The search bar uses a JSON index. This index is rebuilt automatically when you save the file. If a post doesn't appear in search, ensure `draft: false` is set.
+> [!NOTE]
+> **Hover Effect**: Valid blog posts (type: blog) will automatically have the clickable "tile" behavior with hover animations on the main blog page.
+
+---
+
+## 2a. Configuring the Main Blog Page
+
+The main blog page (`/blog`) has several configurable elements.
+
+### Hero Image & Call to Action (CTA)
+
+These are controlled by the file: `content/blog/_index.md`.
+
+```yaml
+---
+title: "The AI Business Scientist..." # The main title text
+image: /images/illustrations/my-hero.jpg # Background image for hero section
+include_cta: true # Set to false to hide the "Ready to talk?" section
+---
+```
+
+### "Search blog posts..." Placeholder Text
+
+To change the text inside the search bar, you must edit the layout file directly.
+**File:** `themes/hugo-fresh-data-science/layouts/blog/list.html`
+**Action:** Search for `<input ... placeholder="Search blog posts...">` (around line 45) and edit the text inside the quotes.
 
 ---
 
@@ -122,7 +147,17 @@ layout: single
 
 1. Open `content/privacy.md`.
 2. Edit the markdown content below the front matter.
-3. **Do not change** `type: testimonials` if that is what controls the layout, unless you are restyling the page. (Currently, it seems to use a specific template).
+3. **Do not change** `type: testimonials` if that is what controls the layout, unless you are restyling the page.
+
+---
+
+## 6. Updating Global Elements (Footer/Copyright)
+
+### Copyright Text
+
+The footer copyright text is located in a theme partial.
+**File:** `themes/hugo-fresh-data-science/layouts/partials/footer.html`
+**Action:** Search for "Copyright" (around line 18). You can change the text there. Note that `{{ now.Format "2006" }}` automatically generates the current year.
 
 ---
 
