@@ -31,9 +31,9 @@ For EU clients: VAT is included in the displayed price. For non-EU clients: VAT 
 
 We stand behind the value of our offerings:
 
--   **4.1 Course Guarantee 60-Day Money-Back Guarantee** Try the whole course, and if you don't feel more confident with data & AI, full refund. No questions asked — and you keep the templates & bonuses.
+-   **4.1 Course Guarantee 60-Day Money-Back Guarantee** Try the whole course, and if you don't feel more confident with data & AI, full refund. No questions asked — and you keep the templates & bonuses. Contact us by the email provided in the course platform.
 
--   **4.2 AI ROI Roadmap Guarantee 24-Hour Money-Back Guarantee** If you complete the session and don’t see the value, notify us within 24 hours of receiving your roadmap for a full refund. No questions asked. 
+-   **4.2 AI ROI Roadmap Guarantee 24-Hour Money-Back Guarantee** If you complete the session and don’t see the value, notify us within 24 hours of receiving your roadmap for a full refund. No questions asked. Contact us by email.
 
 -   **4.3 Apps & Other Products** Due to the nature of software products, refunds are not available after delivery unless the product is defective.
 
